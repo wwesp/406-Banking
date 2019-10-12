@@ -1,12 +1,16 @@
 package Accounts;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+
 
 abstract public class MoneyAccounts {
 
@@ -84,9 +88,28 @@ abstract public class MoneyAccounts {
     public String getSSN(){
         return SSN;
     }
+
+    public JSONObject getJSON() {
+        //the toString on this method is made for the database
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("SSN", getSSN());
+            obj.put("AccountNumber", getAccountNumber());
+            obj.put("RoutingNumber", getRoutingNumber());
+            obj.put("Balence", getBalence());
+            obj.put("History",getHistory());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        return obj;
+    }
+
     @Override
     public String toString(){
-        //the toString on this method is made for the database
+
 
         //new line and :-=-: seperate data, and :=: seperate data in each datapool
         return  getSSN()+":=:"+

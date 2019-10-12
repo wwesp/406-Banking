@@ -10,7 +10,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-
+        /*
+        JSON HERE
+        https://developer.android.com/reference/org/json/JSONObject.html
+        */
 
 
 
@@ -31,11 +34,26 @@ public class Main {
 
         jeff.accounts.forEach((s,f)->System.out.println(f));
         System.out.println(jeff.accounts.get("231"));
+        jeff.accounts.forEach((s,f)->System.out.println(f.getJSON()));
 
         System.out.println(jeff.toString());
 
+        //different ways to use JSON
+        try {
+            //gets all ssns
+            for(String jeffie : jeff.accounts.keySet()){
+                System.out.println(jeff.accounts.get(jeffie).getJSON().get("AccountNumber"));
+            }
+
+            var set=jeff.accounts.keySet();
+            System.out.println("Sets:    "  + set);
+            System.out.println("JSON WITH SET:    "+ jeff.accounts.get("231").getJSON().get("Balence"));
 
 
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
 
 
 
