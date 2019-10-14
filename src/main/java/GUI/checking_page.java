@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI extends JPanel{
+public class checking_page extends JPanel{
 
     private JPanel CreateCheckingPage;
     private JButton AcceptButton;
@@ -26,14 +26,9 @@ public class GUI extends JPanel{
     private JLabel history;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("test");
-        frame.setContentPane(new GUI().CreateCheckingPage);
-        frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        new checking_page();
     }
-    public GUI() {
+    public checking_page() {
 
         JFrame frame = new JFrame("Create Checking ");
         frame.setContentPane(CreateCheckingPage);
