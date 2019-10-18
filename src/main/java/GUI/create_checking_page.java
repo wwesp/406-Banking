@@ -33,7 +33,7 @@ public class create_checking_page extends JPanel{
 
         JFrame frame = new JFrame("Create Checking ");
         frame.setContentPane(CreateCheckingPage);
-        frame.setPreferredSize(new Dimension(800, 600));
+        frame.setPreferredSize(new Dimension(801, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
