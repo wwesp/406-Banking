@@ -1,7 +1,5 @@
 package GUI;
 
-import Accounts.CheckingAccount;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
