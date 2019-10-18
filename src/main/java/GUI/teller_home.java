@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class teller_home  extends JPanel{
     private JPanel teller_home_panel;
     private JButton create_checking_account;
+    private JButton back_button;
 
     public static void main(String[] args) {
         new teller_home();
@@ -25,8 +26,16 @@ public class teller_home  extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                checking_page checking = new checking_page();
+                create_checking_page checking = new create_checking_page();
                 checking.setVisible(true);
+            }
+        });
+        back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                home_page home_page = new home_page();
+                home_page.setVisible(true);
             }
         });
     }

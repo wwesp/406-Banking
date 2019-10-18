@@ -25,7 +25,7 @@ public class manager_home extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                checking_page checking = new checking_page();
+                create_checking_page checking = new create_checking_page();
                 checking.setVisible(true);
             }
         });

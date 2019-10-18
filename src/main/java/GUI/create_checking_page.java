@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class checking_page extends JPanel{
+public class create_checking_page extends JPanel{
 
     private JPanel CreateCheckingPage;
     private JButton AcceptButton;
@@ -24,11 +24,12 @@ public class checking_page extends JPanel{
     private JLabel routing_num;
     private JLabel balance;
     private JLabel history;
+    private JButton back_button;
 
     public static void main(String[] args) {
-        new checking_page();
+        new create_checking_page();
     }
-    public checking_page() {
+    public create_checking_page() {
 
         JFrame frame = new JFrame("Create Checking ");
         frame.setContentPane(CreateCheckingPage);
@@ -60,6 +61,12 @@ public class checking_page extends JPanel{
                 routing_number_textfield.setText("");
                 balance_textfield.setText("");
                 history_textfield.setText("");
+            }
+        });
+        back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
