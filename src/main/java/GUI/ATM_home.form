@@ -50,6 +50,24 @@
           <text value="Back"/>
         </properties>
       </component>
+      <hspacer id="c809">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <vspacer id="25425">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="1" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

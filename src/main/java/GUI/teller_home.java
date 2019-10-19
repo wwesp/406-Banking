@@ -15,7 +15,7 @@ public class teller_home  extends JPanel{
     }
 
     public teller_home(){
-        JFrame frame = new JFrame("Home ");
+        JFrame frame = new JFrame("Teller");
         frame.setContentPane(teller_home_panel);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

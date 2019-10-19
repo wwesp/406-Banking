@@ -25,13 +25,13 @@ public class create_checking_page extends JPanel{
     private JButton back_button;
 
     public static void main(String[] args) {
-        new create_checking_page();
+        new create_checking_page(0);
     }
-    public create_checking_page() {
+    public create_checking_page(int x) {
 
-        JFrame frame = new JFrame("Create Checking ");
+        JFrame frame = new JFrame("Create Checking");
         frame.setContentPane(CreateCheckingPage);
-        frame.setPreferredSize(new Dimension(801, 600));
+        frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
