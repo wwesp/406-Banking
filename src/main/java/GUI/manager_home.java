@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class manager_home extends JPanel {
     private JPanel manager_home_panel;
     private JButton create_checking_account;
+    private JButton button1;
 
     public static void main(String[] args) {
         new manager_home();

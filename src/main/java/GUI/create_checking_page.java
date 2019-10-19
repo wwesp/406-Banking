@@ -45,9 +45,9 @@ public class create_checking_page extends JPanel{
                 String SSN = SSN_textfield.getText();
                 double balance = Double.parseDouble(balance_textfield.getText());
                 String history = history_textfield.getText();
-                CheckingAccount x = new CheckingAccount(SSN,accountnum, routingnum, balance,null);
-                JOptionPane.showInternalMessageDialog(null, x );
-                System.out.println("This is the Checking Account " + x );
+                //CheckingAccount x = new CheckingAccount(SSN,accountnum, routingnum, balance,null);
+                //JOptionPane.showInternalMessageDialog(null, x );
+                //System.out.println("This is the Checking Account " + x );
             }
         });
         Clear.addActionListener(new ActionListener() {
