@@ -10,14 +10,15 @@ abstract class  MoneyAccounts extends Accounts {
         super(ID,cusID,balance,openDate);
     }
 
-    public void addBalence(double x){
+    protected void addBalence(double x){
         balancef=balancef+x;
     }
 
-
-    protected void subBalence(double x){
+    public void subBalence(double x){
         balancef=balancef-x;
     }
+
+
 
     protected void authorizeWithdrawl(double x){
         return;

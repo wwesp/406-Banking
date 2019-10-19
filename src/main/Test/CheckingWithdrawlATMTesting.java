@@ -8,18 +8,18 @@ import Accounts.BankAccounts.*;
 
 import java.util.ArrayList;
 
-public class WithdrawlATMTesting {
+public class CheckingWithdrawlATMTesting {
 
     @Test public void ToManyWithdrawls() {
 
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
-        c1.authorizeWithdrawlATM(1, x);
-        c1.authorizeWithdrawlATM(1, x);
-        boolean checker= c1.authorizeWithdrawlATM(1, x);
+        c1.authorizeWithdrawlATM(1, x, false);
+        c1.authorizeWithdrawlATM(1, x, false);
+        boolean checker= c1.authorizeWithdrawlATM(1, x, false);
 
 
         assertEquals(checker,false);
@@ -30,13 +30,13 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
-        c1.authorizeWithdrawlATM(1, x);
-        boolean checker= c1.authorizeWithdrawlATM(1, x);
+        c1.authorizeWithdrawlATM(1, x, false);
+        boolean checker= c1.authorizeWithdrawlATM(1, x, false);
 
 
         assertEquals(checker,true);
@@ -47,7 +47,7 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         int size=c1.getAtmHistory().size();
@@ -61,7 +61,7 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
 
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         int size=c1.getAtmHistory().size();
@@ -75,12 +75,12 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x, false);
 
         int size=c1.getAtmHistory().size();
 
@@ -92,13 +92,13 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x);
-        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x, false);
+        c1.authorizeWithdrawlATM(1,x, false);
 
         int size=c1.getAtmHistory().size();
 
@@ -111,14 +111,14 @@ public class WithdrawlATMTesting {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x);
-        c1.authorizeWithdrawlATM(1,x);
-        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x,false);
+        c1.authorizeWithdrawlATM(1,x,false);
+        c1.authorizeWithdrawlATM(1,x,false);
 
         int size=c1.getAtmHistory().size();
 

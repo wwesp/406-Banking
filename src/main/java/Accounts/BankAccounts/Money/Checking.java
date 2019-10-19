@@ -3,17 +3,27 @@ package Accounts.BankAccounts.Money;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import static java.lang.Math.abs;
 
 public class Checking extends MoneyAccounts {
     private String atmCard;
     private ArrayList<String> atmHistory;
+    //acctype gold=1, tmb = 0
     private int accType;
     //only one backup per checking
     private String backupAcc;
 
-    public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc, String atmCard, ArrayList<String> atmHistory){
+    private HashMap<String, Double> pendingChecks;
+    private HashMap<String, String> acceptedChecks;
+    private HashMap<String, String> deniedChecks;
+
+
+    public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc,
+                    String atmCard, ArrayList<String> atmHistory,HashMap<String, Double> pendingChecks,
+                    HashMap<String, String> acceptedChecks, HashMap<String, String> deniedChecks){
+
         super(ID, cusID, balance, openDate);
         this.accType = accType;
         this.backupAcc = backupAcc;
@@ -25,9 +35,29 @@ public class Checking extends MoneyAccounts {
         else{
             this.atmHistory=atmHistory;
         }
+        HashMap<String,Double> empty= new HashMap<>();
+        if(pendingChecks==null){
+            this.pendingChecks=empty;
+        }else{
+            this.pendingChecks=pendingChecks;
+        }
+        HashMap<String,String> empty2= new HashMap<>();
+        if(acceptedChecks==null){
+            this.acceptedChecks=empty2;
+        }else{
+            this.acceptedChecks=acceptedChecks;
+        }
+        if(deniedChecks==null){
+            this.deniedChecks=empty2;
+        }else{
+            this.deniedChecks=deniedChecks;
+        }
+
 
 
     }
+
+
     private String getTodaysDate(){
         SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
         return format.format(new Date());
@@ -44,18 +74,37 @@ public class Checking extends MoneyAccounts {
         atmHistory=newAtmHistory;
     }
 
-    public boolean authorizeWithdrawlATM(double x, ArrayList<RegSavings> y ){
+    public boolean authorizeWithdrawlATM(double x, ArrayList<RegSavings> y,boolean monthlyTrans ){
         atmHistoryUpdate();
         if(atmHistory.size()>=2){
             return false;
         }
 
-        authorizeWithdrawl(x,y);
+        authorizeWithdrawl(x,y, monthlyTrans);
         atmHistory.add(getTodaysDate());
         return true;
     }
 
-    public void authorizeWithdrawl(double x, ArrayList<RegSavings> y) {
+    //true for monthly is yes it is (.75 fee instead of .50)
+    //sets up withdrawl
+    public void authorizeWithdrawl(double x, ArrayList<RegSavings> y, boolean monthlyTrans) {
+        //if gold
+        if(accType==1&&getBalancef()>=1000){
+            transactionwithdrawl(x,y,0.0);
+        }
+        else{
+            if(!monthlyTrans) {
+                transactionwithdrawl(x+0.50, y, 20);
+
+            }
+            else{
+                transactionwithdrawl(x+0.75, y, 20);
+
+            }
+        }
+    }
+    //does the withdral with given penalty
+    private void transactionwithdrawl(double x,ArrayList<RegSavings> y, double penalty ){
         double needForSavin;
         //look for backup
         RegSavings savingsAcc = null;
@@ -80,7 +129,7 @@ public class Checking extends MoneyAccounts {
         else{
             if(backupAcc==null){
                 subBalence(x);
-                subBalence(25);
+                subBalence(penalty);
             }
             else if(backupAcc!=null && savingsAcc==null){
                 System.out.println("Wrong input to AuthWith");
@@ -96,15 +145,56 @@ public class Checking extends MoneyAccounts {
                 else{
                     //the savings account did not have enough so you have overdrawn
                     subBalence(x);
-                    subBalence(25);
+                    subBalence(penalty);
                 }
-                //TODO: finish this
+
             }
         }
 
 
 
     }
+
+
+
+    public void addBalence(double x,ArrayList<RegSavings> y){
+        if(accType==1){
+            balancef=balancef+x;
+        }else{
+            balancef=balancef+x;
+            transactionwithdrawl(0.50,y,20);
+        }
+    }
+
+
+    //false means that there is not a check matching anypending checks
+    public boolean authStopCheck(String checkNum, ArrayList<RegSavings> y){
+        Double doesExist= pendingChecks.get(checkNum);
+        if(doesExist==null){
+            return false;
+        }
+
+        deniedChecks.put(checkNum,getTodaysDate()+"::"+doesExist);
+        authorizeWithdrawl(15,y,false);
+        pendingChecks.remove(checkNum);
+
+        return true;
+    }
+    //false means that there is not a check matching anypending checks
+    public boolean authPayCheck(String checkNum,ArrayList<RegSavings> y){
+        Double doesExist= pendingChecks.get(checkNum);
+        if(doesExist==null){
+            return false;
+        }
+
+        deniedChecks.put(checkNum,getTodaysDate()+"::"+doesExist);
+        authorizeWithdrawl(doesExist,y,false);
+        pendingChecks.remove(checkNum);
+        return true;
+    }
+
+
+
 
     public String getAtmCard() {
         return atmCard;
@@ -123,9 +213,21 @@ public class Checking extends MoneyAccounts {
         return backupAcc;
     }
 
+    public HashMap<String, Double> getPendingChecks() {
+        return pendingChecks;
+    }
+
+    public HashMap<String, String> getAcceptedChecks() {
+        return acceptedChecks;
+    }
+
+    public HashMap<String, String> getDeniedChecks() {
+        return deniedChecks;
+    }
 
     /*
     two types of checking accounts. TMB and gold/diamond
+
     TMB: $0.50 per transaction (deposit and withdraw)
          $0.75 monthly transfers (mortgages, payments of bills, or transfers money to other accounts
          no minimum balance
