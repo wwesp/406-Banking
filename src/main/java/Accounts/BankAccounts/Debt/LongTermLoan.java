@@ -2,7 +2,7 @@ package Accounts.BankAccounts.Debt;
 
 public class LongTermLoan extends DebtAccounts {
 
-    public LongTermLoan(String ID, int cusID, double balance, String openDate){
+    public LongTermLoan(String ID, String cusID, double balance, String openDate){
         super(ID, cusID,balance,openDate);
     }
 

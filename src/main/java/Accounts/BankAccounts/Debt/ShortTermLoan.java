@@ -2,7 +2,7 @@ package Accounts.BankAccounts.Debt;
 
 public class ShortTermLoan extends DebtAccounts {
 
-    public ShortTermLoan(String ID, int cusID, double balance, String openDate){
+    public ShortTermLoan(String ID, String cusID, double balance, String openDate){
         super(ID, cusID,balance,openDate);
     }
 

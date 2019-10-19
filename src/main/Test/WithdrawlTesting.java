@@ -8,13 +8,13 @@ import Accounts.BankAccounts.*;
 
 import java.util.ArrayList;
 
-public class MoneyAccountsTests {
+public class WithdrawlTesting {
     //objects to test with
 
 
     @Test public void perfectWithdrawl() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,"321");
-        RegSavings rs1 = new RegSavings("321",000000000, 10, "10-10-2010",0.05);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -26,8 +26,8 @@ public class MoneyAccountsTests {
     }
 
     @Test public void noNeedforSavings() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,"321");
-        RegSavings rs1 = new RegSavings("321",000000000, 10, "10-10-2010",0.05);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -39,8 +39,8 @@ public class MoneyAccountsTests {
     }
 
     @Test public void SavingsNotEnough() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,"321");
-        RegSavings rs1 = new RegSavings("321",000000000, 10, "10-10-2010",0.05);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -52,7 +52,7 @@ public class MoneyAccountsTests {
     }
 
     @Test public void DoesNotHaveSavingsNonOverDraw() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,null);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -65,7 +65,7 @@ public class MoneyAccountsTests {
     }
 
     @Test public void DoesNotHaveSavingsOverDraw() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,null);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -77,7 +77,7 @@ public class MoneyAccountsTests {
 
     }
     @Test public void DoesNotHaveSavingsNonOverDrawT2() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,null);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -91,8 +91,8 @@ public class MoneyAccountsTests {
 
 
     @Test public void doubleTestingT1() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,"321");
-        RegSavings rs1 = new RegSavings("321",000000000, 10, "10-10-2010",0.05);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -103,8 +103,8 @@ public class MoneyAccountsTests {
 
     }
     @Test public void doubleTestingT2() {
-        Checking c1 = new Checking("123",000000000,10,"10-10-2010",0,"321");
-        RegSavings rs1 = new RegSavings("321",000000000, 10, "10-10-2010",0.05);
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -114,7 +114,6 @@ public class MoneyAccountsTests {
         assertEquals(-88.34,c1.getBalancef(),0.001);
 
     }
-
 
 
 

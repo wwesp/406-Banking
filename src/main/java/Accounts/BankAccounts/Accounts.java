@@ -4,19 +4,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Accounts {
-    protected int cusID;
+    protected String cusID;
     protected double balancef;
     protected String openDate;
     protected String ID;
 
-    public  Accounts(String ID, int cusID, double balance, String openDate){
+    public  Accounts(String ID, String cusID, double balance, String openDate){
         this.cusID = cusID;
         this.balancef = balance;
         this.openDate = openDate;
         this.ID=ID;
     }
 
-    public int getCusID() {
+    public String getCusID() {
         return cusID;
     }
 

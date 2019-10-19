@@ -1,20 +1,59 @@
 package Accounts.BankAccounts.Money;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static java.lang.Math.abs;
 
 public class Checking extends MoneyAccounts {
-    int accType;
+    private String atmCard;
+    private ArrayList<String> atmHistory;
+    private int accType;
     //only one backup per checking
-    String backupAcc;
+    private String backupAcc;
 
-    public Checking(String ID, int cusID, double balance, String openDate, int accType, String backupAcc){
+    public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc, String atmCard, ArrayList<String> atmHistory){
         super(ID, cusID, balance, openDate);
         this.accType = accType;
         this.backupAcc = backupAcc;
+        this.atmCard=atmCard;
+        if(atmHistory==null){
+            ArrayList<String> his = new ArrayList<>();
+            this.atmHistory=his;
+        }
+        else{
+            this.atmHistory=atmHistory;
+        }
+
+
+    }
+    private String getTodaysDate(){
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+        return format.format(new Date());
     }
 
+    public void atmHistoryUpdate(){
+        ArrayList<String> newAtmHistory=new ArrayList<>();
+        String today=getTodaysDate();
+        for(int i=0;i<atmHistory.size();i++){
+            if(atmHistory.get(i).equals(today)){
+                newAtmHistory.add(atmHistory.get(i));
+            }
+        }
+        atmHistory=newAtmHistory;
+    }
+
+    public boolean authorizeWithdrawlATM(double x, ArrayList<RegSavings> y ){
+        atmHistoryUpdate();
+        if(atmHistory.size()>=2){
+            return false;
+        }
+
+        authorizeWithdrawl(x,y);
+        atmHistory.add(getTodaysDate());
+        return true;
+    }
 
     public void authorizeWithdrawl(double x, ArrayList<RegSavings> y) {
         double needForSavin;
@@ -67,6 +106,24 @@ public class Checking extends MoneyAccounts {
 
     }
 
+    public String getAtmCard() {
+        return atmCard;
+    }
+
+    public ArrayList<String> getAtmHistory() {
+        atmHistoryUpdate();
+        return atmHistory;
+    }
+
+    public int getAccType() {
+        return accType;
+    }
+
+    public String getBackupAcc() {
+        return backupAcc;
+    }
+
+
     /*
     two types of checking accounts. TMB and gold/diamond
     TMB: $0.50 per transaction (deposit and withdraw)
@@ -85,4 +142,5 @@ public class Checking extends MoneyAccounts {
             returns check unpaid and charges a %20 fee
             if savings account is a "overdraft" account then it can be used to cover check
     */
+
 }
