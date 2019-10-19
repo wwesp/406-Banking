@@ -37,7 +37,7 @@ public class home_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                ATM_home ATM = new ATM_home();
+                validate_atm_customer ATM = new validate_atm_customer();
                 ATM.setVisible(true);
             }
         });

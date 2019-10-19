@@ -26,7 +26,7 @@ public class teller_home  extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                create_checking_page checking = new create_checking_page();
+                create_checking_page checking = new create_checking_page(2);
                 checking.setVisible(true);
             }
         });

@@ -64,7 +64,21 @@ public class create_checking_page extends JPanel{
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if (x == 1){
+                    frame.dispose();
+                    ATM_home ATM_page = new ATM_home();
+                    ATM_page.setVisible(true);
+                }
+                if (x == 2){
+                    frame.dispose();
+                    teller_home teller_page = new teller_home();
+                    teller_page.setVisible(true);
+                }
+                if (x == 3){
+                    frame.dispose();
+                    manager_home manager_page = new manager_home();
+                    manager_page.setVisible(true);
+                }
             }
         });
     }
