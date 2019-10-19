@@ -5,36 +5,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ATM_home extends JFrame {
-    private JPanel ATM_home;
+public class withdraw_ATM extends JFrame {
+    private JPanel withdraw_ATM;
+    private JTextField textField1;
     private JButton back_button;
-    private JLabel account_1;
-    private JLabel account_2;
-    private JButton withdraw_account_1;
-    private JButton withdraw_account_2;
-    private JButton deposit_account_2;
-    private JButton deposit_account_1;
+    private JButton accept_button;
 
     public static void main(String[] args) {
-        new ATM_home();
+        new withdraw_ATM();
     }
 
-    public ATM_home(){
+    public withdraw_ATM() {
+
         JFrame frame = new JFrame("Deposit");
-        frame.setContentPane(ATM_home);
+        frame.setContentPane(withdraw_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
-        withdraw_account_1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                withdraw_ATM withdraw_page = new withdraw_ATM();
-                withdraw_page.setVisible(true);
-            }
-        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

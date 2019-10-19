@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class validate_atm_customer extends JFrame {
     private JPanel validate_atm_customer;
@@ -27,9 +28,14 @@ public class validate_atm_customer extends JFrame {
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                ATM_home atm_home_page = new ATM_home();
-                atm_home_page.setVisible(true);
+
+                System.out.println(String.copyValueOf(passwordField1.getPassword()));
+                if (String.copyValueOf(passwordField1.getPassword()).equals("guest")){
+                    frame.dispose();
+                    ATM_home atm_home_page = new ATM_home();
+                    atm_home_page.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Card Number");
             }
         });
     }
