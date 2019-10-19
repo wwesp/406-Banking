@@ -2,11 +2,14 @@ package Accounts.BankAccounts.Money;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 public class Checking extends MoneyAccounts {
     int accType;
-    ArrayList<String> backupAcc;
+    //only one backup per checking
+    String backupAcc;
 
-    public Checking(String ID, int cusID, double balance, String openDate, int accType, ArrayList<String> backupAcc){
+    public Checking(String ID, int cusID, double balance, String openDate, int accType, String backupAcc){
         super(ID, cusID, balance, openDate);
         this.accType = accType;
         this.backupAcc = backupAcc;
@@ -14,22 +17,25 @@ public class Checking extends MoneyAccounts {
 
 
     public void authorizeWithdrawl(double x, ArrayList<RegSavings> y) {
-
+        double needForSavin;
         //look for backup
-        ArrayList<RegSavings> returnable=new ArrayList<>();
+        RegSavings savingsAcc = null;
+
+
+
+
         for(RegSavings savin: y){
 
-            for(int i=0;i<backupAcc.size();i++) {
-                if (savin.getID().equals(backupAcc.get(i))){
-                    returnable.add(savin);
-                }
+            if (savin.getID().equals(backupAcc)){
+                savingsAcc=savin;
+                break;
             }
         }
 
 
-
         //payment
-        if (balancef>x){
+
+        if (balancef>=x){
             subBalence(x);
         }
         else{
@@ -37,8 +43,22 @@ public class Checking extends MoneyAccounts {
                 subBalence(x);
                 subBalence(25);
             }
+            else if(backupAcc!=null && savingsAcc==null){
+                System.out.println("Wrong input to AuthWith");
+            }
             else{
-                subBalence(balancef);
+
+                needForSavin=abs(getBalancef()-x);
+
+                if(savingsAcc.getBalancef()>=needForSavin){
+                    balancef=0;
+                    savingsAcc.subBalence(x);
+                }
+                else{
+                    //the savings account did not have enough so you have overdrawn
+                    subBalence(x);
+                    subBalence(25);
+                }
                 //TODO: finish this
             }
         }

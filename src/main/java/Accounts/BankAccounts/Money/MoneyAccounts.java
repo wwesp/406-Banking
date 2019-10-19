@@ -3,7 +3,7 @@ package Accounts.BankAccounts.Money;
 import Accounts.BankAccounts.Accounts;
 
 
-class MoneyAccounts extends Accounts {
+abstract class  MoneyAccounts extends Accounts {
 
 
     public MoneyAccounts(String ID, int cusID, double balance, String openDate){
