@@ -17,10 +17,10 @@ public class create_saving_page extends JFrame{
     private JTextField textField6;
 
     public static void main(String[] args) {
-        new create_saving_page();
+        new create_saving_page(0);
     }
 
-    public create_saving_page() {
+    public create_saving_page(int x) {
         JFrame frame = new JFrame("Create Savings Account");
         frame.setContentPane(create_saving_page);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -31,9 +31,16 @@ public class create_saving_page extends JFrame{
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                teller_home teller_home = new teller_home();
-                teller_home.setVisible(true);
+                if (x == 1){
+                    frame.dispose();
+                    teller_home teller_home = new teller_home();
+                    teller_home.setVisible(true);
+                }
+                if (x == 2){
+                    frame.dispose();
+                    manager_home manager_home = new manager_home();
+                    manager_home.setVisible(true);
+                }
             }
         });
     }
