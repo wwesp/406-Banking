@@ -1,3 +1,5 @@
+package AccountsTests.Checkingtests;
+
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.BankAccounts.Money.Savings;
