@@ -69,5 +69,13 @@ public class manager_home extends JPanel {
                 manager_verify_loan_customer.setVisible(true);
             }
         });
+        terminate_account_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                manager_verify_terminate_customer manager_verify_terminate_customer = new manager_verify_terminate_customer();
+                manager_verify_terminate_customer.setVisible(true);
+            }
+        });
     }
 }
