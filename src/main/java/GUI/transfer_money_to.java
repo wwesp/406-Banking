@@ -5,19 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class teller_verify_customer extends JFrame{
-    private JPanel teller_verify_customer;
+public class transfer_money_to extends JFrame{
+    private JPanel transfer_money_to;
+    private JTable table1;
     private JButton back_button;
     private JButton accept_button;
-    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
-        new teller_verify_customer();
+        new transfer_money_to();
     }
 
-    public teller_verify_customer() {
-        JFrame frame = new JFrame("Home ");
-        frame.setContentPane(teller_verify_customer);
+    public transfer_money_to() {
+        JFrame frame = new JFrame("Teller");
+        frame.setContentPane(transfer_money_to);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -26,16 +26,16 @@ public class teller_verify_customer extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                teller_home teller_home = new teller_home();
-                teller_home.setVisible(true);
+                transfer_money_from transfer_money_from = new transfer_money_from();
+                transfer_money_from.setVisible(true);
             }
         });
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                transfer_money_from transfer_money = new transfer_money_from();
-                transfer_money.setVisible(true);
+                transfer_money_summary transfer_money_summary = new transfer_money_summary();
+                transfer_money_summary.setVisible(true);
             }
         });
     }

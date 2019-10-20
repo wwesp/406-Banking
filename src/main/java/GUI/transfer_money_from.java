@@ -5,23 +5,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class teller_verify_customer extends JFrame{
-    private JPanel teller_verify_customer;
+public class transfer_money_from extends JFrame{
+    private JPanel transfer_money_from;
+    private JTable table1;
     private JButton back_button;
     private JButton accept_button;
-    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
-        new teller_verify_customer();
+        new transfer_money_from();
     }
 
-    public teller_verify_customer() {
-        JFrame frame = new JFrame("Home ");
-        frame.setContentPane(teller_verify_customer);
+    public transfer_money_from() {
+        JFrame frame = new JFrame("Teller");
+        frame.setContentPane(transfer_money_from);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,8 +35,8 @@ public class teller_verify_customer extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                transfer_money_from transfer_money = new transfer_money_from();
-                transfer_money.setVisible(true);
+                transfer_money_to transfer_money_to = new transfer_money_to();
+                transfer_money_to.setVisible(true);
             }
         });
     }

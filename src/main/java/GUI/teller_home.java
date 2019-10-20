@@ -33,6 +33,14 @@ public class teller_home  extends JPanel{
                 checking.setVisible(true);
             }
         });
+        transfer_funds_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                teller_verify_customer teller_verify_customer = new teller_verify_customer();
+                teller_verify_customer.setVisible(true);
+            }
+        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
