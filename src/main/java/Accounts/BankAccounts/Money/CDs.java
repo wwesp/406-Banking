@@ -16,21 +16,23 @@ public class CDs extends Savings {
     //returns money from the cd after this it nukes all data in the object
     //automatically fines. if the cd does not cover then they are fined and must pay
     //$50 fee for ending it early
-    public double authorizeWithdraw(double x){
+    public double authorizeWithdraw(){
         double moneyBack=balancef;
 
-        ID=null;
+
         cusID=null;
         balancef=0;
         openDate=null;
-        endDate=null;
+
         interestRate=0;
         lastDayInterestCompounded=null;
 
 
         if(pastEndDate()){
+            endDate=null;
             return moneyBack;
         }else{
+            endDate=null;
             return moneyBack-50;
         }
 
@@ -77,9 +79,7 @@ public class CDs extends Savings {
 
     }
 
-
-
-
-
-
+    public String getEndDate() {
+        return endDate;
+    }
 }

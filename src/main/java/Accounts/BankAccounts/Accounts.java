@@ -61,10 +61,10 @@ abstract public class Accounts {
 
     //this is for any type of interest
     //round up roundType 1
-    //round down roundType 0
-    protected double parseDouble(double x, int roundType){
+    //truncate roundType 0
+    public double parseDouble(double x, int roundType){
         DecimalFormat df = new DecimalFormat("#.##");
-        if (roundType==1){
+        if (roundType==0){
             df.setRoundingMode(RoundingMode.DOWN);
         }
         else{

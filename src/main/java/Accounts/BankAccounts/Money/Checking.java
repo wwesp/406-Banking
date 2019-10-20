@@ -63,6 +63,7 @@ public class Checking extends MoneyAccounts {
     public void dailyInterest(){
         String today=getTodaysDate();
         if (!today.equals(lastDayInterestCompounded)){
+
             //that they are gold and that they still have their benefits
             if(accType==1&&getBalancef()>=1000){
                 //compound interest
@@ -208,7 +209,24 @@ public class Checking extends MoneyAccounts {
         return true;
     }
 
+    public double endChecking(){
+        double endbal=balancef;
 
+
+        cusID=null;
+        balancef=0;
+        openDate=null;
+        accType=0;
+        backupAcc=null;
+        atmCard=null;
+        atmHistory=null;
+        pendingChecks=null;
+        acceptedChecks=null;
+        deniedChecks=null;
+        lastDayInterestCompounded=null;
+
+        return endbal;
+    }
 
 
 
