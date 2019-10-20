@@ -3,7 +3,7 @@ package Accounts.BankAccounts;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Accounts {
+abstract public class Accounts {
     protected String cusID;
     protected double balancef;
     protected String openDate;
