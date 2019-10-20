@@ -18,11 +18,12 @@ public class Checking extends MoneyAccounts {
     private HashMap<String, Double> pendingChecks;
     private HashMap<String, String> acceptedChecks;
     private HashMap<String, String> deniedChecks;
-
+    private String lastDayInterestCompounded;
 
     public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc,
                     String atmCard, ArrayList<String> atmHistory,HashMap<String, Double> pendingChecks,
-                    HashMap<String, String> acceptedChecks, HashMap<String, String> deniedChecks){
+                    HashMap<String, String> acceptedChecks,
+                    HashMap<String, String> deniedChecks, String lastDayInterestCompounded){
 
         super(ID, cusID, balance, openDate);
         this.accType = accType;
@@ -58,9 +59,19 @@ public class Checking extends MoneyAccounts {
     }
 
 
-    private String getTodaysDate(){
-        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
-        return format.format(new Date());
+    protected void dailyInterest(){
+        String today=getTodaysDate();
+        if (!today.equals(lastDayInterestCompounded)){
+            //that they are gold and that they still have their benefits
+            if(accType==1&&getBalancef()>=1000){
+                //compound interest
+                //.5 percent interest
+                //make sure it stays at two decimal places
+                balancef=parseDouble(balancef*1.005,0);
+            }
+            lastDayInterestCompounded=today;
+        }
+
     }
 
     public void atmHistoryUpdate(){

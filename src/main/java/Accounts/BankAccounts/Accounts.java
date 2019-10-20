@@ -3,6 +3,11 @@ package Accounts.BankAccounts;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 abstract public class Accounts {
     protected String cusID;
     protected double balancef;
@@ -14,6 +19,11 @@ abstract public class Accounts {
         this.balancef = balance;
         this.openDate = openDate;
         this.ID=ID;
+    }
+
+    protected String getTodaysDate(){
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+        return format.format(new Date());
     }
 
     public String getCusID() {
@@ -46,6 +56,20 @@ abstract public class Accounts {
         return obj;
     }
 
+    //this is for any type of interest
+    //round up roundType 1
+    //round down roundType 0
+    protected double parseDouble(double x, int roundType){
+        DecimalFormat df = new DecimalFormat("#.##");
+        if (roundType==1){
+            df.setRoundingMode(RoundingMode.DOWN);
+        }
+        else{
+            df.setRoundingMode(RoundingMode.UP);
+        }
 
+        String s = df.format(x);
+        return Double.parseDouble(s);
+    }
 
 }

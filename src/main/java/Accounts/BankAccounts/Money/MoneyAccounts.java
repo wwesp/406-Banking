@@ -14,11 +14,13 @@ abstract class  MoneyAccounts extends Accounts {
         balancef=balancef+x;
     }
 
-    public void subBalence(double x){
+    protected void subBalence(double x){
         balancef=balancef-x;
     }
 
-
+    protected void dailyInterest(){
+        return;
+    }
 
     protected void authorizeWithdrawl(double x){
         return;

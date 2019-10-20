@@ -23,7 +23,7 @@ public class CheckingCheckTests {
         pending.put("100",5.0);
 
         Checking c1 = new Checking("123","000000000",50,"10-10-2010",0,"321",
-                "555",his, null,null,null);
+                "555",his, null,null,null,"");
         RegSavings rs1 = new RegSavings("321","000000000", 100, "10-10-2010",0.05);
 
         ArrayList<RegSavings> x = new ArrayList<>();
