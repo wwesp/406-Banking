@@ -5,19 +5,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class transfer_money_from extends JFrame{
-    private JPanel transfer_money_from;
+public class teller_view_accounts extends JFrame{
     private JTable table1;
     private JButton back_button;
-    private JButton accept_button;
+    private JPanel teller_view_accounts;
 
     public static void main(String[] args) {
-        new transfer_money_from("x");
+        new teller_view_accounts();
     }
 
-    public transfer_money_from(String x) {
+    public teller_view_accounts() {
         JFrame frame = new JFrame("Teller");
-        frame.setContentPane(transfer_money_from);
+        frame.setContentPane(teller_view_accounts);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
@@ -29,14 +28,6 @@ public class transfer_money_from extends JFrame{
                 frame.dispose();
                 teller_home teller_home = new teller_home();
                 teller_home.setVisible(true);
-            }
-        });
-        accept_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                transfer_money_to transfer_money_to = new transfer_money_to(x);
-                transfer_money_to.setVisible(true);
             }
         });
     }

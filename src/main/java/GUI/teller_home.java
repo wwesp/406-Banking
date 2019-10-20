@@ -37,8 +37,8 @@ public class teller_home  extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                teller_verify_customer teller_verify_customer = new teller_verify_customer();
-                teller_verify_customer.setVisible(true);
+                teller_verify_transfer_customer teller_verify_transfer_customer = new teller_verify_transfer_customer();
+                teller_verify_transfer_customer.setVisible(true);
             }
         });
         back_button.addActionListener(new ActionListener() {
@@ -47,6 +47,22 @@ public class teller_home  extends JPanel{
                 frame.dispose();
                 home_page home_page = new home_page();
                 home_page.setVisible(true);
+            }
+        });
+        view_accounts_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                teller_verify_accounts_customer teller_verify_accounts_customer = new teller_verify_accounts_customer();
+                teller_verify_accounts_customer.setVisible(true);
+            }
+        });
+        create_savings_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                create_saving_page create_saving_page = new create_saving_page();
+                create_saving_page.setVisible(true);
             }
         });
     }

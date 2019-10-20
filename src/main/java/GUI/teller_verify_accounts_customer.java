@@ -5,37 +5,38 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class transfer_money_to extends JFrame{
-    private JPanel transfer_money_to;
-    private JTable table1;
-    private JButton back_button;
+public class teller_verify_accounts_customer extends JFrame{
+    private JPanel teller_verify_accounts_customer;
+    private JPasswordField passwordField1;
     private JButton accept_button;
+    private JButton back_button;
 
     public static void main(String[] args) {
-        new transfer_money_to("x");
+        new teller_verify_accounts_customer();
     }
 
-    public transfer_money_to(String x) {
+    public teller_verify_accounts_customer() {
         JFrame frame = new JFrame("Teller");
-        frame.setContentPane(transfer_money_to);
+        frame.setContentPane(teller_verify_accounts_customer);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                transfer_money_from transfer_money_from = new transfer_money_from("x");
-                transfer_money_from.setVisible(true);
+                teller_home teller_home = new teller_home();
+                teller_home.setVisible(true);
             }
         });
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                transfer_money_summary transfer_money_summary = new transfer_money_summary();
-                transfer_money_summary.setVisible(true);
+                teller_view_accounts teller_view_accounts = new teller_view_accounts();
+                teller_view_accounts.setVisible(true);
             }
         });
     }
