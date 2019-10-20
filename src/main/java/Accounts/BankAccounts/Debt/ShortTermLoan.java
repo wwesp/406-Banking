@@ -1,9 +1,12 @@
 package Accounts.BankAccounts.Debt;
 
-public class ShortTermLoan extends DebtAccounts {
+//same as long term loan just diff object
 
-    public ShortTermLoan(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
-        super(ID, cusID,balance,openDate, lastDayInterestCompounded);
+public class ShortTermLoan extends LongTermLoan {
+
+    public ShortTermLoan(String ID, String cusID, double balance, String openDate,
+                         String lastDayInterestCompounded ,char flag, String lengthOfLoan){
+        super(ID, cusID,balance,openDate, lastDayInterestCompounded,flag, lengthOfLoan);
     }
 
     /*
