@@ -35,6 +35,30 @@ public class ATM_home extends JFrame {
                 withdraw_page.setVisible(true);
             }
         });
+        withdraw_account_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                withdraw_ATM withdraw_page = new withdraw_ATM();
+                withdraw_page.setVisible(true);
+            }
+        });
+        deposit_account_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                deposit_ATM deposit_page = new deposit_ATM();
+                deposit_page.setVisible(true);
+            }
+        });
+        deposit_account_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                deposit_ATM deposit_page = new deposit_ATM();
+                deposit_page.setVisible(true);
+            }
+        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

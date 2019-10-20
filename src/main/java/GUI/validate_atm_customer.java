@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 
 public class validate_atm_customer extends JFrame {
@@ -36,6 +38,14 @@ public class validate_atm_customer extends JFrame {
                     atm_home_page.setVisible(true);
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Card Number");
+            }
+        });
+        back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                home_page home_page = new home_page();
+                home_page.setVisible(true);
             }
         });
     }

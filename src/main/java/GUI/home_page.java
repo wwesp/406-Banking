@@ -29,8 +29,8 @@ public class home_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                teller_home tellerHome = new teller_home();
-                tellerHome.setVisible(true);
+                validate_teller_user validate_teller_user = new validate_teller_user();
+                validate_teller_user.setVisible(true);
             }
         });
         ATM_button.addActionListener(new ActionListener() {
