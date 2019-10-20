@@ -9,6 +9,13 @@ public class manager_home extends JPanel {
     private JPanel manager_home_panel;
     private JButton create_checking_account;
     private JButton back_button;
+    private JButton billing_button;
+    private JButton rollover_notice_button;
+    private JButton terminate_account_button;
+    private JButton loan_button;
+    private JButton transfer_funds_button;
+    private JButton create_savings_button;
+    private JButton lookup_accout_button;
 
     public static void main(String[] args) {
         new manager_home();
@@ -36,6 +43,14 @@ public class manager_home extends JPanel {
                 frame.dispose();
                 home_page home_page = new home_page();
                 home_page.setVisible(true);
+            }
+        });
+        lookup_accout_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                manager_verify_accounts_customer manager_verify_accounts_customer = new manager_verify_accounts_customer();
+                manager_verify_accounts_customer.setVisible(true);
             }
         });
     }

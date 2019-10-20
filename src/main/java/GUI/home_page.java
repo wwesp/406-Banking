@@ -45,8 +45,8 @@ public class home_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                manager_home tellerHome = new manager_home();
-                tellerHome.setVisible(true);
+                validate_manager_user validate_manager_user = new validate_manager_user();
+                validate_manager_user.setVisible(true);
             }
         });
     }
