@@ -5,40 +5,38 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class teller_home  extends JPanel{
-    private JPanel teller_home_panel;
-    private JButton create_checking_account;
+public class validate_teller_user extends JFrame{
+    private JPanel validate_teller_user;
     private JButton back_button;
-    private JButton view_accounts_button;
-    private JButton transfer_funds_button;
-    private JButton create_savings_button;
+    private JButton accept_button;
+    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
-        new teller_home();
+        new validate_teller_user();
     }
 
-    public teller_home(){
+    public validate_teller_user() {
         JFrame frame = new JFrame("Teller");
-        frame.setContentPane(teller_home_panel);
+        frame.setContentPane(validate_teller_user);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
-        create_checking_account.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                create_checking_page checking = new create_checking_page(2);
-                checking.setVisible(true);
-            }
-        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 home_page home_page = new home_page();
                 home_page.setVisible(true);
+            }
+        });
+        accept_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                teller_home teller_home = new teller_home();
+                teller_home.setVisible(true);
             }
         });
     }
