@@ -3,8 +3,8 @@ package Accounts.BankAccounts.Money;
 public class RegSavings extends  Savings{
 
 
-    public RegSavings(String ID, String cusID, double balance, String openDate,double interestRate){
-        super(ID, cusID,balance,openDate,interestRate);
+    public RegSavings(String ID, String cusID, double balance, String openDate,double interestRate,String lastDayInterestCompounded){
+        super(ID, cusID,balance,openDate,interestRate,lastDayInterestCompounded);
     }
 
     public boolean authorizeWithdraw(double x){
@@ -16,9 +16,11 @@ public class RegSavings extends  Savings{
         balancef=balancef-x;
         return true;
     }
+
     public void authorizeDeposit(double x){
         balancef=balancef+x;
     }
+
 
 
 

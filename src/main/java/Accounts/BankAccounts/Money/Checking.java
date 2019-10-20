@@ -18,14 +18,14 @@ public class Checking extends MoneyAccounts {
     private HashMap<String, Double> pendingChecks;
     private HashMap<String, String> acceptedChecks;
     private HashMap<String, String> deniedChecks;
-    private String lastDayInterestCompounded;
+
 
     public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc,
                     String atmCard, ArrayList<String> atmHistory,HashMap<String, Double> pendingChecks,
                     HashMap<String, String> acceptedChecks,
                     HashMap<String, String> deniedChecks, String lastDayInterestCompounded){
 
-        super(ID, cusID, balance, openDate);
+        super(ID, cusID, balance, openDate, lastDayInterestCompounded);
         this.lastDayInterestCompounded=lastDayInterestCompounded;
         this.accType = accType;
         this.backupAcc = backupAcc;
@@ -60,7 +60,7 @@ public class Checking extends MoneyAccounts {
     }
 
 
-    protected void dailyInterest(){
+    public void dailyInterest(){
         String today=getTodaysDate();
         if (!today.equals(lastDayInterestCompounded)){
             //that they are gold and that they still have their benefits

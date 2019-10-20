@@ -17,7 +17,7 @@ public class CheckingAddBalence {
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",his, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -35,7 +35,7 @@ public class CheckingAddBalence {
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
         Checking c1 = new Checking("123","000000000",0,"10-10-2010",0,"321","555",his, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 0, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 0, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);

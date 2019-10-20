@@ -6,8 +6,8 @@ import Accounts.BankAccounts.Accounts;
 abstract class  MoneyAccounts extends Accounts {
 
 
-    public MoneyAccounts(String ID, String cusID, double balance, String openDate){
-        super(ID,cusID,balance,openDate);
+    public MoneyAccounts(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
+        super(ID,cusID,balance,openDate,lastDayInterestCompounded);
     }
 
     protected void addBalence(double x){

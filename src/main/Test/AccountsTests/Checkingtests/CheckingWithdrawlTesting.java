@@ -16,7 +16,7 @@ public class CheckingWithdrawlTesting {
 
     @Test public void perfectWithdrawl() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -30,7 +30,7 @@ public class CheckingWithdrawlTesting {
 
     @Test public void noNeedforSavings() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -43,7 +43,7 @@ public class CheckingWithdrawlTesting {
 
     @Test public void SavingsNotEnough() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -95,7 +95,7 @@ public class CheckingWithdrawlTesting {
 
     @Test public void doubleTestingT1() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -107,7 +107,7 @@ public class CheckingWithdrawlTesting {
     }
     @Test public void doubleTestingT2() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
@@ -120,7 +120,7 @@ public class CheckingWithdrawlTesting {
 
     @Test public void monthlyT1() {
         Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
-        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05);
+        RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);

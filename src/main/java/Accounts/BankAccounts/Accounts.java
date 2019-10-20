@@ -13,14 +13,17 @@ abstract public class Accounts {
     protected double balancef;
     protected String openDate;
     protected String ID;
+    protected String lastDayInterestCompounded;
 
-    public  Accounts(String ID, String cusID, double balance, String openDate){
+    public  Accounts(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
         this.cusID = cusID;
         this.balancef = balance;
         this.openDate = openDate;
         this.ID=ID;
+        this.lastDayInterestCompounded=lastDayInterestCompounded;
     }
 
+    //helper method
     protected String getTodaysDate(){
         SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
         return format.format(new Date());

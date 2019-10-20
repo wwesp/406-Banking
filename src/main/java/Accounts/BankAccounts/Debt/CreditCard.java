@@ -2,8 +2,8 @@ package Accounts.BankAccounts.Debt;
 
 public class CreditCard extends DebtAccounts {
 
-    public CreditCard(String ID, String cusID, double balance, String openDate){
-        super(ID, cusID, balance, openDate);
+    public CreditCard(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
+        super(ID, cusID, balance, openDate, lastDayInterestCompounded);
     }
 
     /*
