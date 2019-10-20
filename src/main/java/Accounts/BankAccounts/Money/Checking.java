@@ -26,6 +26,7 @@ public class Checking extends MoneyAccounts {
                     HashMap<String, String> deniedChecks, String lastDayInterestCompounded){
 
         super(ID, cusID, balance, openDate);
+        this.lastDayInterestCompounded=lastDayInterestCompounded;
         this.accType = accType;
         this.backupAcc = backupAcc;
         this.atmCard=atmCard;
@@ -186,7 +187,9 @@ public class Checking extends MoneyAccounts {
         }
 
         deniedChecks.put(checkNum,getTodaysDate()+"::"+doesExist);
-        authorizeWithdrawl(15,y,false);
+        //15 charge, 14.5 so minus .5 takes away transaction charge
+        //transaction charge should not happen on a fine
+        authorizeWithdrawl(14.5,y,false);
         pendingChecks.remove(checkNum);
 
         return true;
@@ -194,6 +197,7 @@ public class Checking extends MoneyAccounts {
     //false means that there is not a check matching anypending checks
     public boolean authPayCheck(String checkNum,ArrayList<RegSavings> y){
         Double doesExist= pendingChecks.get(checkNum);
+
         if(doesExist==null){
             return false;
         }
@@ -203,6 +207,8 @@ public class Checking extends MoneyAccounts {
         pendingChecks.remove(checkNum);
         return true;
     }
+
+
 
 
 
