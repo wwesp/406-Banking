@@ -1,5 +1,9 @@
 package GUI;
 
+import Accounts.People.Customer;
+import Accounts.People.Teller;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -27,17 +31,17 @@ public class validate_atm_customer extends JFrame {
         frame.pack();
         frame.setVisible(true);
 
+
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                System.out.println(String.copyValueOf(passwordField1.getPassword()));
-                if (String.copyValueOf(passwordField1.getPassword()).equals("guest")){
+                Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null){
                     frame.dispose();
-                    ATM_home atm_home_page = new ATM_home();
-                    atm_home_page.setVisible(true);
+                    ATM_home ATM_home = new ATM_home();
+                    ATM_home.setVisible(true);
                 }
-                else JOptionPane.showMessageDialog(null, "Invalid Card Number");
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
         back_button.addActionListener(new ActionListener() {
@@ -46,6 +50,18 @@ public class validate_atm_customer extends JFrame {
                 frame.dispose();
                 home_page home_page = new home_page();
                 home_page.setVisible(true);
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null){
+                    frame.dispose();
+                    ATM_home ATM_home = new ATM_home();
+                    ATM_home.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
     }

@@ -1,5 +1,8 @@
 package GUI;
 
+import Accounts.People.Teller;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -34,9 +37,25 @@ public class validate_teller_user extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                teller_home teller_home = new teller_home();
-                teller_home.setVisible(true);
+                Teller teller = new GetData().getTeller(String.copyValueOf(passwordField1.getPassword()));
+                if (teller != null){
+                    frame.dispose();
+                    teller_home teller_home = new teller_home();
+                    teller_home.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Teller teller = new GetData().getTeller(String.copyValueOf(passwordField1.getPassword()));
+                if (teller != null){
+                    frame.dispose();
+                    teller_home teller_home = new teller_home();
+                    teller_home.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
     }
