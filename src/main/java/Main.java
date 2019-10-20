@@ -49,6 +49,12 @@ public class Main {
         }
         System.out.println("---------------------");
 
+        HashMap<String, Double> test = new HashMap<>();
+        test.put("00-00-0000", 2000.0);
+        for (String p: test.keySet()){
+            System.out.println(test.get(p));
+        }
+
 
 
 

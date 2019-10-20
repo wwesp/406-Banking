@@ -24,5 +24,7 @@ public abstract class Savings extends MoneyAccounts {
 
     }
 
-
+    public double getInterestRate() {
+        return interestRate;
+    }
 }

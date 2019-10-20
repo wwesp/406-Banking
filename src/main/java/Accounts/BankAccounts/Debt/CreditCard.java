@@ -1,9 +1,16 @@
 package Accounts.BankAccounts.Debt;
 
+import java.util.HashMap;
+
 public class CreditCard extends DebtAccounts {
 
-    public CreditCard(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
-        super(ID, cusID, balance, openDate, lastDayInterestCompounded);
+    public CreditCard(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
+                      String notifyDate, double currentPaymentDue, char missedPaymentflag,
+                      String lastPaymentDate, double fees , HashMap<String, Double> missedPayment,
+                      HashMap<String, Double> paymentHistory){
+        super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
+                lastPaymentDate, fees, missedPayment, paymentHistory);
+
     }
 
     /*

@@ -1,20 +1,29 @@
 package Accounts.BankAccounts.Debt;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LongTermLoan extends DebtAccounts {
     ArrayList<String> PaymentPlan;
-    //last day interest compounded will be last payday
-    private String lengthOfLoan;
-    private char flag;
+
+
+    char yearType;
 
 
 
-    public LongTermLoan(String ID, String cusID, double balance, String openDate,
-                        String lastDayInterestCompounded, char flag, String lengthOfLoan){
-        super(ID, cusID,balance,openDate, lastDayInterestCompounded);
-        this.flag=flag;
-        this.lengthOfLoan=lengthOfLoan;
+
+    public LongTermLoan(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
+                        String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
+                        char yearType,double fees, HashMap<String, Double> missedPayment,
+                        HashMap<String, Double> paymentHistory  ){
+
+        super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
+                lastPaymentDate,fees,missedPayment,paymentHistory);
+        this.yearType=yearType;
+
+
+
+
     }
 
     private void developPaymentPlan(){

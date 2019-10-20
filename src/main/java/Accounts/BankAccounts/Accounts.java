@@ -5,22 +5,21 @@ import org.json.JSONObject;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 abstract public class Accounts {
     protected String cusID;
     protected double balancef;
-    protected String openDate;
-    protected String ID;
-    protected String lastDayInterestCompounded;
 
-    public  Accounts(String ID, String cusID, double balance, String openDate,String lastDayInterestCompounded){
+    protected String ID;
+
+
+    public  Accounts(String ID, String cusID, double balance){
         this.cusID = cusID;
         this.balancef = balance;
-        this.openDate = openDate;
         this.ID=ID;
-        this.lastDayInterestCompounded=lastDayInterestCompounded;
     }
 
     //helper method
@@ -41,9 +40,7 @@ abstract public class Accounts {
         return balancef;
     }
 
-    public String getOpenDate() {
-        return openDate;
-    }
+
 
     public JSONObject getJSON(){
         JSONObject obj = new JSONObject();
@@ -51,7 +48,6 @@ abstract public class Accounts {
         try{
             obj.put("CusID", cusID);
             obj.put("Balence", balancef );
-            obj.put("openDate", openDate);
         }
         catch (JSONException e){
             e.printStackTrace();
@@ -74,5 +70,67 @@ abstract public class Accounts {
         String s = df.format(x);
         return Double.parseDouble(s);
     }
+
+    //looks to see if today is past a date
+    public boolean isXafterToday(String x){
+        String to=getTodaysDate();
+        try {
+            Date today = new SimpleDateFormat("MM-dd-yyyy").parse(to);
+            Date end = new SimpleDateFormat("MM-dd-yyyy").parse(x);
+            return today.after(end);
+        }
+        catch (ParseException f){
+            f.printStackTrace();
+        }
+        return false;
+
+    }
+
+    public boolean isXDateAfterYdate(String x,String y){
+
+        try {
+            Date datex = new SimpleDateFormat("MM-dd-yyyy").parse(x);
+            Date datey = new SimpleDateFormat("MM-dd-yyyy").parse(y);
+            return datex.after(datey);
+        }
+        catch (ParseException f){
+            f.printStackTrace();
+        }
+        return false;
+
+    }
+
+    public Date convertStringToDate(String x){
+        try {
+            Date datex = new SimpleDateFormat("MM-dd-yyyy").parse(x);
+            return datex;
+        }
+        catch (ParseException f){
+            f.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public Date getTodayDateAsDate(){
+        String to=getTodaysDate();
+        try {
+            Date datex = new SimpleDateFormat("MM-dd-yyyy").parse(to);
+            return datex;
+        }
+        catch (ParseException f){
+            f.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public String convertDateToString(Date x){
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+        return format.format(x);
+
+    }
+
+
 
 }
