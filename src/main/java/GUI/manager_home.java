@@ -53,5 +53,13 @@ public class manager_home extends JPanel {
                 manager_verify_accounts_customer.setVisible(true);
             }
         });
+        transfer_funds_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                manager_verify_transfer_customer manager_verify_transfer_customer = new manager_verify_transfer_customer();
+                manager_verify_transfer_customer.setVisible(true);
+            }
+        });
     }
 }
