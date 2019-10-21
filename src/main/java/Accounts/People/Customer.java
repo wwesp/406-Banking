@@ -49,7 +49,14 @@ public class Customer extends People {
         JSONObject obj = new JSONObject();
 
         try{
-            obj.put("address",address);
+            obj.put("ssn",ssn);
+            obj.put("fName",fName);
+            obj.put("lName",lName);
+            obj.put("address ",address);
+            obj.put("city",city);
+            obj.put("state",state);
+            obj.put("zip",zip);
+            obj.put("atmCard",atmCard);
         }
         catch (JSONException e){
             e.printStackTrace();

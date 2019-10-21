@@ -1,6 +1,8 @@
 package Accounts.BankAccounts.Money;
 
 import Accounts.BankAccounts.Accounts;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 abstract class  MoneyAccounts extends Accounts {
@@ -11,6 +13,22 @@ abstract class  MoneyAccounts extends Accounts {
         super(ID,cusID,balance);
         this.openDate=openDate;
         this.lastDayInterestCompounded=lastDayInterestCompounded;
+    }
+
+    public JSONObject getJSON(){
+        JSONObject obj = new JSONObject();
+
+        try{
+            obj.put("ID",openDate);
+            obj.put("cusID",openDate);
+            obj.put("balance",balancef);
+            obj.put("openDate",openDate);
+            obj.put("lastDayInterestCompound",lastDayInterestCompounded);
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     protected void addBalence(double x){

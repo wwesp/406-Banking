@@ -1,5 +1,8 @@
 package Accounts.BankAccounts.Money;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,6 +14,24 @@ public class CDs extends Savings {
         super(ID, cusID,balance,openDate,interestRate, lastDayInterestCompounded);
         this.endDate=endDate;
 
+    }
+
+    public JSONObject getJSON(){
+        JSONObject obj = new JSONObject();
+
+        try{
+            obj.put("ID",openDate);
+            obj.put("cusID",openDate);
+            obj.put("balance",balancef);
+            obj.put("openDate",openDate);
+            obj.put("interestRate",interestRate);
+            obj.put("lastDayInterestCompound",lastDayInterestCompounded);
+            obj.put("endDate",endDate);
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     //returns money from the cd after this it nukes all data in the object

@@ -27,6 +27,25 @@ public class Main {
         System.out.println(a.getfName());
         System.out.println(b.getfName());
 
+        String jsontest= a.getJSON().toString();
+        JSONObject obj = (JSONObject) new JSONTokener(jsontest).nextValue();
+        System.out.println("parsieboi:  "+  obj);
+
+
+        System.out.println("Get test "+  obj.get("zip"));
+
+        /*
+        *  String json = "{"
+         + "  \"query\": \"Pizza\", "
+         + "  \"locations\": [ 94043, 90210 ] "
+         + "}";
+
+        JSONObject object = (JSONObject) new JSONTokener(json).nextValue();
+        String query = object.getString("query");
+        JSONArray locations = object.getJSONArray("locations");
+        *
+        * */
+
         Managment c= x.getManager("000-00-0000");
         System.out.println(c.getfName());
 
