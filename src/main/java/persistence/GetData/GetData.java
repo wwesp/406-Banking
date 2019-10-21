@@ -45,7 +45,6 @@ public class GetData {
         x.add(n);
         x.add(o);
 
-
         for (Customer y :x){
             if (y.getSsn().equals(SSN)){
                 return y;

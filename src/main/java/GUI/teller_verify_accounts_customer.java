@@ -1,9 +1,14 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.People.Customer;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class teller_verify_accounts_customer extends JFrame{
     private JPanel teller_verify_accounts_customer;
@@ -34,9 +39,25 @@ public class teller_verify_accounts_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                teller_view_accounts teller_view_accounts = new teller_view_accounts();
-                teller_view_accounts.setVisible(true);
+                ArrayList<RegSavings> saveings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
+                if (saveings != null){
+                    frame.dispose();
+                    teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
+                    teller_view_accounts.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<RegSavings> saveings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
+                if (saveings != null){
+                    frame.dispose();
+                    teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
+                    teller_view_accounts.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
     }
