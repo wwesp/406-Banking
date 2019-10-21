@@ -11,10 +11,10 @@ public class manager_account_history extends JFrame{
     private JButton back_button;
 
     public static void main(String[] args) {
-        new manager_account_history();
+        new manager_account_history(null);
     }
 
-    public manager_account_history() {
+    public manager_account_history(String customer) {
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_account_history);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -26,7 +26,7 @@ public class manager_account_history extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                manager_view_accounts manager_view_accounts = new manager_view_accounts();
+                manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
                 manager_view_accounts.setVisible(true);
             }
         });
