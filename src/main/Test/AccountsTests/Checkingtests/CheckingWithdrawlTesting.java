@@ -15,7 +15,7 @@ public class CheckingWithdrawlTesting {
 
 
     @Test public void perfectWithdrawl() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -29,7 +29,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void noNeedforSavings() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -42,7 +42,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void SavingsNotEnough() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -55,7 +55,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void DoesNotHaveSavingsNonOverDraw() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -68,7 +68,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void DoesNotHaveSavingsOverDraw() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -80,7 +80,7 @@ public class CheckingWithdrawlTesting {
 
     }
     @Test public void DoesNotHaveSavingsNonOverDrawT2() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -94,7 +94,7 @@ public class CheckingWithdrawlTesting {
 
 
     @Test public void doubleTestingT1() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -106,7 +106,7 @@ public class CheckingWithdrawlTesting {
 
     }
     @Test public void doubleTestingT2() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -119,7 +119,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void monthlyT1() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,"321","555",null, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -132,7 +132,7 @@ public class CheckingWithdrawlTesting {
     }
 
     @Test public void MonthlyT2() {
-        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",10,"10-10-2010",0,null,"555",null, null,null,null,"",null);
 
 
         ArrayList<RegSavings> x = new ArrayList<>();

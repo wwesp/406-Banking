@@ -15,7 +15,7 @@ public class CheckingInterestTests {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",his, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",his, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();
@@ -31,7 +31,7 @@ public class CheckingInterestTests {
 
         ArrayList<String> his = new ArrayList<>();
         his.add("09-19-2019");
-        Checking c1 = new Checking("123","000000000",999.00,"10-10-2010",1,"321","555",his, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",999.00,"10-10-2010",1,"321","555",his, null,null,null,"",null);
         RegSavings rs1 = new RegSavings("321","000000000", 10, "10-10-2010",0.05,"");
 
         ArrayList<RegSavings> x = new ArrayList<>();

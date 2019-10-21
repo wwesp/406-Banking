@@ -1,17 +1,25 @@
 package Accounts.BankAccounts.Debt;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
 
-    public CreditCard(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
+    public CreditCard(String ID, String cusID, double balance, String interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
                       String lastPaymentDate, double fees , HashMap<String, Double> missedPayment,
-                      HashMap<String, Double> paymentHistory){
+                      HashMap<String, Double> paymentHistory, ArrayList<String> extraPayMentHistory){
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate, fees, missedPayment, paymentHistory);
+                lastPaymentDate, fees, missedPayment, paymentHistory, extraPayMentHistory, 0);
+        //the feeamt will need to be changed by a method.
 
     }
+
+
+
+
+
+
 
     /*
     each card has a limit

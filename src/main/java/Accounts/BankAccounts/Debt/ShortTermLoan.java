@@ -2,17 +2,18 @@ package Accounts.BankAccounts.Debt;
 
 //same as long term loan just diff object
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ShortTermLoan extends LongTermLoan {
 
-    public ShortTermLoan(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
+    public ShortTermLoan(String ID, String cusID, double balance, String interestRate, String datePaymentDue,
                          String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
-                         char yearType,double fees, HashMap<String, Double> missedPayment,
-                         HashMap<String, Double> paymentHistory  ){
+                         char yearType, double fees, HashMap<String, Double> missedPayment,
+                         HashMap<String, Double> paymentHistory , ArrayList<String> extraPayMentHistory ){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate, yearType, fees, missedPayment, paymentHistory);
+                lastPaymentDate, yearType, fees, missedPayment, paymentHistory, extraPayMentHistory);
     }
 
     /*

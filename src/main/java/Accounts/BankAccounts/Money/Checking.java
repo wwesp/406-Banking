@@ -18,21 +18,23 @@ public class Checking extends MoneyAccounts {
     private HashMap<String, Double> pendingChecks;
     private HashMap<String, String> acceptedChecks;
     private HashMap<String, String> deniedChecks;
+    private ArrayList<String> overDraftHistory;
 
 
     public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc,
                     String atmCard, ArrayList<String> atmHistory,HashMap<String, Double> pendingChecks,
-                    HashMap<String, String> acceptedChecks,
-                    HashMap<String, String> deniedChecks, String lastDayInterestCompounded){
+                    HashMap<String, String> acceptedChecks, HashMap<String, String> deniedChecks,
+                    String lastDayInterestCompounded, ArrayList<String> overDraftHistory){
 
         super(ID, cusID, balance, openDate, lastDayInterestCompounded);
         this.lastDayInterestCompounded=lastDayInterestCompounded;
         this.accType = accType;
         this.backupAcc = backupAcc;
         this.atmCard=atmCard;
+
+        ArrayList<String> emp = new ArrayList<>();
         if(atmHistory==null){
-            ArrayList<String> his = new ArrayList<>();
-            this.atmHistory=his;
+            this.atmHistory=emp;
         }
         else{
             this.atmHistory=atmHistory;
@@ -55,6 +57,12 @@ public class Checking extends MoneyAccounts {
             this.deniedChecks=deniedChecks;
         }
 
+        if(overDraftHistory==null){
+            this.overDraftHistory=emp;
+        }
+        else {
+            this.overDraftHistory=overDraftHistory;
+        }
 
 
     }
@@ -108,11 +116,12 @@ public class Checking extends MoneyAccounts {
         else{
             if(!monthlyTrans) {
                 transactionwithdrawl(x+0.50, y, 20);
+                overDraftHistory.add(getTodaysDate()+":: 0.50");
 
             }
             else{
                 transactionwithdrawl(x+0.75, y, 20);
-
+                overDraftHistory.add(getTodaysDate()+":: 0.75");
             }
         }
     }
@@ -176,6 +185,7 @@ public class Checking extends MoneyAccounts {
         }else{
             balancef=balancef+x;
             transactionwithdrawl(0.50,y,20);
+            overDraftHistory.add(getTodaysDate()+":: 0.50");
         }
     }
 

@@ -13,18 +13,25 @@ public abstract class DebtAccounts extends Accounts{
     protected char missedPaymentFlag;
     protected String lastPaymentDate;
     protected double fees;
+
+    //this wont be in the database
+    protected double feeAmt;
     //date, amt
     protected HashMap<String, Double> missedPayment;
-    //payment history key is (date+balence+dueOfPaid)(balence is in key to keep unique key) the other hash part is just
+    //payment history key is (date+balence+dueOfPaid),currentpaymentdue the other hash part is just
     // balence, sperated like date::balence::dateofPaid
     protected HashMap<String, Double> paymentHistory;
+
+    //formatted like Date::AMT
+    protected ArrayList<String> extraPayMentHistory;
 
 
     public DebtAccounts(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
                         String notifyDate, double currentPaymentDue, char missedPaymentflag,
                         String lastPaymentDate, double fees , HashMap<String, Double> missedPayment,
-                        HashMap<String, Double> paymentHistory){
+                        HashMap<String, Double> paymentHistory,ArrayList<String> extraPayMentHistory,double feeAMt ){
         super(ID, cusID, balance);
+        this.feeAmt=feeAMt;
         this.interestRate=interestRate;
         this.datePaymentDue=datePaymentDue;
         this.notifyDate=notifyDate;
@@ -48,7 +55,15 @@ public abstract class DebtAccounts extends Accounts{
             this.paymentHistory=paymentHistory;
         }
 
+        ArrayList<String> empty2=new ArrayList<>();
 
+        if(extraPayMentHistory==null){
+            this.extraPayMentHistory=empty2;
+
+        }
+        else{
+            this.extraPayMentHistory=extraPayMentHistory;
+        }
 
     }
 
@@ -56,10 +71,40 @@ public abstract class DebtAccounts extends Accounts{
 
 
 
+    //will do this months payment
+    //false means not payed,or over due
+    public boolean makePayment(){
+        if(paymentDue()){
+            //either its paid or overdue
+            return false;
+        }
+        else{
+            balancef=-currentPaymentDue;
 
-    public void makePayment(){
+            Date today = getTodayDateAsDate();
+            SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+            String month=simpleDateformat.format(today);
+            simpleDateformat= new SimpleDateFormat("yyyy");
+            String year= simpleDateformat.format(today);
+
+            String dueformat= month+"-"+datePaymentDue+"-"+year;
+            Date dateDue= convertStringToDate(dueformat);
+
+            paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+dateDue,currentPaymentDue);
+
+
+            return true;
+        }
+
+
 
     }
+    //wont count toward any month
+    public void makeExtaPayment(double x){
+        balancef=-x;
+        extraPayMentHistory.add(getTodaysDate() +"::"+x);
+    }
+
     //returns double of amount to be paid
     public double payMissed(){
         //need to find the oldest missed payment and set that payment
@@ -70,7 +115,7 @@ public abstract class DebtAccounts extends Accounts{
 
         if(missedPayment.size()==1){
              for (String x: missedPayment.keySet()){
-                 paymentHistory.put(getTodaysDate()+"::"+missedPayment.get(x)+"::"+x,missedPayment.get(x));
+                 paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+x,missedPayment.get(x));
                  old=x;
              }
              amtDue=missedPayment.get(old);
@@ -94,7 +139,7 @@ public abstract class DebtAccounts extends Accounts{
                 i++;
             }
 
-            paymentHistory.put(getTodaysDate()+"::"+missedPayment.get(old)+"::"+old,missedPayment.get(old));
+            paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+old,missedPayment.get(old));
             amtDue=missedPayment.get(old);
             missedPayment.remove(old);
             return amtDue;
@@ -161,7 +206,10 @@ public abstract class DebtAccounts extends Accounts{
                 }
                 //payment is missed
                 if (flag2==0) {
+                    fees+=feeAmt;
                     missedPayment.put(convertDateToString(dateDue), currentPaymentDue);
+                    //this months payment is now a missed payment so its not due, its overdue
+                    return false;
                 }
 
 

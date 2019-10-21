@@ -15,10 +15,10 @@ public class LongTermLoan extends DebtAccounts {
     public LongTermLoan(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
                         String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
                         char yearType,double fees, HashMap<String, Double> missedPayment,
-                        HashMap<String, Double> paymentHistory  ){
+                        HashMap<String, Double> paymentHistory ,ArrayList<String> extraPayMentHistory ){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate,fees,missedPayment,paymentHistory);
+                lastPaymentDate,fees,missedPayment,paymentHistory,extraPayMentHistory,75);
         this.yearType=yearType;
 
 

@@ -18,7 +18,7 @@ public class GeneralTests {
     @Test
     public void parseDoubleT1() {
 
-        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",null, null,null,null,"",null);
         double x= c1.parseDouble(3.028,0);
 
 
@@ -29,7 +29,7 @@ public class GeneralTests {
     @Test
     public void parseDoubleT2() {
 
-        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",null, null,null,null,"");
+        Checking c1 = new Checking("123","000000000",1000.00,"10-10-2010",1,"321","555",null, null,null,null,"",null);
         double x= c1.parseDouble(3.028,1);
 
 
