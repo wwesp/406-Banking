@@ -30,7 +30,7 @@ public class Main {
         String jsontest= a.getJSON().toString();
         JSONObject obj = (JSONObject) new JSONTokener(jsontest).nextValue();
         System.out.println("parsieboi:  "+  obj);
-
+// up
 
         System.out.println("Get test "+  obj.get("zip"));
 
