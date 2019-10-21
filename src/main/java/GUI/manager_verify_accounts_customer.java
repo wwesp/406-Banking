@@ -1,15 +1,20 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.People.Customer;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class manager_verify_accounts_customer extends JFrame{
     private JPanel manager_verify_accounts_customer;
-    private JTextField textField1;
     private JButton accept_button;
     private JButton back_button;
+    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
         new manager_verify_accounts_customer();
@@ -33,9 +38,25 @@ public class manager_verify_accounts_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                manager_view_accounts manager_view_accounts = new manager_view_accounts();
-                manager_view_accounts.setVisible(true);
+                Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer1 != null) {
+                    frame.dispose();
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer1.getSsn());
+                    manager_view_accounts.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer1 != null) {
+                    frame.dispose();
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer1.getSsn());
+                    manager_view_accounts.setVisible(true);
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
     }

@@ -51,8 +51,8 @@ public class teller_verify_accounts_customer extends JFrame{
         passwordField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<RegSavings> saveings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
-                if (saveings != null){
+                ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
+                if (savings != null){
                     frame.dispose();
                     teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
                     teller_view_accounts.setVisible(true);

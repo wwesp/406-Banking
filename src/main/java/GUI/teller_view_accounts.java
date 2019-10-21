@@ -1,6 +1,8 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.People.Customer;
 import persistence.GetData.GetData;
 
 import javax.swing.*;
@@ -14,6 +16,9 @@ public class teller_view_accounts extends JFrame{
     private JButton back_button;
     private JPanel teller_view_accounts;
     private JTable checking_table;
+    private JLabel last_name_label;
+    private JLabel first_name_label;
+    private JButton account_history_button;
 
     public static void main(String[] args) {
         new teller_view_accounts(null);
@@ -30,19 +35,21 @@ public class teller_view_accounts extends JFrame{
         //for(RegSavings x: savings){
         //    var y= x.getBalancef();
         //}
+        Customer customer1 = new GetData().getCustomerBySSN(customer);
+        last_name_label.setText(customer1.getlName());
+        first_name_label.setText(customer1.getfName());
 
-        /*
+        ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
         checking_table.setModel(new javax.swing.table.DefaultTableModel(
 
                 new Object [][] {
-                        {savings.get(0).getBalancef(), savings.get(0).getOpenDate(), savings.get(0).getInterestRate(),
-                                savings.get(0).getLastDayInterestCompounded()}
+                        {checking.get(0).getBalancef(), checking.get(0).getOpenDate(), checking.get(0).getAcceptedChecks(),
+                                checking.get(0).getPendingChecks(), checking.get(0).getDeniedChecks()}
                 },
                 new String [] {
-                        "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"
+                        "Balance", "Open Date", "Accepted Checks", "Pending Checks", "Denied Checks"
                 }
         ));
-        */
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
         savings_table.setModel(new javax.swing.table.DefaultTableModel(
