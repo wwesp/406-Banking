@@ -143,6 +143,11 @@ public class GetData {
                 returnable.add(y);
             }
         }
+        if(returnable.isEmpty()){
+            return null;
+        }
+
+
         return returnable;
 
     }
@@ -178,6 +183,10 @@ public class GetData {
             if (y.getCusID().equals(CustomerSSN)){
                 returnable.add(y);
             }
+        }
+
+        if(returnable.isEmpty()){
+            return null;
         }
         return returnable;
     }
@@ -218,6 +227,10 @@ public class GetData {
             if (y.getCusID().equals(CustomerSSN)){
                 returnable.add(y);
             }
+        }
+
+        if(returnable.isEmpty()){
+            return null;
         }
         return returnable;
 
@@ -263,6 +276,10 @@ public class GetData {
             if (y.getAtmCard().equals(card)){
                 returnable.add(y);
             }
+        }
+
+        if(returnable.isEmpty()){
+            return null;
         }
         return returnable;
 

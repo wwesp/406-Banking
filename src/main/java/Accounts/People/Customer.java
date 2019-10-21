@@ -1,5 +1,8 @@
 package Accounts.People;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Customer extends People {
     String address;
     String city;
@@ -41,4 +44,20 @@ public class Customer extends People {
     public String getAtmCard() {
         return atmCard;
     }
+
+    public JSONObject getJSON(){
+        JSONObject obj = new JSONObject();
+
+        try{
+            obj.put("address",address);
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
+
+
+
 }

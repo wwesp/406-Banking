@@ -20,19 +20,12 @@ public class LongTermLoan extends DebtAccounts {
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
                 lastPaymentDate,fees,missedPayment,paymentHistory,extraPayMentHistory,75);
         this.yearType=yearType;
-
-
-
-
     }
 
     private void developPaymentPlan(){
         //payment plans are dynamic due to extra payments possible
 
-
     }
-
-
 
 
 
