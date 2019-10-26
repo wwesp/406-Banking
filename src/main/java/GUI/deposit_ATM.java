@@ -28,7 +28,7 @@ public class deposit_ATM extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                ATM_home ATM_page = new ATM_home();
+                ATM_home ATM_page = new ATM_home(null);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
