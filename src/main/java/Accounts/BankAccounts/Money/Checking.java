@@ -151,17 +151,18 @@ public class Checking extends MoneyAccounts {
         //look for backup
         RegSavings savingsAcc = null;
 
+        if(y!=null) {
 
 
 
-        for(RegSavings savin: y){
+            for (RegSavings savin : y) {
 
-            if (savin.getID().equals(backupAcc)){
-                savingsAcc=savin;
-                break;
+                if (savin.getID().equals(backupAcc)) {
+                    savingsAcc = savin;
+                    break;
+                }
             }
         }
-
 
         //payment
 
