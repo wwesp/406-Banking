@@ -1,6 +1,7 @@
 package Accounts.BankAccounts.Money;
 
 import Accounts.BankAccounts.Accounts;
+import SystemHelper.SystemHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,14 +33,11 @@ abstract class  MoneyAccounts extends Accounts {
     }
 
     protected void addBalence(double x){
-        balancef=balancef+x;
+        balancef=new SystemHelper().perciseAddition(balancef,x);;
     }
 
     protected void subBalence(double x){
-        System.out.println(x+"   "+balancef);
-
-        balancef=balancef-x;
-        System.out.println("new"+ balancef);
+        balancef=new SystemHelper().perciseSubtract(balancef,x);
     }
 
     protected void dailyInterest(){

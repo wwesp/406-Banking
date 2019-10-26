@@ -19,9 +19,9 @@ public class CheckingWithdrawlATMTesting {
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
-        c1.authorizeWithdrawlATM(1, x, false);
-        c1.authorizeWithdrawlATM(1, x, false);
-        boolean checker= c1.authorizeWithdrawlATM(1, x, false);
+        c1.authorizeWithdrawlATM(1, x);
+        c1.authorizeWithdrawlATM(1, x);
+        boolean checker= c1.authorizeWithdrawlATM(1, x);
 
 
         assertEquals(checker,false);
@@ -37,8 +37,8 @@ public class CheckingWithdrawlATMTesting {
 
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
-        c1.authorizeWithdrawlATM(1, x, false);
-        boolean checker= c1.authorizeWithdrawlATM(1, x, false);
+        c1.authorizeWithdrawlATM(1, x);
+        boolean checker= c1.authorizeWithdrawlATM(1, x);
 
 
         assertEquals(checker,true);
@@ -82,7 +82,7 @@ public class CheckingWithdrawlATMTesting {
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x, false);
+        c1.authorizeWithdrawlATM(1,x);
 
         int size=c1.getAtmHistory().size();
 
@@ -99,8 +99,8 @@ public class CheckingWithdrawlATMTesting {
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x, false);
-        c1.authorizeWithdrawlATM(1,x, false);
+        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x);
 
         int size=c1.getAtmHistory().size();
 
@@ -118,9 +118,9 @@ public class CheckingWithdrawlATMTesting {
         ArrayList<RegSavings> x = new ArrayList<>();
         x.add(rs1);
 
-        c1.authorizeWithdrawlATM(1,x,false);
-        c1.authorizeWithdrawlATM(1,x,false);
-        c1.authorizeWithdrawlATM(1,x,false);
+        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x);
+        c1.authorizeWithdrawlATM(1,x);
 
         int size=c1.getAtmHistory().size();
 

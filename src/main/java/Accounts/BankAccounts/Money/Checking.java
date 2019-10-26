@@ -1,5 +1,6 @@
 package Accounts.BankAccounts.Money;
 
+import SystemHelper.SystemHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 import persistence.GetData.GetData;
@@ -204,9 +205,9 @@ public class Checking extends MoneyAccounts {
 
     public void addBalence(double x,ArrayList<RegSavings> y){
         if(accType==1){
-            balancef=balancef+x;
+            balancef=new SystemHelper().perciseAddition(balancef,x);
         }else{
-            balancef=balancef+x;
+            balancef=new SystemHelper().perciseAddition(balancef,x);
             transactionwithdrawl(0.50,y,20);
             overDraftHistory.add(getTodaysDate()+":: 0.50");
         }
