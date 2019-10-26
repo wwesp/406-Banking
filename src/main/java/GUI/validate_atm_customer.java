@@ -6,10 +6,7 @@ import persistence.GetData.GetData;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.util.Arrays;
 
 public class validate_atm_customer extends JFrame {
@@ -27,7 +24,7 @@ public class validate_atm_customer extends JFrame {
         JFrame frame = new JFrame("Enter Card Number");
         frame.setContentPane(validate_atm_customer);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
@@ -37,9 +34,9 @@ public class validate_atm_customer extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     ATM_home ATM_home = new ATM_home();
-                    ATM_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
@@ -47,9 +44,9 @@ public class validate_atm_customer extends JFrame {
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 home_page home_page = new home_page();
-                home_page.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         passwordField1.addActionListener(new ActionListener() {
@@ -57,9 +54,9 @@ public class validate_atm_customer extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     ATM_home ATM_home = new ATM_home();
-                    ATM_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }

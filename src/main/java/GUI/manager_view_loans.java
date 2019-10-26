@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class manager_view_loans extends JFrame{
     private JPanel manager_view_loans;
@@ -21,40 +22,40 @@ public class manager_view_loans extends JFrame{
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_view_loans);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_home manager_home = new manager_home();
-                manager_home.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         credit_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_loan_credit manager_loan_credit = new manager_loan_credit();
-                manager_loan_credit.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         short_term_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_loan_short_term manager_loan_short_term = new manager_loan_short_term();
-                manager_loan_short_term.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         long_term_loan_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_loan_long_term manager_loan_long_term = new manager_loan_long_term();
-                manager_loan_long_term.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class manager_verify_terminate_customer extends JFrame{
     private JPanel manager_verify_terminate_customer;
@@ -19,24 +20,24 @@ public class manager_verify_terminate_customer extends JFrame{
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_verify_terminate_customer);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_home manager_home = new manager_home();
-                manager_home.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_terminate_account manager_terminate_account = new manager_terminate_account();
-                manager_terminate_account.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

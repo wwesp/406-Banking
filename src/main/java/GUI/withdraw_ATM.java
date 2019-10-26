@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class withdraw_ATM extends JFrame {
     private JPanel withdraw_ATM;
@@ -19,16 +20,16 @@ public class withdraw_ATM extends JFrame {
         JFrame frame = new JFrame("Deposit");
         frame.setContentPane(withdraw_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 ATM_home ATM_page = new ATM_home();
-                ATM_page.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

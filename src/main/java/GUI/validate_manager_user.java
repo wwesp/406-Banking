@@ -2,10 +2,7 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
 import Accounts.BankAccounts.Accounts;
 import Accounts.People.Managment;
@@ -26,16 +23,16 @@ public class validate_manager_user extends JFrame{
         JFrame frame = new JFrame("Create Savings Account");
         frame.setContentPane(validate_manager_user);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 home_page home_page = new home_page();
-                home_page.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         accept_button.addActionListener(new ActionListener() {
@@ -43,9 +40,9 @@ public class validate_manager_user extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Managment managers = new GetData().getManager(String.copyValueOf(passwordField1.getPassword()));
                 if (managers != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_home manager_home = new manager_home();
-                    manager_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
@@ -55,9 +52,9 @@ public class validate_manager_user extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Managment managers = new GetData().getManager(String.copyValueOf(passwordField1.getPassword()));
                 if (managers != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_home manager_home = new manager_home();
-                    manager_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }

@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class manager_verify_accounts_customer extends JFrame{
@@ -24,15 +25,15 @@ public class manager_verify_accounts_customer extends JFrame{
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_verify_accounts_customer);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_home manager_home = new manager_home();
-                manager_home.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         accept_button.addActionListener(new ActionListener() {
@@ -40,9 +41,9 @@ public class manager_verify_accounts_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer1 != null) {
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_view_accounts manager_view_accounts = new manager_view_accounts(customer1.getSsn());
-                    manager_view_accounts.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
@@ -52,9 +53,9 @@ public class manager_verify_accounts_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer1 != null) {
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_view_accounts manager_view_accounts = new manager_view_accounts(customer1.getSsn());
-                    manager_view_accounts.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }

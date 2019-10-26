@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class teller_verify_accounts_customer extends JFrame{
@@ -24,16 +25,16 @@ public class teller_verify_accounts_customer extends JFrame{
         JFrame frame = new JFrame("Teller");
         frame.setContentPane(teller_verify_accounts_customer);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 teller_home teller_home = new teller_home();
-                teller_home.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         accept_button.addActionListener(new ActionListener() {
@@ -41,9 +42,9 @@ public class teller_verify_accounts_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 ArrayList<RegSavings> saveings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
                 if (saveings != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
-                    teller_view_accounts.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
@@ -53,9 +54,9 @@ public class teller_verify_accounts_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
                 if (savings != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
-                    teller_view_accounts.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class create_checking_page extends JPanel{
 
@@ -32,7 +33,7 @@ public class create_checking_page extends JPanel{
         JFrame frame = new JFrame("Create Checking");
         frame.setContentPane(CreateCheckingPage);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
@@ -65,25 +66,21 @@ public class create_checking_page extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (x == 1){
-                    frame.dispose();
+                    frame.setVisible(false);
                     ATM_home ATM_page = new ATM_home();
-                    ATM_page.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 if (x == 2){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_home teller_page = new teller_home();
-                    teller_page.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 if (x == 3){
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_home manager_page = new manager_home();
-                    manager_page.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
             }
         });
     }
 }
-
-
-
-

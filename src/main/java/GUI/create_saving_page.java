@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class create_saving_page extends JFrame{
     private JPanel create_saving_page;
@@ -24,7 +25,7 @@ public class create_saving_page extends JFrame{
         JFrame frame = new JFrame("Create Savings Account");
         frame.setContentPane(create_saving_page);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
@@ -32,14 +33,13 @@ public class create_saving_page extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (x == 1){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_home teller_home = new teller_home();
-                    teller_home.setVisible(true);
-                }
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));                }
                 if (x == 2){
-                    frame.dispose();
+                    frame.setVisible(false);
                     manager_home manager_home = new manager_home();
-                    manager_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
             }
         });

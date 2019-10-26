@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class manager_account_history extends JFrame{
     private JPanel manager_account_history;
-    private JTable table1;
     private JButton back_button;
+    private JTable table1;
 
     public static void main(String[] args) {
         new manager_account_history(null);
@@ -18,16 +19,16 @@ public class manager_account_history extends JFrame{
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_account_history);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
-                manager_view_accounts.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

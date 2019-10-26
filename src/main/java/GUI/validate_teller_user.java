@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class validate_teller_user extends JFrame{
     private JPanel validate_teller_user;
@@ -22,16 +23,16 @@ public class validate_teller_user extends JFrame{
         JFrame frame = new JFrame("Teller");
         frame.setContentPane(validate_teller_user);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+                frame.setVisible(false);
                 home_page home_page = new home_page();
-                home_page.setVisible(true);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         accept_button.addActionListener(new ActionListener() {
@@ -39,9 +40,9 @@ public class validate_teller_user extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Teller teller = new GetData().getTeller(String.copyValueOf(passwordField1.getPassword()));
                 if (teller != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_home teller_home = new teller_home();
-                    teller_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
@@ -51,9 +52,9 @@ public class validate_teller_user extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Teller teller = new GetData().getTeller(String.copyValueOf(passwordField1.getPassword()));
                 if (teller != null){
-                    frame.dispose();
+                    frame.setVisible(false);
                     teller_home teller_home = new teller_home();
-                    teller_home.setVisible(true);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
