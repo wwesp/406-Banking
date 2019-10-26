@@ -54,7 +54,7 @@ public class GetData {
     }
 
     public Customer getCustomerByATM(String ATMNum){
-        Customer a=new Customer("423-45-3245","Ronald", "Jones", "114 North 4th", "Clarkesdale","MO", "64493","2899653222933497" );
+        Customer a=new Customer("423-45-3245","Ronald", "Jones", "114 North 4th", "Clarkesdale","MO", "64493","2899653222933497");
         Customer b=new Customer("345-65-3425","Mark","Ingrem","1805 Jules","St. Joseph","MO","64503","4387917994924947");
         Customer c=new Customer("423-14-8894","Sherry","Harrison","2109 Sylviana","St. Joesph","MO","64501","7915365294629613");
         Customer d=new Customer("677-87-9013","John","Morgeson","4305 West 3rd","Wathena","KS","54910","8343891648427859");
@@ -242,7 +242,7 @@ public class GetData {
         ArrayList<Checking> x = new ArrayList<>();
 
 
-        Checking a= new Checking("4","423-45-3245",6.23,"12-01-2002",0,"1","2899653222933490",null,null,null,null,null,null);
+        Checking a= new Checking("4","423-45-3245",6.23,"12-01-2002",0,"1","2899653222933497",null,null,null,null,null,null);
         Checking b= new Checking("7","345-65-3425",52.9,"01-28-2003",0,"2","4387917994924947",null,null,null,null,null,null);
         Checking c= new Checking("2","423-14-8894",2200.11,"11-05-2000",1,"3","7915365294629613",null,null,null,null,null,null);
         Checking d= new Checking("8","677-87-9013",1378.2,"07-08-2008",1,"4","8343891648427859",null,null,null,null,null,null);

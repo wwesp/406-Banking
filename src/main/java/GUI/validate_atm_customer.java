@@ -35,7 +35,7 @@ public class validate_atm_customer extends JFrame {
                 Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null){
                     frame.setVisible(false);
-                    ATM_home ATM_home = new ATM_home();
+                    ATM_home ATM_home = new ATM_home(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
@@ -55,7 +55,7 @@ public class validate_atm_customer extends JFrame {
                 Customer customer = new GetData().getCustomerByATM(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null){
                     frame.setVisible(false);
-                    ATM_home ATM_home = new ATM_home();
+                    ATM_home ATM_home = new ATM_home(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else JOptionPane.showMessageDialog(null, "Invalid Username");
