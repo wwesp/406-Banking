@@ -115,13 +115,13 @@ public class Checking extends MoneyAccounts {
         atmHistory=newAtmHistory;
     }
 
-    public boolean authorizeWithdrawlATM(double x, ArrayList<RegSavings> y,boolean monthlyTrans ){
+    public boolean authorizeWithdrawlATM(double x, ArrayList<RegSavings> y ){
         atmHistoryUpdate();
         if(atmHistory.size()>=2){
             return false;
         }
 
-        authorizeWithdrawl(x,y, monthlyTrans);
+        authorizeWithdrawl(x,y, false);
         atmHistory.add(getTodaysDate());
         return true;
     }

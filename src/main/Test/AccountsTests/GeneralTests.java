@@ -36,4 +36,16 @@ public class GeneralTests {
         assertEquals(3.03,x,0.001);
 
     }
+    @Test
+    public void guites() {
+
+        Checking a= new Checking("4","423-45-3245",6.23,"12-01-2002",1,"1","2899653222933490",null,null,null,null,null,null);
+
+        a.addBalence(30,new ArrayList<>());
+        System.out.println(a.getBalancef());
+        assertEquals(0,0);
+
+    }
+
+
 }
