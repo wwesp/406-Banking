@@ -2,6 +2,7 @@ package Accounts.BankAccounts.Money;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import persistence.GetData.GetData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import static java.lang.Math.abs;
 
 public class Checking extends MoneyAccounts {
+    public GetData getboi;
     private String atmCard;
     private ArrayList<String> atmHistory;
     //acctype gold=1, tmb = 0

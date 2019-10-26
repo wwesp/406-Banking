@@ -6,9 +6,7 @@ import persistence.GetData.GetData;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ATM_home extends JFrame {
@@ -19,6 +17,7 @@ public class ATM_home extends JFrame {
     private JTable checking_table;
     private JLabel last_name_label;
     private JLabel first_name_label;
+    private String balance;
 
     public static void main(String[] args) {
         new ATM_home(null);
@@ -58,9 +57,14 @@ public class ATM_home extends JFrame {
         deposit_account_2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                deposit_ATM deposit_page = new deposit_ATM();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (balance != null) {
+                    frame.setVisible(false);
+                    deposit_ATM deposit_page = new deposit_ATM(customer, balance);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Account");
+                }
             }
         });
         back_button.addActionListener(new ActionListener() {
@@ -69,6 +73,14 @@ public class ATM_home extends JFrame {
                 frame.setVisible(false);
                 home_page home_page = new home_page();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        checking_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = checking_table.getSelectedRow();
+                balance = checking_table.getModel().getValueAt(row,0).toString();
+                System.out.println(balance);
             }
         });
     }
