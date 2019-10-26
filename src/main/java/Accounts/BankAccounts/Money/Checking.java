@@ -54,33 +54,31 @@ public class Checking extends MoneyAccounts {
         this.backupAcc = backupAcc;
         this.atmCard=atmCard;
 
-        ArrayList<String> emp = new ArrayList<>();
         if(atmHistory==null){
-            this.atmHistory=emp;
+            this.atmHistory=new ArrayList<String>();
         }
         else{
             this.atmHistory=atmHistory;
         }
-        HashMap<String,Double> empty= new HashMap<>();
         if(pendingChecks==null){
-            this.pendingChecks=empty;
+            this.pendingChecks=new HashMap<String,Double>();
         }else{
             this.pendingChecks=pendingChecks;
         }
-        HashMap<String,String> empty2= new HashMap<>();
+
         if(acceptedChecks==null){
-            this.acceptedChecks=empty2;
+            this.acceptedChecks=new HashMap<String,String>();
         }else{
             this.acceptedChecks=acceptedChecks;
         }
         if(deniedChecks==null){
-            this.deniedChecks=empty2;
+            this.deniedChecks=new HashMap<String,String>();
         }else{
             this.deniedChecks=deniedChecks;
         }
 
         if(overDraftHistory==null){
-            this.overDraftHistory=emp;
+            this.overDraftHistory=new ArrayList<String>();
         }
         else {
             this.overDraftHistory=overDraftHistory;

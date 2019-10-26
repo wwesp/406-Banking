@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
 
-    public CreditCard(String ID, String cusID, double balance, String interestRate, String datePaymentDue,
+    public CreditCard(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
                       String lastPaymentDate, double fees , HashMap<String, Double> missedPayment,
                       HashMap<String, Double> paymentHistory, ArrayList<String> extraPayMentHistory){

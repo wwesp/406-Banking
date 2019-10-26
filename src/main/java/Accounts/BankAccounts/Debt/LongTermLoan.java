@@ -3,7 +3,9 @@ package Accounts.BankAccounts.Debt;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class LongTermLoan extends DebtAccounts {
@@ -11,7 +13,7 @@ public class LongTermLoan extends DebtAccounts {
 
     char yearType;
 
-    public LongTermLoan(String ID, String cusID, double balance,String interestRate, String datePaymentDue,
+    public LongTermLoan(String ID, String cusID, double balance,double interestRate, String datePaymentDue,
                         String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
                         char yearType,double fees, HashMap<String, Double> missedPayment,
                         HashMap<String, Double> paymentHistory ,ArrayList<String> extraPayMentHistory ){
@@ -22,7 +24,7 @@ public class LongTermLoan extends DebtAccounts {
     }
 
     private void developPaymentPlan(){
-        //payment plans are dynamic due to extra payments possible
+        //TODO:payment plans are dynamic due to extra payments possible
     }
 
     /*
@@ -57,4 +59,226 @@ public class LongTermLoan extends DebtAccounts {
         }
         return obj;
     }
+
+
+
+    //will do this months payment
+    //false means not payed,or over due
+    public boolean makePayment(){
+        if(!paymentDue()){
+            //either its paid or overdue
+            return false;
+        }
+        else{
+            balancef=-currentPaymentDue;
+
+            Date today = getTodayDateAsDate();
+            SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+            String month=simpleDateformat.format(today);
+            simpleDateformat= new SimpleDateFormat("yyyy");
+            String year= simpleDateformat.format(today);
+
+            String dueformat= month+"-"+datePaymentDue+"-"+year;
+            Date dateDue= convertStringToDate(dueformat);
+
+            paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+convertDateToString(dateDue),currentPaymentDue);
+
+
+            return true;
+        }
+
+
+
+    }
+    //wont count toward any month
+    public void makeExtaPayment(double x){
+        balancef=balancef-x;
+        extraPayMentHistory.add(getTodaysDate() +"::"+x);
+    }
+
+    //returns double of amount to be paid
+    public double payMissed(){
+        //need to find the oldest missed payment and set that payment
+        String old="";
+        Date oldest= new Date();
+        Date current= new Date();
+        double amtDue=0;
+
+        if(missedPayment.size()==1){
+            for (String x: missedPayment.keySet()){
+                paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+x,missedPayment.get(x));
+                old=x;
+            }
+            amtDue=missedPayment.get(old);
+            missedPayment.remove(old);
+            return amtDue;
+
+        }else {
+            int i = 0;
+            for (String x : missedPayment.keySet()) {
+                current = convertStringToDate(x);
+                if (i == 0) {
+                    old = x;
+                    oldest = current;
+                }
+
+                if (current.before(oldest)) {
+                    oldest = current;
+                    old = x;
+                }
+
+                i++;
+            }
+
+            paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+old,missedPayment.get(old));
+            amtDue=missedPayment.get(old);
+            missedPayment.remove(old);
+            return amtDue;
+
+        }
+
+
+
+
+    }
+
+
+
+    //returns amt negative means if he had 50 in fee and gave us 100 we would give him back 50. so -50 we give back,
+    //50 would be that he still owes 50 in fees
+    public double payMissedFees(double x){
+        fees=-x;
+
+        if(fees<0){
+            double temp=fees;
+            fees=0;
+            return temp;
+        }
+        else{
+            //x amount you still owe
+            return fees;
+        }
+    }
+
+    //sees if a payment is due for an account, if it is true, if it isnt false, if overdue false
+    public boolean paymentDue(){
+        Date today = getTodayDateAsDate();
+        SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+        String month=simpleDateformat.format(today);
+        simpleDateformat= new SimpleDateFormat("yyyy");
+        String year= simpleDateformat.format(today);
+
+        String dueformat= month+"-"+datePaymentDue+"-"+year;
+        Date dateDue= convertStringToDate(dueformat);
+
+        //start of the month
+        String startform= month+"-"+1+"-"+year;
+        Date start= convertStringToDate(startform);
+
+
+
+        if(today.before(dateDue)){
+            for (String x: paymentHistory.keySet()){
+                String[] y= x.split("::",3);
+                String temp=y[2];
+                Date paid= convertStringToDate(temp);
+
+                if(paid.after(today)){
+                    //means it has been paid for the month since its paid after today
+                    return false;
+                }
+
+            }
+            return true;
+        }
+        else{
+            //look though history
+
+            for (String x: paymentHistory.keySet()){
+
+                String[] y= x.split("::",3);
+                String temp=y[2];
+
+                Date paid= convertStringToDate(temp);
+                if(paid.after(start)){
+                    //return before the missed payment part
+                    return false;
+                }
+
+            }
+
+            //look through over due
+            //if not add to overdue
+            int flag=0;
+            for (String x: missedPayment.keySet()){
+
+                Date miss= convertStringToDate(x);
+
+                if(miss.equals(dateDue)){
+                    flag=1;
+                }
+            }
+            if(flag==0){
+                fees+=feeAmt;
+
+                missedPayment.put(convertDateToString(dateDue), currentPaymentDue);
+
+            }
+
+            return false;
+
+
+
+
+        }
+
+
+
+
+
+    }
+
+    public boolean isNotiifyDate(){
+        Date today = getTodayDateAsDate();
+        SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+        String month=simpleDateformat.format(today);
+        simpleDateformat= new SimpleDateFormat("yyyy");
+        String year= simpleDateformat.format(today);
+        String notformat= month+"-"+notifyDate+"-"+year;
+        String dueformat= month+"-"+datePaymentDue+"-"+year;
+
+        Date notDate= convertStringToDate(notformat);
+        Date dateDue= convertStringToDate(dueformat);
+
+
+
+        //flag
+        int flag= 0;
+
+        if (today.after(notDate)&&today.before(dateDue)){
+            //now see if its been paid
+            for (String x: paymentHistory.keySet()){
+                String[] y= x.split("::",3);
+                String temp=y[2];
+                Date paid= convertStringToDate(temp);
+                if(paid.after(today)){
+                    flag=1;
+                }
+
+            }
+
+            if(flag==0){
+                return true;
+            }
+
+
+        }
+
+
+        return false;
+    }
+
+
+
+
 }

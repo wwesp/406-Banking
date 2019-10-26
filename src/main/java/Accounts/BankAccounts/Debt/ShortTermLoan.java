@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class ShortTermLoan extends LongTermLoan {
 
-    public ShortTermLoan(String ID, String cusID, double balance, String interestRate, String datePaymentDue,
+    public ShortTermLoan(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                          String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
                          char yearType, double fees, HashMap<String, Double> missedPayment,
                          HashMap<String, Double> paymentHistory , ArrayList<String> extraPayMentHistory ){
