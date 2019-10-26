@@ -3,7 +3,7 @@ package System;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class System {
+public class SystemHelper {
 
     public double truncOrRound(double x, int roundType){
         DecimalFormat df = new DecimalFormat("#.##");
