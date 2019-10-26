@@ -23,10 +23,10 @@ public class deposit_ATM extends JFrame {
     private double deposit_ammount;
 
     public static void main(String[] args) {
-        new deposit_ATM(null, null);
+        new deposit_ATM(null, null, null);
     }
 
-    public deposit_ATM(String customer, String balance) {
+    public deposit_ATM(String customer, String ID, String SSN) {
         JFrame frame = new JFrame("Deposit");
         frame.setContentPane(deposit_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -34,7 +34,7 @@ public class deposit_ATM extends JFrame {
         frame.pack();
         frame.setVisible(true);
 
-        ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
+        ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
 
         back_button.addActionListener(new ActionListener() {
             @Override
@@ -55,7 +55,7 @@ public class deposit_ATM extends JFrame {
                 }
 
                 for (Checking j:che){
-                    if (j.getID().equals(balance)){
+                    if (j.getID().equals(ID)){
                         System.out.println(deposit_ammount+"        "+ savings);
                         j.addBalence(deposit_ammount, savings);
                         System.out.println(j.getBalancef());

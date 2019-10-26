@@ -17,7 +17,7 @@ public class ATM_home extends JFrame {
     private JTable checking_table;
     private JLabel last_name_label;
     private JLabel first_name_label;
-    private String balance;
+    private String ID;
 
     public static void main(String[] args) {
         new ATM_home(null);
@@ -34,6 +34,7 @@ public class ATM_home extends JFrame {
         Customer customer1 = new GetData().getCustomerByATM(customer);
         last_name_label.setText(customer1.getlName());
         first_name_label.setText(customer1.getfName());
+        String SSN = customer1.getSsn();
 
         ArrayList<Checking> checking = new GetData().getCheckingByATMCard(customer);
         checking_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -49,17 +50,22 @@ public class ATM_home extends JFrame {
         withdraw_account_2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                withdraw_ATM withdraw_page = new withdraw_ATM();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (ID != null) {
+                    frame.setVisible(false);
+                    withdraw_ATM withdraw_page = new withdraw_ATM(customer,ID, SSN);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Account");
+                }
             }
         });
         deposit_account_2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (balance != null) {
+                if (ID != null) {
                     frame.setVisible(false);
-                    deposit_ATM deposit_page = new deposit_ATM(customer, balance);
+                    deposit_ATM deposit_page = new deposit_ATM(customer, ID, SSN);
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
@@ -79,8 +85,8 @@ public class ATM_home extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row = checking_table.getSelectedRow();
-                balance = checking_table.getModel().getValueAt(row,0).toString();
-                System.out.println(balance);
+                ID = checking_table.getModel().getValueAt(row,0).toString();
+                System.out.println(ID);
             }
         });
     }
