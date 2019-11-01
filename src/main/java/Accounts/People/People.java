@@ -1,7 +1,6 @@
 package Accounts.People;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+
 
 abstract public class People {
     String ssn;
@@ -28,18 +27,6 @@ abstract public class People {
         return lName;
     }
 
-    public JSONObject getJSON(){
-        JSONObject obj = new JSONObject();
 
-        try{
-            obj.put("ssn",ssn);
-            obj.put("fName",fName);
-            obj.put("lName",lName);
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-        return obj;
-    }
 
 }

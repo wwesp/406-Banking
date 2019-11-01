@@ -18,15 +18,15 @@ abstract class  MoneyAccounts extends Accounts {
 
 
     protected void addBalence(double x){
-
+        System.out.println("Before :"+balancef);
         balancef=new SystemHelper().perciseAddition(balancef,x);
-
+        System.out.println("After :"+balancef);
     }
 
     protected void subBalence(double x){
-
+        System.out.println("Before :"+balancef);
         balancef=new SystemHelper().perciseSubtract(balancef,x);
-
+        System.out.println("After :"+balancef);
     }
 
     protected void dailyInterest(){

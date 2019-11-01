@@ -168,7 +168,7 @@ public class Checking extends MoneyAccounts {
 
                 if(savingsAcc.getBalancef()>=needForSavin){
                     balancef=0;
-                    savingsAcc.subBalence(x);
+                    savingsAcc.subBalence(needForSavin);
                 }
                 else{
                     //the savings account did not have enough so you have overdrawn

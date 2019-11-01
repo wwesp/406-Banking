@@ -7,7 +7,7 @@ import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.People.Customer;
 import Accounts.People.Managment;
 import Accounts.People.Teller;
-import org.json.*;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,12 +27,7 @@ public class Main {
         System.out.println(a.getfName());
         System.out.println(b.getfName());
 
-        String jsontest= a.getJSON().toString();
-        JSONObject obj = (JSONObject) new JSONTokener(jsontest).nextValue();
-        System.out.println("parsieboi:  "+  obj);
-// up
 
-        System.out.println("Get test "+  obj.get("zip"));
 
         /*
         *  String json = "{"
