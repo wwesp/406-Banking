@@ -67,7 +67,7 @@ public class GeneralTests {
         double f= 6.23;
         double a= 30;
         double ans= new SystemHelper().perciseAddition(f,a);
-        assertEquals(36.23,ans,0000000000000000001);
+        assertEquals(36.23,ans,01);
 
     }
 
