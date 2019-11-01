@@ -1,7 +1,6 @@
 package Accounts.BankAccounts.Money;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+
 
 public class RegSavings extends  Savings{
 

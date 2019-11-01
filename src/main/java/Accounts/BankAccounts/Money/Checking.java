@@ -1,8 +1,7 @@
 package Accounts.BankAccounts.Money;
 
 import SystemHelper.SystemHelper;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import persistence.GetData.GetData;
 
 import java.text.SimpleDateFormat;
@@ -26,24 +25,7 @@ public class Checking extends MoneyAccounts {
     private HashMap<String, String> deniedChecks;
     private ArrayList<String> overDraftHistory;
 
-    public JSONObject getJSON(){
-        JSONObject obj = new JSONObject();
 
-        try{
-            obj.put("atmHistory",atmHistory);
-            obj.put("atmCard",atmCard);
-            obj.put("accType",accType);
-            obj.put("backupAcc",backupAcc);
-            obj.put("pendingChecks",pendingChecks);
-            obj.put("acceptedChecks",acceptedChecks);
-            obj.put("deniedChecks",deniedChecks);
-            obj.put("overDraftHistory",overDraftHistory);
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-        return obj;
-    }
 
 
     public Checking(String ID, String cusID, double balance, String openDate, int accType, String backupAcc,

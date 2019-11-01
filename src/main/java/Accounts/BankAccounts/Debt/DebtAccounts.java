@@ -1,8 +1,7 @@
 package Accounts.BankAccounts.Debt;
 
 import Accounts.BankAccounts.Accounts;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -69,28 +68,7 @@ public abstract class DebtAccounts extends Accounts{
 
     }
 
-    public JSONObject getJSON(){
-        JSONObject obj = new JSONObject();
 
-        try{
-            obj.put("ID",ID);
-            obj.put("cusID",cusID);
-            obj.put("balance",balancef);
-            obj.put("feeAmt",feeAmt);
-            obj.put("interestRate",interestRate);
-            obj.put("datePaymentDue",datePaymentDue);
-            obj.put("notifyDate",notifyDate);
-            obj.put("currentPaymentDue",currentPaymentDue);
-            obj.put("missedPaymentFlag",missedPaymentFlag);
-            obj.put("lastPaymentDate",lastPaymentDate);
-            obj.put("fees",fees);
-
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-        return obj;
-    }
 
     public double getInterestRate() {
         return interestRate;

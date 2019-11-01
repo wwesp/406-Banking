@@ -1,7 +1,5 @@
 package Accounts.BankAccounts;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -42,19 +40,6 @@ abstract public class Accounts {
 
 
 
-    public JSONObject getJSON(){
-        JSONObject obj = new JSONObject();
-
-        try{
-            obj.put("ID",ID);
-            obj.put("CusID", cusID);
-            obj.put("Balence", balancef );
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
-        return obj;
-    }
 
     //this is for any type of interest
     //round up roundType 1
