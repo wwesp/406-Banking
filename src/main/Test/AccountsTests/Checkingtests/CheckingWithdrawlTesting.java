@@ -101,8 +101,8 @@ public class CheckingWithdrawlTesting {
         x.add(rs1);
         c1.authorizeWithdrawl(7.34, x, true);
 
-
-        assertEquals(1.91,c1.getBalancef(),0.001);
+        //TODO:FIX
+       assertEquals(1.91,c1.getBalancef(),0.001);
 
     }
     @Test public void doubleTestingT2() {

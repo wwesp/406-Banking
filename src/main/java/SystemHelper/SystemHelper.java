@@ -24,7 +24,7 @@ public class SystemHelper {
     public double perciseSubtract(double value, double sub){
 
 
-        return truncOrRound(value+sub,1);
+        return truncOrRound(value-sub,1);
 
     }
     public double perciseAddition(double value, double sub){

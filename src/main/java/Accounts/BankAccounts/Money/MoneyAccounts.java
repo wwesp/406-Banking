@@ -39,9 +39,9 @@ abstract class  MoneyAccounts extends Accounts {
     }
 
     protected void subBalence(double x){
-        System.out.println(balancef);
+
         balancef=new SystemHelper().perciseSubtract(balancef,x);
-        System.out.println(balancef);
+
     }
 
     protected void dailyInterest(){

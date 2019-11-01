@@ -204,15 +204,16 @@ public class Checking extends MoneyAccounts {
 
 
     public void addBalence(double x,ArrayList<RegSavings> y){
-        System.out.println(balancef);
+
         if(accType==1){
             balancef=new SystemHelper().perciseAddition(balancef,x);
         }else{
-            System.out.println(x);
+
             balancef=new SystemHelper().perciseAddition(balancef,x);
-            System.out.println(balancef);
+
             transactionwithdrawl(0.50,y,20);
             overDraftHistory.add(getTodaysDate()+":: 0.50");
+            System.out.println(balancef);
         }
     }
 
