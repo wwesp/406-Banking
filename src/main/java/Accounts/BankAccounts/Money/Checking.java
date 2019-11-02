@@ -280,6 +280,9 @@ public class Checking extends MoneyAccounts {
         return deniedChecks;
     }
 
+
+
+
     /*
     two types of checking accounts. TMB and gold/diamond
 

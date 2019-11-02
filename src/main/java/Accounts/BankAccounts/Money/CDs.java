@@ -84,4 +84,11 @@ public class CDs extends Savings {
     public String getEndDate() {
         return endDate;
     }
+
+    @Override
+    public boolean moneyTransfer(MoneyAccounts y, double amt){
+        return false;
+    }
+
+
 }

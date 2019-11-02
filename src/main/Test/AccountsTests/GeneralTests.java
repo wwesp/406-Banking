@@ -71,4 +71,33 @@ public class GeneralTests {
 
     }
 
+    @Test
+    public void monTrans(){
+
+        Checking c1 = new Checking("123","000000000",50,"10-10-2010",0,"321",
+                "555",null,null,null,null,"",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 100, "10-10-2010",0.05,"");
+
+        c1.moneyTransfer(rs1,30);
+
+        assertEquals(80,c1.getBalancef(),01);
+
+
+    }
+
+    @Test
+    public void monTrans1(){
+
+        Checking c1 = new Checking("123","000000000",50,"10-10-2010",0,"321",
+                "555",null,null,null,null,"",null);
+        RegSavings rs1 = new RegSavings("321","000000000", 100, "10-10-2010",0.05,"");
+
+        c1.moneyTransfer(rs1,27.62);
+
+        assertEquals(77.62,c1.getBalancef(),01);
+
+
+    }
+
+
 }
