@@ -9,8 +9,11 @@ import java.util.HashMap;
 
 public class LongTermLoan extends DebtAccounts {
     ArrayList<String> PaymentPlan;
-
+    ArrayList<String> extraPayMentHistory;
     char yearType;
+    double feeAmt;
+    //date, amt
+    protected HashMap<String, Double> missedPayment;
 
     public LongTermLoan(String ID, String cusID, double balance,double interestRate, String datePaymentDue,
                         String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
@@ -18,8 +21,23 @@ public class LongTermLoan extends DebtAccounts {
                         HashMap<String, Double> paymentHistory ,ArrayList<String> extraPayMentHistory ){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate,fees,missedPayment,paymentHistory,extraPayMentHistory,75);
+                lastPaymentDate,fees,paymentHistory);
+        this.feeAmt=75;
         this.yearType=yearType;
+
+        if(extraPayMentHistory==null){
+            this.extraPayMentHistory=new ArrayList<>();
+
+        }
+        else{
+            this.extraPayMentHistory=extraPayMentHistory;
+        }
+
+        if (missedPayment == null) {
+            this.missedPayment = new HashMap<String, Double>();
+        } else {
+            this.missedPayment = missedPayment;
+        }
     }
 
     private void developPaymentPlan(){
@@ -254,6 +272,11 @@ public class LongTermLoan extends DebtAccounts {
     }
 
 
+
+
+    public HashMap<String, Double> getMissedPayment() {
+        return missedPayment;
+    }
 
 
 }

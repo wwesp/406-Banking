@@ -1,19 +1,107 @@
 package Accounts.BankAccounts.Debt;
 
+import SystemHelper.SystemHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
-
+    protected double creditLine;
     public CreditCard(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
-                      String lastPaymentDate, double fees , HashMap<String, Double> missedPayment,
-                      HashMap<String, Double> paymentHistory, ArrayList<String> extraPayMentHistory){
+                      String lastPaymentDate, double fees , HashMap<String, Double> paymentHistory, double creditLine){
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate, fees, missedPayment, paymentHistory, extraPayMentHistory, 0);
-        //the feeamt will need to be changed by a method.
+                lastPaymentDate, fees, paymentHistory);
+        this.creditLine=creditLine;
 
     }
+
+    public boolean makeCreditPurchase(double amt){
+        SystemHelper h =new SystemHelper();
+        if(creditLine<h.perciseAddition(currentPaymentDue,amt)){
+            return false;
+
+        }
+        else{
+            currentPaymentDue=h.perciseAddition(currentPaymentDue,amt);
+            return true;
+        }
+    }
+
+    public double makePayment(double amtP){
+        double amt;
+        SystemHelper h =new SystemHelper();
+        if(fees>0){
+            if(amtP>fees){
+                amt=h.perciseSubtract(amtP,fees);
+                fees=0;
+            }
+            else{
+                fees=h.perciseSubtract(fees,amtP);
+                return 0;
+            }
+
+        }
+        else{
+            amt=amtP;
+        }
+
+
+        if(balancef>0){
+            double need= h.perciseSubtract(balancef,amt);
+            if(need<0){
+
+                need=Math.abs(need);
+                balancef=0;
+                if(need>=currentPaymentDue){
+                    System.out.println(need);
+                    need=h.perciseSubtract(need,currentPaymentDue);
+                    System.out.println(need);
+                    currentPaymentDue=0;
+
+                    return need;
+                }
+                else{
+                    currentPaymentDue=h.perciseSubtract(currentPaymentDue,need);
+                    return 0.0;
+                }
+
+
+
+
+            }
+            else{
+                balancef=h.perciseSubtract(balancef,amt);
+                return 0;
+            }
+        }
+        else{
+
+            if(currentPaymentDue==0.0){
+                return amt;
+            }
+            else{
+                double need= h.perciseSubtract(currentPaymentDue,amt);
+                //still owe
+                if(need>=0){
+                    currentPaymentDue= h.perciseSubtract(currentPaymentDue,amt);
+                    return 0;
+                }
+                else{
+                    currentPaymentDue=0.0;
+                    return Math.abs(need);
+
+                }
+
+
+
+            }
+
+        }
+
+
+    }
+
 
 
 
