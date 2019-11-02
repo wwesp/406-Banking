@@ -1,6 +1,7 @@
 package persistence.SaveData;
 
 import Accounts.BankAccounts.Money.Checking;
+import Accounts.People.Customer;
 
 public class SaveData {
 
@@ -8,9 +9,13 @@ public class SaveData {
 
 
 
+        return false;
+    }
+
+    public boolean saveCustomer(Customer x){
+
 
 
         return false;
     }
-
 }

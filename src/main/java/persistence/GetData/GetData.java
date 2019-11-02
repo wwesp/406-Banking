@@ -1,13 +1,17 @@
 package persistence.GetData;
 
 
-import Accounts.BankAccounts.Debt.*;
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
-import Accounts.People.*;
+import Accounts.People.Customer;
+import Accounts.People.Managment;
+import Accounts.People.Teller;
+import com.google.gson.Gson;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GetData {
 //date fomrated at MM-dd-yyyy
@@ -288,8 +292,34 @@ public class GetData {
     }
 
 
+    public Customer getCustomerByATMTEMP(String ATMNum){
 
+        ArrayList<Customer> x = new ArrayList<>();
 
+        Gson gson = new Gson();
+        File CustFile = new File("src/main/java/persistence/DataBases/Customers.txt");
+
+        try{
+            Scanner scan= new Scanner(CustFile);
+
+            while(scan.hasNextLine()){
+
+                x.add(gson.fromJson(scan.nextLine(), Customer.class));
+
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        for (Customer y :x){
+            if (y.getAtmCard().equals(ATMNum)){
+                return y;
+            }
+        }
+        return null;
+
+    }
 
 
 
