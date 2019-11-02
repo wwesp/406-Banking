@@ -44,4 +44,18 @@ abstract class  MoneyAccounts extends Accounts {
     public String getLastDayInterestCompounded() {
         return lastDayInterestCompounded;
     }
+
+    public boolean moneyTransfer(MoneyAccounts y, double amt){
+        if(y.getBalancef()<amt){
+            return false;
+        }
+        else{
+            addBalence(amt);
+            y.subBalence(amt);
+            return true;
+        }
+
+    }
+
+
 }
