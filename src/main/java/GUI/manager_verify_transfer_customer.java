@@ -43,6 +43,9 @@ public class manager_verify_transfer_customer extends JFrame{
                     manager_transfer_from manager_transfer_from = new manager_transfer_from(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid Account");
+                }
             }
         });
         passwordField1.addActionListener(new ActionListener() {
@@ -53,6 +56,9 @@ public class manager_verify_transfer_customer extends JFrame{
                     frame.setVisible(false);
                     manager_transfer_from manager_transfer_from = new manager_transfer_from(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid Account");
                 }
             }
         });
