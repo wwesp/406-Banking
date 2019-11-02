@@ -20,7 +20,7 @@ public class validate_manager_user extends JFrame{
     }
 
     public validate_manager_user() {
-        JFrame frame = new JFrame("Create Savings Account");
+        JFrame frame = new JFrame("Please Enter User ID");
         frame.setContentPane(validate_manager_user);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

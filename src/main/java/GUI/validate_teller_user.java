@@ -20,7 +20,7 @@ public class validate_teller_user extends JFrame{
     }
 
     public validate_teller_user() {
-        JFrame frame = new JFrame("Teller");
+        JFrame frame = new JFrame("Please Enter User ID");
         frame.setContentPane(validate_teller_user);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -22,7 +22,7 @@ public class teller_verify_transfer_customer extends JFrame{
     }
 
     public teller_verify_transfer_customer() {
-        JFrame frame = new JFrame("Home ");
+        JFrame frame = new JFrame("Teller");
         frame.setContentPane(teller_verify_transfer_customer);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

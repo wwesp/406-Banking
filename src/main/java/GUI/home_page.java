@@ -19,7 +19,7 @@ public class home_page extends JFrame {
 
     public home_page() {
 
-        JFrame frame = new JFrame("Home ");
+        JFrame frame = new JFrame("Welcome");
         frame.setContentPane(Homepage);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

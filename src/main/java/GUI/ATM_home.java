@@ -25,7 +25,7 @@ public class ATM_home extends JFrame {
     }
 
     public ATM_home(String customer){
-        JFrame frame = new JFrame("Deposit");
+        JFrame frame = new JFrame("Select Deposit or Withdraw");
         frame.setContentPane(ATM_home);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

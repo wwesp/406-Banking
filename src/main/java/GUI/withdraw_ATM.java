@@ -24,7 +24,7 @@ public class withdraw_ATM extends JFrame {
     }
 
     public withdraw_ATM(String customer, String ID, String SSN) {
-        JFrame frame = new JFrame("Deposit");
+        JFrame frame = new JFrame("Withdraw");
         frame.setContentPane(withdraw_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
