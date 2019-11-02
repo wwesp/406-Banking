@@ -12,10 +12,10 @@ public class manager_transfer_summary extends JFrame{
     private JButton home_button;
 
     public static void main(String[] args) {
-        new manager_transfer_summary();
+        new manager_transfer_summary(null);
     }
 
-    public manager_transfer_summary() {
+    public manager_transfer_summary(String customer) {
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_transfer_summary);
         frame.setPreferredSize(new Dimension(800, 600));

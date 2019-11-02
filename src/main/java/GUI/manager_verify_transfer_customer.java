@@ -1,5 +1,8 @@
 package GUI;
 
+import Accounts.People.Customer;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,9 +11,9 @@ import java.awt.event.WindowEvent;
 
 public class manager_verify_transfer_customer extends JFrame{
     private JPanel manager_verify_transfer_customer;
-    private JTextField textField1;
     private JButton accept_button;
     private JButton back_button;
+    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
         new manager_verify_transfer_customer();
@@ -34,9 +37,23 @@ public class manager_verify_transfer_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                manager_transfer_from manager_transfer_from = new manager_transfer_from();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null) {
+                    frame.setVisible(false);
+                    manager_transfer_from manager_transfer_from = new manager_transfer_from(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null) {
+                    frame.setVisible(false);
+                    manager_transfer_from manager_transfer_from = new manager_transfer_from(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
     }
