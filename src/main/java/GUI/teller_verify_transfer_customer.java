@@ -1,10 +1,15 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.People.Customer;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 public class teller_verify_transfer_customer extends JFrame{
     private JPanel teller_verify_transfer_customer;
@@ -34,9 +39,25 @@ public class teller_verify_transfer_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                transfer_money_from transfer_money = new transfer_money_from(String.copyValueOf(passwordField1.getPassword()));
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null) {
+                    frame.setVisible(false);
+                    transfer_money_from transfer_money = new transfer_money_from(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null){
+                    frame.setVisible(false);
+                    transfer_money_from transfer_money_from = new transfer_money_from(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else JOptionPane.showMessageDialog(null, "Invalid Username");
             }
         });
     }

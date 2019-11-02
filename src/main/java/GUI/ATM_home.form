@@ -73,7 +73,9 @@
         <children>
           <component id="a0a93" class="javax.swing.JTable" binding="checking_table">
             <constraints/>
-            <properties/>
+            <properties>
+              <verifyInputWhenFocusTarget value="false"/>
+            </properties>
           </component>
         </children>
       </scrollpane>

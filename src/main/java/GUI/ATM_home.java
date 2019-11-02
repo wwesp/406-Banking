@@ -5,6 +5,7 @@ import Accounts.People.Customer;
 import persistence.GetData.GetData;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -42,10 +43,13 @@ public class ATM_home extends JFrame {
                 new Object [][] {
                         {checking.get(0).getID(), checking.get(0).getBalancef(), checking.get(0).getAccType()}
                 },
-                new String [] {
+                new String []{
                         "Account ID", "Balance", "Account Type"
                 }
-        ));
+        )
+                                {public boolean isCellEditable(int row, int column){return false;}}
+        );
+
 
         withdraw_account_2.addActionListener(new ActionListener() {
             @Override
