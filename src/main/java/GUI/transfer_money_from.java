@@ -23,9 +23,10 @@ public class transfer_money_from extends JFrame{
     private JTextField amount_text;
     private String ID;
     private double amount;
+    private String account_Type;
 
     public static void main(String[] args) {
-        new transfer_money_from("x");
+        new transfer_money_from(null);
     }
 
     public transfer_money_from(String customer) {
@@ -92,15 +93,15 @@ public class transfer_money_from extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 int row = checking_table.getSelectedRow();
                 ID = checking_table.getModel().getValueAt(row,0).toString();
-                System.out.println(ID);
+                account_Type = "Checking";
             }
         });
         saving_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int row = checking_table.getSelectedRow();
-                ID = checking_table.getModel().getValueAt(row,0).toString();
-                System.out.println(ID);
+                int row = saving_table.getSelectedRow();
+                ID = saving_table.getModel().getValueAt(row,0).toString();
+                account_Type = "Savings";
             }
         });
         amount_text.addActionListener(new ActionListener() {
@@ -109,7 +110,7 @@ public class transfer_money_from extends JFrame{
                 if (amount_text != null) {
                     amount = new SystemHelper().truncOrRound(Double.parseDouble(amount_text.getText()), 0);
                     frame.setVisible(false);
-                    transfer_money_to transfer_money_to = new transfer_money_to(customer, ID, SSN, amount);
+                    transfer_money_to transfer_money_to = new transfer_money_to(customer, ID, account_Type, amount);
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
