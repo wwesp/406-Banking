@@ -229,7 +229,7 @@ public class Checking extends MoneyAccounts {
         return true;
     }
 
-    public double endChecking(){
+    public double endAccount(){
         double endbal=balancef;
 
 

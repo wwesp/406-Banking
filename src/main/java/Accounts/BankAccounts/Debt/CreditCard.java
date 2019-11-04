@@ -18,6 +18,25 @@ public class CreditCard extends DebtAccounts {
 
     }
 
+    public double endAccount(){
+        double endbal=balancef;
+
+        cusID=null;
+        balancef=0;
+        interestRate=0;
+        datePaymentDue=null;
+        notifyDate=null;
+        currentPaymentDue=0;
+        missedPaymentFlag=' ';
+        lastPaymentDate=null;
+        fees=0;
+        paymentHistory=null;
+        creditLine=0;
+
+
+        return endbal;
+    }
+
     public boolean makeCreditPurchase(double amt){
         SystemHelper h =new SystemHelper();
         if(creditLine<h.perciseAddition(currentPaymentDue,amt)){

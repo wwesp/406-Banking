@@ -36,6 +36,19 @@ public class RegSavings extends  Savings{
         return endbal;
     }
 
+    public double endAccount(){
+        double endbal=balancef;
+
+
+        cusID=null;
+        balancef=0;
+        openDate=null;
+        interestRate=0;
+        lastDayInterestCompounded=null;
+
+        return endbal;
+    }
+
 
     }
 

@@ -14,7 +14,19 @@ public class CDs extends Savings {
 
     }
 
+    public double endAccount(){
+        double endbal=balancef;
 
+
+        cusID=null;
+        balancef=0;
+        openDate=null;
+        endDate=null;
+        interestRate=0;
+        lastDayInterestCompounded=null;
+
+        return endbal;
+    }
     //returns money from the cd after this it nukes all data in the object
     //automatically fines. if the cd does not cover then they are fined and must pay
     //$50 fee for ending it early

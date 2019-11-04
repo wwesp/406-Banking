@@ -40,6 +40,34 @@ public class LongTermLoan extends DebtAccounts {
         }
     }
 
+    public double endAccount(){
+        double endbal=Math.abs(balancef)-fees ;
+
+
+        cusID=null;
+        balancef=0;
+        interestRate=0;
+        datePaymentDue=null;
+        notifyDate=null;
+        currentPaymentDue=0;
+        missedPaymentFlag=' ';
+        lastPaymentDate=null;
+        fees=0;
+        paymentHistory=null;
+        feeAmt=0;
+        yearType=' ';
+
+
+
+
+
+
+        return endbal;
+    }
+
+
+
+
     private void developPaymentPlan(){
         //TODO:payment plans are dynamic due to extra payments possible
     }
