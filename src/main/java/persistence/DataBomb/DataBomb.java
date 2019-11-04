@@ -1,6 +1,8 @@
 package persistence.DataBomb;
 
 import Accounts.People.Customer;
+import Accounts.People.Managment;
+import Accounts.People.Teller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -67,4 +69,61 @@ public class DataBomb {
         }
     }
 
+    public void ManagBomb(){
+        File ManagFile = new File("src/main/java/persistence/DataBases/Managment.txt");
+        Gson gson = new GsonBuilder().create();
+
+        Managment a= new Managment("000-00-0000","Boss","Baby");
+
+        try(FileWriter writer = new FileWriter(ManagFile)) {
+            gson.toJson(a, writer);
+            writer.write("\n");
+
+        }
+        catch (Exception x){
+            x.printStackTrace();
+        }
+    }
+
+    public void TellerBomb(){
+        File TellerFile = new File("src/main/java/persistence/DataBases/Teller.txt");
+        Gson gson = new GsonBuilder().create();
+
+        Teller a= new Teller("111-11-1111","Teller1","Yeet");
+
+        try(FileWriter writer = new FileWriter(TellerFile)) {
+            gson.toJson(a, writer);
+            writer.write("\n");
+
+        }
+        catch (Exception x){
+            x.printStackTrace();
+        }
+    }
+/*
+    public void CDBomb(){
+        File CDFile = new File("src/main/java/persistence/DataBases/CD.txt");
+        Gson gson = new GsonBuilder().create();
+
+        CDs a= new CDs("11","235-44-5789",1500,"10-19-2019","10/19/2023",0.03,"");
+        CDs b = new CDs("12","423-16-8945",1200, "12-14-2016", "12-14-2019",0.03,"");
+        CDs c= new CDs("13","345-599-870", 8000,"02-28-2017","02-28-2017",0.03,"");
+        CDs d= new CDs("14","345-65-3425", 4000,"02-19-2017","02-19-2020",0.03,"");
+
+        try(FileWriter writer = new FileWriter(CDFile)) {
+            gson.toJson(a, writer);
+            writer.write("\n");
+            gson.toJson(b, writer);
+            writer.write("\n");
+            gson.toJson(c, writer);
+            writer.write("\n");
+            gson.toJson(d, writer);
+            writer.write("\n");
+
+        }
+        catch (Exception x){
+            x.printStackTrace();
+        }
+    }
+*/
 }
