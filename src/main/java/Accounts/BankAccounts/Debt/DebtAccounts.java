@@ -49,6 +49,46 @@ public abstract class DebtAccounts extends Accounts {
 
     }
 
+    public boolean isNotiifyDate(){
+        Date today = getTodayDateAsDate();
+        SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+        String month=simpleDateformat.format(today);
+        simpleDateformat= new SimpleDateFormat("yyyy");
+        String year= simpleDateformat.format(today);
+        String notformat= month+"-"+notifyDate+"-"+year;
+        String dueformat= month+"-"+datePaymentDue+"-"+year;
+
+        Date notDate= convertStringToDate(notformat);
+        Date dateDue= convertStringToDate(dueformat);
+
+
+
+        //flag
+        int flag= 0;
+
+        if (today.after(notDate)&&today.before(dateDue)){
+            //now see if its been paid
+            for (String x: paymentHistory.keySet()){
+                String[] y= x.split("::",3);
+                String temp=y[2];
+                Date paid= convertStringToDate(temp);
+                if(paid.after(today)){
+                    flag=1;
+                }
+
+            }
+
+            if(flag==0){
+                return true;
+            }
+
+
+        }
+
+
+        return false;
+    }
+
 
     public double getInterestRate() {
         return interestRate;
