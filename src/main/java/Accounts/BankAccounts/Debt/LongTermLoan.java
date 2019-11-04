@@ -41,7 +41,7 @@ public class LongTermLoan extends DebtAccounts {
     }
 
     public double endAccount(){
-        double endbal=Math.abs(balancef)-fees ;
+        double endbal=-1*balancef-fees ;
 
 
         cusID=null;

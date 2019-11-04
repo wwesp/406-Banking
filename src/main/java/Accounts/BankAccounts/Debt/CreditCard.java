@@ -19,7 +19,7 @@ public class CreditCard extends DebtAccounts {
     }
 
     public double endAccount(){
-        double endbal=balancef;
+        double endbal=-1*balancef-fees-currentPaymentDue;
 
         cusID=null;
         balancef=0;
