@@ -2,7 +2,9 @@ package Accounts.BankAccounts.Debt;
 
 import SystemHelper.SystemHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
@@ -102,10 +104,26 @@ public class CreditCard extends DebtAccounts {
 
     }
 
+    //TODO:PAYMENTD UE
+
+
+    //this is for managers to see if its over due
+    public void paymentDue(){
+        Date today = getTodayDateAsDate();
+        SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
+        String month=simpleDateformat.format(today);
+        simpleDateformat= new SimpleDateFormat("yyyy");
+        String year= simpleDateformat.format(today);
+        String dueformat= month+"-"+datePaymentDue+"-"+year;
+        Date dateDue= convertStringToDate(dueformat);
+
+
+        
 
 
 
 
+    }
 
 
 
