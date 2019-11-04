@@ -27,7 +27,7 @@ public class manager_loan_long_term extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                manager_view_loans manager_view_loans = new manager_view_loans();
+                manager_view_loans manager_view_loans = new manager_view_loans(null);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

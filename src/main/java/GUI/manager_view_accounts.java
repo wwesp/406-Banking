@@ -1,5 +1,6 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.People.Customer;
@@ -7,9 +8,7 @@ import persistence.GetData.GetData;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class manager_view_accounts extends JFrame{
@@ -18,8 +17,11 @@ public class manager_view_accounts extends JFrame{
     private JButton full_history_button;
     private JTable savings_table;
     private JTable checking_table;
-    private JLabel last_name_label;
-    private JLabel first_name_label;
+    private JTable CD_table;
+    private JLabel last_name;
+    private JLabel first_name;
+    private String ID;
+    private String account_Type;
 
     public static void main(String[] args) {
         new manager_view_accounts(null);
@@ -34,33 +36,77 @@ public class manager_view_accounts extends JFrame{
         frame.setVisible(true);
 
         Customer customer1 = new GetData().getCustomerBySSN(customer);
-        last_name_label.setText(customer1.getlName());
-        first_name_label.setText(customer1.getfName());
+        last_name.setText(customer1.getlName());
+        first_name.setText(customer1.getfName());
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
-        checking_table.setModel(new javax.swing.table.DefaultTableModel(
+        if (checking != null) {
+            checking_table.setModel(new javax.swing.table.DefaultTableModel(
 
-                new Object [][] {
-                        {checking.get(0).getBalancef(), checking.get(0).getOpenDate(), checking.get(0).getAcceptedChecks(),
-                                checking.get(0).getPendingChecks(), checking.get(0).getDeniedChecks()}
-                },
-                new String [] {
-                        "Balance", "Open Date", "Accepted Checks", "Pending Checks", "Denied Checks"
+                    new Object[][]{
+                            {checking.get(0).getBalancef(), checking.get(0).getOpenDate(), checking.get(0).getAcceptedChecks(),
+                                    checking.get(0).getPendingChecks(), checking.get(0).getDeniedChecks()}
+                                    },
+                    new String[]{
+                            "Balance", "Open Date", "Accepted Checks", "Pending Checks", "Denied Checks"
+                    }) {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
                 }
-        ));
+            }
+            );
+        }
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
-        savings_table.setModel(new javax.swing.table.DefaultTableModel(
+        if (savings != null) {
+            savings_table.setModel(new javax.swing.table.DefaultTableModel(
 
-                new Object [][] {
-                        {savings.get(0).getBalancef(), savings.get(0).getOpenDate(), savings.get(0).getInterestRate(),
-                                savings.get(0).getLastDayInterestCompounded()}
-                },
-                new String [] {
-                        "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"
-                }
-        ));
+                    new Object[][]{
+                            {savings.get(0).getID(), savings.get(0).getBalancef(), savings.get(0).getInterestRate()}
+                            },
+                    new String[]{
+                            "Account ID", "Balance", "Interest Rate"
+                    }) {
+                public boolean isCellEditable(int row, int column) {
+                                           return false;
+                                       }
+            }
+            );
+        }
 
+        ArrayList<CDs> cds = new GetData().getCD(customer);
+        if (cds != null) {
+            CD_table.setModel(new javax.swing.table.DefaultTableModel(
+
+                    new Object[][]{
+                            {cds.get(0).getID(), cds.get(0).getBalancef(), cds.get(0).getOpenDate(),
+                                    cds.get(0).getEndDate(), cds.get(0).getInterestRate()}
+                                    },
+                    new String[]{
+                            "Account ID", "Balance", "Open Date", "End Date", "Interest Rate"
+                    }) {
+                public boolean isCellEditable(int row, int column) {
+                                      return false;
+                                  }
+            }
+            );
+        }
+        checking_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = checking_table.getSelectedRow();
+                ID = checking_table.getModel().getValueAt(row,0).toString();
+                account_Type = "Checking";
+            }
+        });
+        savings_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = savings_table.getSelectedRow();
+                ID = savings_table.getModel().getValueAt(row,0).toString();
+                account_Type = "Savings";
+            }
+        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +119,7 @@ public class manager_view_accounts extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                manager_account_history manager_account_history = new manager_account_history(customer);
+                manager_account_history manager_account_history = new manager_account_history(customer, ID, account_Type);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

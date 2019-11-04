@@ -8,17 +8,17 @@ import java.awt.event.WindowEvent;
 
 public class manager_view_loans extends JFrame{
     private JPanel manager_view_loans;
-    private JTable table1;
     private JButton back_button;
     private JButton long_term_loan_button;
     private JButton short_term_button;
     private JButton credit_button;
+    private JTable loan_table;
 
     public static void main(String[] args) {
-        new manager_view_loans();
+        new manager_view_loans(null);
     }
 
-    public manager_view_loans() {
+    public manager_view_loans(String customer) {
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_view_loans);
         frame.setPreferredSize(new Dimension(800, 600));

@@ -1,5 +1,8 @@
 package GUI;
 
+import Accounts.People.Customer;
+import persistence.GetData.GetData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,9 +11,9 @@ import java.awt.event.WindowEvent;
 
 public class manager_verify_loan_customer extends JFrame{
     private JPanel manager_verify_loan_customer;
-    private JTextField textField1;
     private JButton accept_button;
     private JButton back_button;
+    private JPasswordField passwordField1;
 
     public static void main(String[] args) {
         new manager_verify_loan_customer();
@@ -35,9 +38,29 @@ public class manager_verify_loan_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                manager_view_loans manager_view_loans = new manager_view_loans();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null) {
+                    frame.setVisible(false);
+                    manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid Account");
+                }
+            }
+        });
+        passwordField1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer != null) {
+                    frame.setVisible(false);
+                    manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid Account");
+                }
             }
         });
     }

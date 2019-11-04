@@ -46,8 +46,7 @@ public class ATM_home extends JFrame {
                 new String []{
                         "Account ID", "Balance", "Account Type"
                 }
-        )
-                                {public boolean isCellEditable(int row, int column){return false;}}
+        ) {public boolean isCellEditable(int row, int column){return false;}}
         );
 
 

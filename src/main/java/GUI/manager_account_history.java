@@ -12,16 +12,18 @@ public class manager_account_history extends JFrame{
     private JTable table1;
 
     public static void main(String[] args) {
-        new manager_account_history(null);
+        new manager_account_history(null, null, null);
     }
 
-    public manager_account_history(String customer) {
+    public manager_account_history(String customer, String ID, String account_Type) {
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_account_history);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
+
 
         back_button.addActionListener(new ActionListener() {
             @Override
