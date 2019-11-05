@@ -40,11 +40,11 @@ public class RegSavings extends  Savings{
         double endbal=balancef;
 
 
-        cusID=null;
+        cusID="";
         balancef=0;
-        openDate=null;
+        openDate="";
         interestRate=0;
-        lastDayInterestCompounded=null;
+        lastDayInterestCompounded="";
 
         return endbal;
     }

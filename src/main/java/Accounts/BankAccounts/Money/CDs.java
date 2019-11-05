@@ -18,12 +18,12 @@ public class CDs extends Savings {
         double endbal=balancef;
 
 
-        cusID=null;
+        cusID="";
         balancef=0;
-        openDate=null;
-        endDate=null;
+        openDate="";
+        endDate="";
         interestRate=0;
-        lastDayInterestCompounded=null;
+        lastDayInterestCompounded="";
 
         return endbal;
     }

@@ -44,14 +44,14 @@ public class LongTermLoan extends DebtAccounts {
         double endbal=-1*balancef-fees ;
 
 
-        cusID=null;
+        cusID="";
         balancef=0;
         interestRate=0;
-        datePaymentDue=null;
-        notifyDate=null;
+        datePaymentDue="";
+        notifyDate="";
         currentPaymentDue=0;
         missedPaymentFlag=' ';
-        lastPaymentDate=null;
+        lastPaymentDate="";
         fees=0;
         paymentHistory=null;
         feeAmt=0;

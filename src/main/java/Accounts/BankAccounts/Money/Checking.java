@@ -233,17 +233,17 @@ public class Checking extends MoneyAccounts {
         double endbal=balancef;
 
 
-        cusID=null;
+        cusID="";
         balancef=0;
-        openDate=null;
+        openDate="";
         accType=0;
-        backupAcc=null;
-        atmCard=null;
+        backupAcc="";
+        atmCard="";
         atmHistory=null;
         pendingChecks=null;
         acceptedChecks=null;
         deniedChecks=null;
-        lastDayInterestCompounded=null;
+        lastDayInterestCompounded="";
 
         return endbal;
     }

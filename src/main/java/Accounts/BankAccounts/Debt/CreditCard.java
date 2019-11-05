@@ -21,14 +21,14 @@ public class CreditCard extends DebtAccounts {
     public double endAccount(){
         double endbal=-1*balancef-fees-currentPaymentDue;
 
-        cusID=null;
+        cusID="";
         balancef=0;
         interestRate=0;
-        datePaymentDue=null;
-        notifyDate=null;
+        datePaymentDue="";
+        notifyDate="";
         currentPaymentDue=0;
         missedPaymentFlag=' ';
-        lastPaymentDate=null;
+        lastPaymentDate="";
         fees=0;
         paymentHistory=null;
         creditLine=0;
