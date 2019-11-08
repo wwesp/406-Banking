@@ -1,6 +1,5 @@
 package persistence.GetData;
 
-
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
@@ -35,7 +34,7 @@ public class GetData {
             ex.printStackTrace();
         }
 
-        for (Customer y :x){
+        for (Customer y:x){
             if (y.getSsn().equals(SSN)){
                 return y;
             }
@@ -129,16 +128,22 @@ public class GetData {
     }
 
     public ArrayList<CDs> getCD(String CustomerSSN){
-        CDs a= new CDs("11","235-44-5789",1500,"10-19-2019","10/19/2023",0.03,"");
-        CDs b = new CDs("12","423-45-3245",1200, "12-14-2016", "12-14-2019",0.03,"");
-        CDs c= new CDs("13","345-599-870", 8000,"02-28-2017","02-28-2017",0.03,"");
-        CDs d= new CDs("14","345-65-3425", 4000,"02-19-2017","02-19-2020",0.03,"");
+        ArrayList<CDs> x = new ArrayList<>();
+        Gson gson = new Gson();
+        File CDsFile = new File("src/main/java/persistence/DataBases/CD.txt");
 
-        ArrayList<CDs> x= new ArrayList<>();
-        x.add(a);
-        x.add(b);
-        x.add(c);
-        x.add(d);
+        try{
+            Scanner scan= new Scanner(CDsFile);
+
+            while(scan.hasNextLine()){
+
+                x.add(gson.fromJson(scan.nextLine(), CDs.class));
+
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         ArrayList<CDs> returnable = new ArrayList<>();
         for (CDs y :x){
@@ -149,7 +154,6 @@ public class GetData {
         if(returnable.isEmpty()){
             return null;
         }
-
 
         return returnable;
 
