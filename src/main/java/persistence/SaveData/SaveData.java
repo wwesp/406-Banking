@@ -2,7 +2,7 @@ package persistence.SaveData;
 
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
-import Accounts.BankAccounts.Money.Savings;
+import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.People.Customer;
 import com.google.gson.Gson;
 
@@ -13,16 +13,97 @@ import java.util.Scanner;
 
 public class SaveData {
 
-    public void saveCheckAndSave(ArrayList<Savings> x, ArrayList<Checking> y){
+    public void saveCheckAndSave(ArrayList<RegSavings> x, ArrayList<Checking> y){
         saveSaving(x);
         saveChecking(y);
     }
-    private void saveChecking(ArrayList<Checking> x){
 
+    public void saveChecking(ArrayList<Checking> x){
+        ArrayList<Checking> z = new ArrayList<>();
+
+        Gson gson = new Gson();
+        File CheckingFile = new File("src/main/java/persistence/DataBases/Checking.txt");
+
+        try {
+            Scanner scan = new Scanner(CheckingFile);
+
+            while (scan.hasNextLine()) {
+
+                z.add(gson.fromJson(scan.nextLine(), Checking.class));
+
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        ArrayList<Checking> newSave = new ArrayList<>();
+
+        for (int i = 0; i < z.size(); i++) {
+            for (int j = 0; j < x.size(); j++) {
+                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
+                    Checking y = z.get(i);
+                    newSave.add(y);
+                }
+            }
+        }
+
+        newSave.addAll(x);
+
+        try(FileWriter writer = new FileWriter(CheckingFile)) {
+            for(Checking y:newSave) {
+                gson.toJson(y, writer);
+                writer.write("\n");
+            }
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
-    private void saveSaving(ArrayList<Savings> x){
+    public void saveSaving(ArrayList<RegSavings> x) {
+        ArrayList<RegSavings> z = new ArrayList<>();
 
+        Gson gson = new Gson();
+        File SavingsFile = new File("src/main/java/persistence/DataBases/RegSaving.txt");
+
+        try {
+            Scanner scan = new Scanner(SavingsFile);
+
+            while (scan.hasNextLine()) {
+
+                z.add(gson.fromJson(scan.nextLine(), RegSavings.class));
+
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        ArrayList<RegSavings> newSave = new ArrayList<>();
+
+        for (int i = 0; i < z.size(); i++) {
+            for (int j = 0; j < x.size(); j++) {
+                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
+                    RegSavings y = z.get(i);
+                    newSave.add(y);
+                }
+            }
+        }
+
+        newSave.addAll(x);
+
+        try(FileWriter writer = new FileWriter(SavingsFile)) {
+            for(RegSavings y:newSave) {
+                gson.toJson(y, writer);
+                writer.write("\n");
+            }
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public boolean saveCustomer(Customer x){
@@ -68,50 +149,47 @@ public class SaveData {
         return false;
     }
 
-    public boolean saveCD(ArrayList<CDs> passedIn){
+    public void saveCD(ArrayList<CDs> x) {
 
         ArrayList<CDs> z = new ArrayList<>();
 
         Gson gson = new Gson();
         File CDFile = new File("src/main/java/persistence/DataBases/CD.txt");
 
-        try{
-            Scanner scan= new Scanner(CDFile);
+        try {
+            Scanner scan = new Scanner(CDFile);
 
-            while(scan.hasNextLine()){
+            while (scan.hasNextLine()) {
 
                 z.add(gson.fromJson(scan.nextLine(), CDs.class));
 
             }
 
-        } catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
         ArrayList<CDs> newSave = new ArrayList<>();
 
-        for(CDs db:z) {
-            for (CDs y : passedIn) {
-                if (!y.getCusID().equals(db.getCusID())) {
+        for (int i = 0; i < z.size(); i++) {
+            for (int j = 0; j < x.size(); j++) {
+                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
+                    CDs y = z.get(i);
                     newSave.add(y);
                 }
             }
         }
 
-        newSave.addAll(passedIn);
+        newSave.addAll(x);
 
-        try(FileWriter writer = new FileWriter(CDFile)) {
-            for(CDs y:newSave) {
+        try (FileWriter writer = new FileWriter(CDFile)) {
+            for (CDs y : newSave) {
                 gson.toJson(y, writer);
                 writer.write("\n");
             }
 
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-
-        return false;
     }
 }

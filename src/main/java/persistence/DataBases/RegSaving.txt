@@ -1,0 +1,11 @@
+{"interestRate":0.022,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"423-45-3245","balancef":200.0,"ID":"1"}
+{"interestRate":0.023,"lastDayInterestCompounded":"","openDate":"02-18-2004","cusID":"345-65-3425","balancef":100.0,"ID":"2"}
+{"interestRate":0.028,"lastDayInterestCompounded":"","openDate":"09-15-1998","cusID":"423-14-8894","balancef":875.54,"ID":"3"}
+{"interestRate":0.021,"lastDayInterestCompounded":"","openDate":"07-08-2008","cusID":"677-87-9013","balancef":1200.82,"ID":"4"}
+{"interestRate":0.021,"lastDayInterestCompounded":"","openDate":"07-26-2017","cusID":"345-59-9870","balancef":1500.0,"ID":"5"}
+{"interestRate":0.021,"lastDayInterestCompounded":"","openDate":"01-12-2001","cusID":"423-56-7890","balancef":1898.07,"ID":"6"}
+{"interestRate":0.02,"lastDayInterestCompounded":"","openDate":"06-30-2003","cusID":"345-81-2332","balancef":5000.99,"ID":"7"}
+{"interestRate":0.029,"lastDayInterestCompounded":"","openDate":"12-08-2002","cusID":"345-87-9912","balancef":125.54,"ID":"8"}
+{"interestRate":0.029,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"235-44-5789","balancef":98.56,"ID":"10"}
+{"interestRate":0.024,"lastDayInterestCompounded":"","openDate":"08-19-2019","cusID":"345-67-9898","balancef":1700.0,"ID":"15"}
+{"interestRate":0.028,"lastDayInterestCompounded":"","openDate":"11-1-2011","cusID":"423-16-8945","balancef":178.56,"ID":"9"}
