@@ -1,4 +1,7 @@
 package persistence.DataBomb;
+
+import Accounts.BankAccounts.Debt.LongTermLoan;
+import Accounts.BankAccounts.Debt.ShortTermLoan;
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
@@ -221,6 +224,81 @@ public class DataBomb {
         catch (Exception x){
             x.printStackTrace();
         }
+    }
+
+    public void LongLoanBomb(){
+        File LongLoanFile = new File("src/main/java/persistence/DataBases/LongTermLoan.txt");
+        Gson gson = new GsonBuilder().create();
+
+        LongTermLoan a = new LongTermLoan("1", "436-78-9123", 44763.00, 0.10, "11/27/2019",
+                "11/1/2019", 1650.00, 'N', "10/9/2019", '_', 0,
+                null, null, null);
+        LongTermLoan b = new LongTermLoan("2", "423-56-7890", 3698.00, 0.12, "11/27/2019",
+                "11/1/2019", 112.00, 'Y', "10/12/2019", '_', 0,
+                null, null, null);
+        LongTermLoan c = new LongTermLoan("3", "423-45-3245", 6149.00, 0.08, "10/27/2019",
+                "10/1/2019", 144.00, 'N', "9/16/2019", '_', 0,
+                null, null, null);
+        LongTermLoan d = new LongTermLoan("4", "345-87-9912", 2136.00, 0.05, "11/27/2019",
+                "11/1/2019", 140.00, 'N', "10/22/2019", '_', 0,
+                null, null, null);
+        LongTermLoan e = new LongTermLoan("5", "345-59-9870", 7216.00, 0.12, "11/27/2019",
+                "11/1/2019", 168.00, 'N', "10/26/2019", '_', 0,
+                null, null, null);
+
+        try(FileWriter writer = new FileWriter(LongLoanFile)) {
+            gson.toJson(a, writer);
+            writer.write("\n");
+            gson.toJson(b, writer);
+            writer.write("\n");
+            gson.toJson(c, writer);
+            writer.write("\n");
+            gson.toJson(d, writer);
+            writer.write("\n");
+            gson.toJson(e, writer);
+            writer.write("\n");
+        }
+        catch (Exception x){
+            x.printStackTrace();
+        }
+    }
+
+    public void ShortLoanBomb(){
+        File ShortLoanFile = new File("src/main/java/persistence/DataBases/ShortTermLoan.txt");
+        Gson gson = new GsonBuilder().create();
+
+        ShortTermLoan a = new ShortTermLoan("1", "423-14-8894", 3579.00, 0.15, "10/27/2019",
+                "10/1/2019", 95.83, 'N', "8/20/2019", '_', 0,
+                null, null, null);
+        ShortTermLoan b = new ShortTermLoan("2", "423-56-7890", 3698.00, 0.12, "11/27/2019",
+                "11/1/2019", 112.00, 'Y', "10/12/2019", '_', 0,
+                null, null, null);
+        ShortTermLoan c = new ShortTermLoan("3", "423-45-3245", 6149.00, 0.08, "10/27/2019",
+                "10/1/2019", 144.00, 'N', "9/16/2019", '_', 0,
+                null, null, null);
+        ShortTermLoan d = new ShortTermLoan("4", "345-87-9912", 2136.00, 0.05, "11/27/2019",
+                "11/1/2019", 140.00, 'N', "10/22/2019", '_', 0,
+                null, null, null);
+        ShortTermLoan e = new ShortTermLoan("5", "345-59-9870", 7216.00, 0.12, "11/27/2019",
+                "11/1/2019", 168.00, 'N', "10/26/2019", '_', 0,
+                null, null, null);
+
+        try(FileWriter writer = new FileWriter(ShortLoanFile)) {
+            gson.toJson(a, writer);
+            writer.write("\n");
+            gson.toJson(b, writer);
+            writer.write("\n");
+            gson.toJson(c, writer);
+            writer.write("\n");
+            gson.toJson(d, writer);
+            writer.write("\n");
+            gson.toJson(e, writer);
+            writer.write("\n");
+        }
+        catch (Exception x){
+            x.printStackTrace();
+        }
+
     }
 
 }

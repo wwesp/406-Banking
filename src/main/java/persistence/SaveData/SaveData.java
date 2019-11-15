@@ -39,11 +39,10 @@ public class SaveData {
 
         ArrayList<Checking> newSave = new ArrayList<>();
 
-        for (int i = 0; i < z.size(); i++) {
-            for (int j = 0; j < x.size(); j++) {
-                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
-                    Checking y = z.get(i);
-                    newSave.add(y);
+        for (Checking checking : z) {
+            for (Checking x1 : x) {
+                if (!checking.getCusID().equals(x1.getCusID())) {
+                    newSave.add(checking);
                 }
             }
         }
@@ -83,11 +82,10 @@ public class SaveData {
 
         ArrayList<RegSavings> newSave = new ArrayList<>();
 
-        for (int i = 0; i < z.size(); i++) {
-            for (int j = 0; j < x.size(); j++) {
-                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
-                    RegSavings y = z.get(i);
-                    newSave.add(y);
+        for (RegSavings regSavings : z) {
+            for (RegSavings x1 : x) {
+                if (!regSavings.getCusID().equals(x1.getCusID())) {
+                    newSave.add(regSavings);
                 }
             }
         }
@@ -106,7 +104,7 @@ public class SaveData {
         }
     }
 
-    public boolean saveCustomer(Customer x){
+    public void saveCustomer(Customer x){
 
         ArrayList<Customer> z = new ArrayList<>();
 
@@ -145,8 +143,6 @@ public class SaveData {
         catch (Exception ex){
             ex.printStackTrace();
         }
-
-        return false;
     }
 
     public void saveCD(ArrayList<CDs> x) {
@@ -171,11 +167,10 @@ public class SaveData {
 
         ArrayList<CDs> newSave = new ArrayList<>();
 
-        for (int i = 0; i < z.size(); i++) {
-            for (int j = 0; j < x.size(); j++) {
-                if (!z.get(i).getCusID().equals(x.get(j).getCusID())) {
-                    CDs y = z.get(i);
-                    newSave.add(y);
+        for (CDs cDs : z) {
+            for (CDs x1 : x) {
+                if (!cDs.getCusID().equals(x1.getCusID())) {
+                    newSave.add(cDs);
                 }
             }
         }
