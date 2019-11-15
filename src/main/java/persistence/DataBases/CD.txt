@@ -1,5 +1,4 @@
-{"endDate":"","interestRate":0.0,"lastDayInterestCompounded":"","openDate":"","cusID":"","balancef":0.0,"ID":"12"}
-{"endDate":"","interestRate":0.0,"lastDayInterestCompounded":"","openDate":"","cusID":"","balancef":0.0,"ID":"12"}
-{"endDate":"","interestRate":0.0,"lastDayInterestCompounded":"","openDate":"","cusID":"","balancef":0.0,"ID":"12"}
-{"endDate":"","interestRate":0.0,"lastDayInterestCompounded":"","openDate":"","cusID":"","balancef":0.0,"ID":"12"}
-{"endDate":"","interestRate":0.0,"lastDayInterestCompounded":"","openDate":"","cusID":"","balancef":0.0,"ID":"12"}
+{"endDate":"10/19/2023","interestRate":0.03,"lastDayInterestCompounded":"","openDate":"10-19-2019","cusID":"235-44-5789","balancef":1500.0,"ID":"11"}
+{"endDate":"12-14-2019","interestRate":0.03,"lastDayInterestCompounded":"","openDate":"12-14-2016","cusID":"423-16-8945","balancef":1200.0,"ID":"12"}
+{"endDate":"02-28-2017","interestRate":0.03,"lastDayInterestCompounded":"","openDate":"02-28-2017","cusID":"345-599-870","balancef":8000.0,"ID":"13"}
+{"endDate":"02-19-2020","interestRate":0.03,"lastDayInterestCompounded":"","openDate":"02-19-2017","cusID":"345-65-3425","balancef":4000.0,"ID":"14"}

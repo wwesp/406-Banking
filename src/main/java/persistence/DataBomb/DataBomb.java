@@ -1,5 +1,4 @@
 package persistence.DataBomb;
-
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
@@ -18,9 +17,9 @@ public class DataBomb {
         File CustFile = new File("src/main/java/persistence/DataBases/Customers.txt");
         Gson gson = new GsonBuilder().create();
 
-        Customer a=new Customer("423-45-3245","Ronald", "Jones", "114 North 4th", "Clarkesdale","MO", "64493","2899653222933497");
+        Customer a=new Customer("423-45-3245","Ronald", "Jones", "114 North 4th", "Clarkesdale","MO", "64493"," 2899653222933490");
         Customer b=new Customer("345-65-3425","Mark","Ingrem","1805 Jules","St. Joseph","MO","64503","4387917994924947");
-        Customer c=new Customer("423-14-8894","Sherry","Harrison","2109 Sylviana","St. Joesph","MO","64501","7915365294629613");
+        Customer c=new Customer("423-14-8894","Sherry","Harrison","2109 Sylviana","St. Joesph","MO","64501"," 7915365294629613");
         Customer d=new Customer("677-87-9013","John","Morgeson","4305 West 3rd","Wathena","KS","54910","8343891648427859");
         Customer e=new Customer("345-59-9870","Gary","Gilkerson","221 south highly","St. Joesph","MO","64503","5445687789148812");
         Customer f=new Customer("423-56-7890","Mary","Francis","335 Jules","St. Joesph","MO","64503","1592169184752658");
