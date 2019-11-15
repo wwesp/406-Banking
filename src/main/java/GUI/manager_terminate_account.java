@@ -20,7 +20,7 @@ public class manager_terminate_account extends JFrame{
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_terminate_account);
         frame.setPreferredSize(new Dimension(800, 600));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
