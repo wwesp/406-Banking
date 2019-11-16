@@ -35,6 +35,7 @@ public class create_checking_page extends JPanel{
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         //double bal = Double.parseDouble(new GUI().textField3.getText());

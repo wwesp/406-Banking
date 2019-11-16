@@ -30,6 +30,7 @@ public class withdraw_ATM extends JFrame {
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);

@@ -31,6 +31,7 @@ public class teller_view_accounts extends JFrame{
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         //for(RegSavings x: savings){

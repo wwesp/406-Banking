@@ -36,6 +36,7 @@ public class transfer_money_to extends JFrame{
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         Customer customer1 = new GetData().getCustomerBySSN(first_customer);

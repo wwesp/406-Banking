@@ -27,6 +27,7 @@ public class manager_verify_accounts_customer extends JFrame{
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         back_button.addActionListener(new ActionListener() {
             @Override

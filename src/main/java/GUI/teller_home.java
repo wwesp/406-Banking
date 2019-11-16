@@ -25,6 +25,7 @@ public class teller_home  extends JPanel{
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
         create_checking_account.addActionListener(new ActionListener() {
