@@ -67,6 +67,7 @@ public class GetData {
 
         for (Customer y :x){
             if (y.getAtmCard().equals(ATMNum)){
+                System.out.println(y);
                 return y;
             }
         }
@@ -216,6 +217,7 @@ public class GetData {
         ArrayList<Checking> returnable = new ArrayList<>();
         for (Checking y :x){
             if (y.getAtmCard().equals(CustomerSSN)){
+
                 returnable.add(y);
             }
         }
@@ -250,6 +252,7 @@ public class GetData {
         for (Checking y :x){
 
             if (y.getAtmCard().equals(card)){
+
                 returnable.add(y);
             }
         }

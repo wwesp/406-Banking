@@ -36,7 +36,6 @@ public class ATM_home extends JFrame {
         last_name_label.setText(customer1.getlName());
         first_name_label.setText(customer1.getfName());
         String SSN = customer1.getSsn();
-
         ArrayList<Checking> checking = new GetData().getCheckingByATMCard(customer);
         checking_table.setModel(new javax.swing.table.DefaultTableModel(
 

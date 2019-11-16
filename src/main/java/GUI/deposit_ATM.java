@@ -5,6 +5,8 @@ import Accounts.BankAccounts.Money.RegSavings;
 import SystemHelper.SystemHelper;
 import persistence.GetData.GetData;
 import SystemHelper.SystemHelper.*;
+import persistence.SaveData.SaveData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -35,6 +37,7 @@ public class deposit_ATM extends JFrame {
         frame.setVisible(true);
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
+        ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);
 
         back_button.addActionListener(new ActionListener() {
             @Override
@@ -64,6 +67,10 @@ public class deposit_ATM extends JFrame {
                         JOptionPane.showMessageDialog(null, "Account Not Found");
                     }
                 }
+                //ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
+                //ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);
+                SaveData saveData = new SaveData();
+                saveData.saveCheckAndSave(savings, checking);
                 frame.setVisible(false);
                 ATM_home ATM_page = new ATM_home(customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
