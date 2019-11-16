@@ -37,7 +37,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,null,null);
 
 
@@ -70,7 +70,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,null,null);
 
 
@@ -108,7 +108,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,f,null);
 
 
@@ -146,7 +146,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,null,null);
 
         loan1.makePayment();
@@ -184,7 +184,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,null,null);
 
         loan1.makePayment();
@@ -221,7 +221,7 @@ public class PaymentDue {
 
 
         LongTermLoan loan1 = new LongTermLoan("1","01",6000,0.12,endDate,
-                notDate,100,'f',"09-09-2019",'3',0,
+                notDate,100,'f',"09-09-2019","30",0,
                 null,null,null);
 
 

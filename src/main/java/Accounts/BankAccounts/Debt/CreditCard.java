@@ -1,6 +1,7 @@
 package Accounts.BankAccounts.Debt;
 
 import SystemHelper.SystemHelper;
+import persistence.GetData.GetData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,14 +20,18 @@ public class CreditCard extends DebtAccounts {
 
     }
 
-    /*
-    public CreditCard(String cusID, ){
+
+    public CreditCard(String cusID, String datePaymentDue, String notifydate,double creditLine){
         this("","",0,0,"","",0,' ',"",0,null,0);
 
-
+        this.cusID=cusID;
+        this.datePaymentDue=datePaymentDue;
+        this.notifyDate=notifydate;
+        this.creditLine=creditLine;
+        this.interestRate= new GetData().getIntRates().getCreditCardInterest();
 
     }
-    */
+
 
 
 

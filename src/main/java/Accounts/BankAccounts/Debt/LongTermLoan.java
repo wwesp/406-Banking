@@ -2,6 +2,8 @@ package Accounts.BankAccounts.Debt;
 
 
 
+import SystemHelper.SystemHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,14 +12,14 @@ import java.util.HashMap;
 public class LongTermLoan extends DebtAccounts {
     ArrayList<String> PaymentPlan;
     ArrayList<String> extraPayMentHistory;
-    char yearType;
+    String yearType;
     double feeAmt;
     //date, amt
     protected HashMap<String, Double> missedPayment;
 
     public LongTermLoan(String ID, String cusID, double balance,double interestRate, String datePaymentDue,
                         String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
-                        char yearType,double fees, HashMap<String, Double> missedPayment,
+                        String yearType,double fees, HashMap<String, Double> missedPayment,
                         HashMap<String, Double> paymentHistory ,ArrayList<String> extraPayMentHistory ){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
@@ -40,6 +42,15 @@ public class LongTermLoan extends DebtAccounts {
         }
     }
 
+
+    public LongTermLoan(String cusId, String datePaymentDue, String notifyDate, String yearType){
+        this("",cusId,0,0,datePaymentDue,notifyDate,0,' ', "",yearType,0,null,null,null);
+        this.ID=new SystemHelper().makeRandomId();
+
+    }
+
+
+
     public double endAccount(){
         double endbal=-1*balancef-fees ;
 
@@ -55,7 +66,7 @@ public class LongTermLoan extends DebtAccounts {
         fees=0;
         paymentHistory=null;
         feeAmt=0;
-        yearType=' ';
+        yearType="";
 
 
 

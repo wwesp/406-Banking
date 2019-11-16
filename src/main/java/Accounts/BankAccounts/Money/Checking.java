@@ -75,9 +75,9 @@ public class Checking extends MoneyAccounts {
     }
 
     //this is for brand new accounts
-    public Checking(String cusId, double initbalance, String openDate, int accType, String backupAcc, boolean atmcard){
+    public Checking(String cusId, double initbalance, int accType, String backupAcc, boolean atmcard){
 
-        this("",cusId, 0,openDate,accType,backupAcc,"",null,null,null,null,"",null );
+        this("",cusId, 0,"",accType,backupAcc,"",null,null,null,null,"",null );
 
         SystemHelper IamHelper = new SystemHelper();
 
@@ -97,7 +97,7 @@ public class Checking extends MoneyAccounts {
         }
 
         this.ID=IamHelper.makeRandomId();
-
+        this.openDate=getTodaysDate();
         this.balancef=initbalance;
     }
 

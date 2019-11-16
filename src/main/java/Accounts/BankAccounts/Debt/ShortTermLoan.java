@@ -9,11 +9,15 @@ public class ShortTermLoan extends LongTermLoan {
 
     public ShortTermLoan(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                          String notifyDate, double currentPaymentDue, char missedPaymentflag, String lastPaymentDate,
-                         char yearType, double fees, HashMap<String, Double> missedPayment,
+                         String yearType, double fees, HashMap<String, Double> missedPayment,
                          HashMap<String, Double> paymentHistory , ArrayList<String> extraPayMentHistory ){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
                 lastPaymentDate, yearType, fees, missedPayment, paymentHistory, extraPayMentHistory);
+    }
+
+    public ShortTermLoan(String cusId, String datePaymentDue, String notifyDate, String yearType){
+        super(cusId,datePaymentDue,notifyDate,yearType);
     }
 
     /*
