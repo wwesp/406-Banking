@@ -2,6 +2,7 @@ package Accounts.BankAccounts.Money;
 
 
 import SystemHelper.SystemHelper;
+import persistence.GetData.GetData;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ public class CDs extends Savings {
     public CDs(String cusID,double initalbalence, String openDate, String endDate){
         this("",cusID,initalbalence,openDate,endDate,0,"");
         SystemHelper IamHelper = new SystemHelper();
+        this.interestRate= new GetData().getIntRates().getCDInterest();
         this.ID=IamHelper.makeRandomId();
 
     }
