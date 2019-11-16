@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Random;
 
 
 public class SystemHelper {
@@ -36,6 +37,15 @@ public class SystemHelper {
     }
 
 
+    public String makeRandomId(){
+        Random objGenerator = new Random();
+        String randoms="";
+        for (int iCount = 0; iCount< 10; iCount++){
+            int randomNumber = objGenerator.nextInt(9);
+            randoms+=randomNumber;
+        }
+        return randoms;
+    }
 
 
 }

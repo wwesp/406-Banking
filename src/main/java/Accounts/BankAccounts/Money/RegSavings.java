@@ -1,6 +1,7 @@
 package Accounts.BankAccounts.Money;
 
 
+import SystemHelper.SystemHelper;
 
 public class RegSavings extends  Savings{
 
@@ -8,6 +9,14 @@ public class RegSavings extends  Savings{
     public RegSavings(String ID, String cusID, double balance, String openDate,double interestRate,String lastDayInterestCompounded){
         super(ID, cusID,balance,openDate,interestRate,lastDayInterestCompounded);
     }
+    public RegSavings(String cusId, double initalBalence, double interRate){
+        this("",cusId,initalBalence,"",interRate,"");
+        SystemHelper IamHelper = new SystemHelper();
+        this.ID= IamHelper.makeRandomId();
+        this.openDate=getTodaysDate();
+
+    }
+
 
     public boolean authorizeWithdraw(double x){
         //boolean since a withdrawl can fail and we would want the returnie to know

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import static java.lang.Math.abs;
 
 public class Checking extends MoneyAccounts {
-    public GetData getboi;
+    
     private String atmCard;
     private ArrayList<String> atmHistory;
     //acctype gold=1, tmb = 0
@@ -71,6 +71,25 @@ public class Checking extends MoneyAccounts {
 
 
     }
+
+    //this is for brand new accounts
+    public Checking(String cusId, String openDate, int accType, String backupAcc, boolean atmcard){
+
+        this("",cusId, 0,openDate,accType,backupAcc,"",null,null,null,null,"",null );
+
+        SystemHelper IamHelper = new SystemHelper();
+        String atmCar="";
+        if(atmcard){
+            atmCar=IamHelper.makeRandomId();
+        }
+        this.ID=IamHelper.makeRandomId();
+        this.atmCard=atmCar;
+    }
+
+
+
+
+
 
 
     public void dailyInterest(){
@@ -228,6 +247,50 @@ public class Checking extends MoneyAccounts {
         pendingChecks.remove(checkNum);
         return true;
     }
+
+    public void addCheck(double amount){
+        long largestNumber=0;
+
+        for(String x:pendingChecks.keySet()){
+            if(Integer.getInteger(x)>largestNumber){
+                largestNumber=Integer.getInteger(x);
+            }
+        }
+        for(String x:deniedChecks.keySet()){
+            if(Integer.getInteger(x)>largestNumber){
+                largestNumber=Integer.getInteger(x);
+            }
+        }
+        for(String x:acceptedChecks.keySet()){
+            if(Integer.getInteger(x)>largestNumber){
+                largestNumber=Integer.getInteger(x);
+            }
+        }
+
+        largestNumber++;
+
+        pendingChecks.put(""+largestNumber, amount);
+
+
+
+    }
+    //PLEASE DONT USE UNLESS YOU ARE DOING DATA BOMBS
+    public void addCheck(String checknum,double amount){
+
+        pendingChecks.put(checknum, amount);
+
+    }
+    ////PLEASE DONT USE UNLESS YOU ARE DOING DATA BOMBS
+    public void addPaidCheck(String checknum,double amount,String date){
+        acceptedChecks.put(checknum,date+"::"+amount);
+
+    }
+
+    public void addDeniedCheck(String checknum,double amount,String date){
+        deniedChecks.put(checknum,date+"::"+amount);
+
+    }
+
 
     public double endAccount(){
         double endbal=balancef;

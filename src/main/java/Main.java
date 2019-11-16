@@ -1,4 +1,6 @@
+import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
+import SystemHelper.SystemHelper;
 import persistence.DataBomb.DataBomb;
 import persistence.GetData.GetData;
 import persistence.SaveData.SaveData;
@@ -9,22 +11,29 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        DataBomb x= new DataBomb();
-        x.SaveBomb();
+        GetData x = new GetData();
+        DataBomb f = new DataBomb();
+        f.CCLoanBomb();
+        f.CDBomb();
+        f.CheckBomb();
+        f.CustBomb();
+        f.LongLoanBomb();
+        f.ManagBomb();
+        f.SaveBomb();
+        f.ShortLoanBomb();
+        f.TellerBomb();
 
-        GetData y = new GetData();
-        ArrayList<RegSavings> temp = y.getRegSavings("423-16-8945");
+        ArrayList<Checking> h=x.getCheckingByATMCard("2899653222933490");
 
-        System.out.println(temp.get(0).getBalancef());
-
-        for(RegSavings o:temp){
-            o.authorizeWithdraw(20.00);
+        for (Checking y:h
+             ) {
+            System.out.println(y.getAtmCard());
         }
 
-        SaveData z = new SaveData();
-        z.saveSaving(temp);
 
-        System.out.println(temp.get(0).getBalancef());
+
+
+
     }
 }
 

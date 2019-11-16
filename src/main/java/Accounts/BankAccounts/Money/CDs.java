@@ -1,6 +1,8 @@
 package Accounts.BankAccounts.Money;
 
 
+import SystemHelper.SystemHelper;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,6 +15,13 @@ public class CDs extends Savings {
         this.endDate=endDate;
 
     }
+    public CDs(String cusID,double initalbalence, String openDate, String endDate){
+        this("",cusID,initalbalence,openDate,endDate,0,"");
+        SystemHelper IamHelper = new SystemHelper();
+        this.ID=IamHelper.makeRandomId();
+
+    }
+
 
     public double endAccount(){
         double endbal=balancef;

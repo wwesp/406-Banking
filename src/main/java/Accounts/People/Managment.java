@@ -2,6 +2,7 @@ package Accounts.People;
 
 public class Managment extends Teller {
 
+
     public Managment(String ssn,String fName, String lName){
         super(ssn,fName,lName);
     }

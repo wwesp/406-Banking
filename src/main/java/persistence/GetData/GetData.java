@@ -248,6 +248,7 @@ public class GetData {
 
         ArrayList<Checking> returnable = new ArrayList<>();
         for (Checking y :x){
+
             if (y.getAtmCard().equals(card)){
                 returnable.add(y);
             }

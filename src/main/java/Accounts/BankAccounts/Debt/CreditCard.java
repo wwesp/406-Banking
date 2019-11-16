@@ -12,11 +12,25 @@ public class CreditCard extends DebtAccounts {
     public CreditCard(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
                       String lastPaymentDate, double fees , HashMap<String, Double> paymentHistory, double creditLine){
+
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
                 lastPaymentDate, fees, paymentHistory);
         this.creditLine=creditLine;
 
     }
+    /*
+    public CreditCard(String cusID, ){
+        this("","",0,0,"","",0,' ',"",0,null,0);
+
+
+
+    }
+    */
+
+
+
+
+
 
     public double endAccount(){
         double endbal=-1*balancef-fees-currentPaymentDue;
