@@ -1,6 +1,7 @@
 package Accounts.BankAccounts.Money;
 
 import Accounts.Interest;
+import Accounts.People.Customer;
 import SystemHelper.SystemHelper;
 
 import persistence.GetData.GetData;
@@ -79,12 +80,24 @@ public class Checking extends MoneyAccounts {
         this("",cusId, 0,openDate,accType,backupAcc,"",null,null,null,null,"",null );
 
         SystemHelper IamHelper = new SystemHelper();
-        String atmCar="";
+
         if(atmcard){
-            atmCar=IamHelper.makeRandomId();
+
+            Customer customer= new GetData().getCustomerBySSN(cusId);
+            if(customer.getAtmCard().equals("")){
+                this.atmCard=IamHelper.makeRandomId();
+                customer.setAtmCard(this.atmCard);
+            }
+            else{
+                this.atmCard=customer.getAtmCard();
+            }
+
+
+
         }
+
         this.ID=IamHelper.makeRandomId();
-        this.atmCard=atmCar;
+
         this.balancef=initbalance;
     }
 

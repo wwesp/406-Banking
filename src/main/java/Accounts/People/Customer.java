@@ -44,6 +44,9 @@ public class Customer extends People {
         return atmCard;
     }
 
+    public void setAtmCard(String x) {
+        this.atmCard=x;
+    }
 
 
 
