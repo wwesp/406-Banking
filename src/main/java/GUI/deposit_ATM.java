@@ -37,7 +37,6 @@ public class deposit_ATM extends JFrame {
         frame.setVisible(true);
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
-        ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);
 
         back_button.addActionListener(new ActionListener() {
             @Override
@@ -70,7 +69,7 @@ public class deposit_ATM extends JFrame {
                 //ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
                 //ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);
                 SaveData saveData = new SaveData();
-                saveData.saveCheckAndSave(savings, checking);
+                saveData.saveCheckAndSave(savings, che);
                 frame.setVisible(false);
                 ATM_home ATM_page = new ATM_home(customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));

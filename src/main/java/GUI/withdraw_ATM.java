@@ -4,6 +4,7 @@ import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
 import SystemHelper.SystemHelper;
 import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,12 +56,17 @@ public class withdraw_ATM extends JFrame {
                     if (j.getID().equals(ID)){
                         System.out.println(withdraw_ammount+"        "+ savings);
                         j.authorizeWithdrawlATM(withdraw_ammount, savings);
+                        if (withdraw_ammount > j.getBalancef()){
+                            JOptionPane.showMessageDialog(null, "Withdraw Amount is Greater than Checking Balance, Pulling from Savings");
+                        }
                         System.out.println(j.getBalancef());
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "Account Not Found");
                     }
                 }
+                SaveData saveData = new SaveData();
+                saveData.saveCheckAndSave(savings, che);
                 frame.setVisible(false);
                 ATM_home ATM_page = new ATM_home(customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
