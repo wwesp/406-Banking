@@ -6,6 +6,7 @@ import Accounts.BankAccounts.Debt.ShortTermLoan;
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.Interest;
 import Accounts.People.Customer;
 import com.google.gson.Gson;
 
@@ -317,6 +318,18 @@ public class SaveData {
         }
     }
 
+    public void saveInterest(Interest x){
 
+        Gson gson = new Gson();
+        File intFile = new File("src/main/java/persistence/DataBases/interest.txt");
+
+        try (FileWriter writer = new FileWriter(intFile)) {
+
+            gson.toJson(x, writer);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }

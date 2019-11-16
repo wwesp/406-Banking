@@ -1,3 +1,4 @@
+{"interestRate":0.022,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"423-45-3245","balancef":200.0,"ID":"1"}
 {"interestRate":0.023,"lastDayInterestCompounded":"","openDate":"02-18-2004","cusID":"345-65-3425","balancef":100.0,"ID":"2"}
 {"interestRate":0.028,"lastDayInterestCompounded":"","openDate":"09-15-1998","cusID":"423-14-8894","balancef":875.54,"ID":"3"}
 {"interestRate":0.021,"lastDayInterestCompounded":"","openDate":"07-08-2008","cusID":"677-87-9013","balancef":1200.82,"ID":"4"}
@@ -8,4 +9,3 @@
 {"interestRate":0.028,"lastDayInterestCompounded":"","openDate":"11-1-2011","cusID":"423-16-8945","balancef":198.56,"ID":"9"}
 {"interestRate":0.029,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"235-44-5789","balancef":98.56,"ID":"10"}
 {"interestRate":0.024,"lastDayInterestCompounded":"","openDate":"08-19-2019","cusID":"345-67-9898","balancef":1700.0,"ID":"15"}
-{"interestRate":0.022,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"423-45-3245","balancef":155.74,"ID":"1"}

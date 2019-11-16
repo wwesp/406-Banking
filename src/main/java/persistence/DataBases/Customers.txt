@@ -1,6 +1,6 @@
 {"address":"114 North 4th","city":"Clarkesdale","state":"MO","zip":"64493","atmCard":"2899653222933490","ssn":"423-45-3245","fName":"Ronald","lName":"Jones"}
 {"address":"1805 Jules","city":"St. Joseph","state":"MO","zip":"64503","atmCard":"4387917994924947","ssn":"345-65-3425","fName":"Mark","lName":"Ingrem"}
-{"address":"2109 Sylviana","city":"St. Joesph","state":"MO","zip":"64501","atmCard":" 7915365294629613","ssn":"423-14-8894","fName":"Sherry","lName":"Harrison"}
+{"address":"2109 Sylviana","city":"St. Joesph","state":"MO","zip":"64501","atmCard":"7915365294629613","ssn":"423-14-8894","fName":"Sherry","lName":"Harrison"}
 {"address":"4305 West 3rd","city":"Wathena","state":"KS","zip":"54910","atmCard":"8343891648427859","ssn":"677-87-9013","fName":"John","lName":"Morgeson"}
 {"address":"221 south highly","city":"St. Joesph","state":"MO","zip":"64503","atmCard":"5445687789148812","ssn":"345-59-9870","fName":"Gary","lName":"Gilkerson"}
 {"address":"335 Jules","city":"St. Joesph","state":"MO","zip":"64503","atmCard":"1592169184752658","ssn":"423-56-7890","fName":"Mary","lName":"Francis"}

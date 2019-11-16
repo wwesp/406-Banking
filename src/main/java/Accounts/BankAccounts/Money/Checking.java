@@ -1,5 +1,6 @@
 package Accounts.BankAccounts.Money;
 
+import Accounts.Interest;
 import SystemHelper.SystemHelper;
 
 import persistence.GetData.GetData;
@@ -73,7 +74,7 @@ public class Checking extends MoneyAccounts {
     }
 
     //this is for brand new accounts
-    public Checking(String cusId, String openDate, int accType, String backupAcc, boolean atmcard){
+    public Checking(String cusId, double initbalance, String openDate, int accType, String backupAcc, boolean atmcard){
 
         this("",cusId, 0,openDate,accType,backupAcc,"",null,null,null,null,"",null );
 
@@ -84,6 +85,7 @@ public class Checking extends MoneyAccounts {
         }
         this.ID=IamHelper.makeRandomId();
         this.atmCard=atmCar;
+        this.balancef=initbalance;
     }
 
 
@@ -94,14 +96,16 @@ public class Checking extends MoneyAccounts {
 
     public void dailyInterest(){
         String today=getTodaysDate();
+        Interest intrest= new GetData().getIntRates();
+
         if (!today.equals(lastDayInterestCompounded)){
 
             //that they are gold and that they still have their benefits
             if(accType==1&&getBalancef()>=1000){
                 //compound interest
-                //.5 percent interest
+
                 //make sure it stays at two decimal places
-                balancef=parseDouble(balancef*1.005,0);
+                balancef=parseDouble(balancef*intrest.getCheckingInterestRate(),0);
             }
             lastDayInterestCompounded=today;
         }
@@ -129,6 +133,7 @@ public class Checking extends MoneyAccounts {
         atmHistory.add(getTodaysDate());
         return true;
     }
+
 
     //true for monthly is yes it is (.75 fee instead of .50)
     //sets up withdrawl
@@ -167,7 +172,7 @@ public class Checking extends MoneyAccounts {
                 }
             }
         }
-
+        System.out.println("INSIDE OF CHECKING: "+ savingsAcc.getBalancef());
         //payment
 
         if (balancef>=x){

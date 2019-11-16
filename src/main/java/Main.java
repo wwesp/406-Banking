@@ -22,7 +22,7 @@ public class Main {
         f.SaveBomb();
         f.ShortLoanBomb();
         f.TellerBomb();
-        //cuck boi
+        f.intrestBomb();
 
         ArrayList<Checking> h=x.getCheckingByATMCard("2899653222933490");
 

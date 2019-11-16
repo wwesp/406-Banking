@@ -6,6 +6,7 @@ import Accounts.BankAccounts.Debt.ShortTermLoan;
 import Accounts.BankAccounts.Money.CDs;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.Interest;
 import Accounts.People.Customer;
 import Accounts.People.Managment;
 import Accounts.People.Teller;
@@ -249,6 +250,7 @@ public class GetData {
         }
 
         ArrayList<Checking> returnable = new ArrayList<>();
+
         for (Checking y :x){
 
             if (y.getAtmCard().equals(card)){
@@ -363,6 +365,26 @@ public class GetData {
 
     }
 
+    public Interest getIntRates(){
+        Interest x = null;
+        Gson gson = new Gson();
+        File CheckingFile = new File("src/main/java/persistence/DataBases/interest.txt");
+
+        try{
+            Scanner scan= new Scanner(CheckingFile);
+
+            while(scan.hasNextLine()){
+
+                x=gson.fromJson(scan.nextLine(), Interest.class);
+
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        
+        return x;
+    }
 
 
 }
