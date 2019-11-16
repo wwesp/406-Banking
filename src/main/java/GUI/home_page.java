@@ -14,12 +14,29 @@ public class home_page extends JFrame {
 
 
     public static void main(String[] args) {
-        new home_page();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel ( "javax.swing.plaf.nimbus.NimbusLookAndFeel" );
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedLookAndFeelException e) {
+                    e.printStackTrace();
+                }
+                new home_page();
+            }
+        });
     }
 
     public home_page() {
 
-        JFrame frame = new JFrame("Welcome");
+
+    JFrame frame = new JFrame("Welcome");
         frame.setContentPane(Homepage);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

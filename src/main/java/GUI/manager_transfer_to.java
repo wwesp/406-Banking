@@ -146,6 +146,7 @@ public class manager_transfer_to extends JFrame{
                     }
                 }
 
+                JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);
                 manager_transfer_summary transfer_money_summary = new manager_transfer_summary(customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));

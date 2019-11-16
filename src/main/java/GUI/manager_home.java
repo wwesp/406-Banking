@@ -17,9 +17,15 @@ public class manager_home extends JPanel {
     private JButton transfer_funds_button;
     private JButton create_savings_button;
     private JButton lookup_accout_button;
+    private JButton create_customer;
+    private JButton createLoanAccountButton;
 
     public static void main(String[] args) {
-        new manager_home();
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch(Exception ignored){}
+
+        new manager_home(); //start your application
     }
 
     public manager_home() {
@@ -99,6 +105,22 @@ public class manager_home extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 create_saving_page create_saving_page = new create_saving_page(2);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        create_customer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                manager_create_customer manager_create_customer = new manager_create_customer();
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        createLoanAccountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                manager_create_loan manager_create_loan = new manager_create_loan();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

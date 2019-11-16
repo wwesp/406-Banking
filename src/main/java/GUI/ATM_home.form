@@ -30,7 +30,7 @@
       </component>
       <vspacer id="3a260">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
+          <grid row="6" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="0" height="10"/>
             <preferred-size width="0" height="10"/>
             <maximum-size width="0" height="10"/>
@@ -81,7 +81,11 @@
       </scrollpane>
       <component id="2a4ef" class="javax.swing.JButton" binding="deposit_account_2">
         <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Deposit"/>
@@ -89,7 +93,11 @@
       </component>
       <component id="77ae1" class="javax.swing.JButton" binding="withdraw_account_2">
         <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="90" height="30"/>
+            <preferred-size width="90" height="30"/>
+            <maximum-size width="90" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Withdraw"/>

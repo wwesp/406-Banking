@@ -13,6 +13,7 @@ public class teller_home  extends JPanel{
     private JButton view_accounts_button;
     private JButton transfer_funds_button;
     private JButton create_savings_button;
+    private JLabel fname_label;
 
     public static void main(String[] args) {
         new teller_home();

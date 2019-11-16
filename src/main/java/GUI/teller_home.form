@@ -1,56 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.teller_home">
-  <grid id="27dc6" binding="teller_home_panel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="teller_home_panel" layout-manager="GridLayoutManager" row-count="11" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="573" height="458"/>
+      <xy x="20" y="20" width="757" height="458"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="1b30e" class="javax.swing.JButton" binding="back_button">
+      <component id="3680e" class="javax.swing.JButton" binding="create_savings_button">
         <constraints>
-          <grid row="0" column="1" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="80" height="30"/>
-            <preferred-size width="80" height="399"/>
-            <maximum-size width="80" height="30"/>
+          <grid row="7" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Back"/>
+          <text value="Create Savings Account"/>
         </properties>
       </component>
       <component id="a1680" class="javax.swing.JButton" binding="create_checking_account">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="15" use-parent-layout="false">
-            <preferred-size width="613" height="30"/>
+          <grid row="6" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
           </grid>
         </constraints>
         <properties>
           <text value=" Create Checking Account"/>
         </properties>
       </component>
-      <hspacer id="af865">
-        <constraints>
-          <grid row="0" column="2" row-span="4" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="10" height="0"/>
-            <preferred-size width="10" height="0"/>
-            <maximum-size width="10" height="0"/>
-          </grid>
-        </constraints>
-      </hspacer>
-      <vspacer id="1dfda">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="0" height="10"/>
-            <preferred-size width="0" height="10"/>
-            <maximum-size width="0" height="10"/>
-          </grid>
-        </constraints>
-      </vspacer>
       <component id="83343" class="javax.swing.JButton" binding="view_accounts_button">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="15" use-parent-layout="false"/>
+          <grid row="5" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
+          </grid>
         </constraints>
         <properties>
           <text value="View Accounts"/>
@@ -58,20 +46,123 @@
       </component>
       <component id="19507" class="javax.swing.JButton" binding="transfer_funds_button">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="15" use-parent-layout="false"/>
+          <grid row="4" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Transfer Funds"/>
         </properties>
       </component>
-      <component id="3680e" class="javax.swing.JButton" binding="create_savings_button">
+      <component id="489dd" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="15" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Create Savings Account"/>
+          <text value="Please Make Your Selection"/>
         </properties>
       </component>
+      <hspacer id="d2550">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="3b524">
+        <constraints>
+          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <vspacer id="61242">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="10593">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="98085" class="javax.swing.JLabel" binding="fname_label">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Teller"/>
+        </properties>
+      </component>
+      <vspacer id="93842">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="fff3a">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <hspacer id="4b1e9">
+        <constraints>
+          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <hspacer id="2c9c">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
+        </constraints>
+      </hspacer>
+      <hspacer id="fa597">
+        <constraints>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="22c16" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Welcome, "/>
+        </properties>
+      </component>
+      <hspacer id="11400">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="1b30e" class="javax.swing.JButton" binding="back_button">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Back"/>
+        </properties>
+      </component>
+      <vspacer id="14705">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>
