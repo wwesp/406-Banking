@@ -1,6 +1,7 @@
 package GUI;
 
 import Accounts.BankAccounts.Money.Checking;
+import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.People.Customer;
 import persistence.GetData.GetData;
 
@@ -18,6 +19,7 @@ public class ATM_home extends JFrame {
     private JTable checking_table;
     private JLabel last_name_label;
     private JLabel first_name_label;
+    private JTable saving_table;
     private String ID;
 
     public static void main(String[] args) {
@@ -37,6 +39,7 @@ public class ATM_home extends JFrame {
         first_name_label.setText(customer1.getfName());
         String SSN = customer1.getSsn();
         ArrayList<Checking> checking = new GetData().getCheckingByATMCard(customer);
+        ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
         checking_table.setModel(new javax.swing.table.DefaultTableModel(
 
                 new Object [][] {
@@ -44,6 +47,18 @@ public class ATM_home extends JFrame {
                 },
                 new String []{
                         "Account ID", "Balance", "Account Type"
+                }
+        ) {public boolean isCellEditable(int row, int column){return false;}}
+        );
+
+        saving_table.setModel(new javax.swing.table.DefaultTableModel(
+
+                new Object [][] {
+                        {savings.get(0).getBalancef(), savings.get(0).getOpenDate(), savings.get(0).getInterestRate(),
+                                savings.get(0).getLastDayInterestCompounded()}
+                },
+                new String [] {
+                        "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"
                 }
         ) {public boolean isCellEditable(int row, int column){return false;}}
         );
@@ -71,7 +86,7 @@ public class ATM_home extends JFrame {
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Please Pick Account");
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
                 }
             }
         });
@@ -91,5 +106,6 @@ public class ATM_home extends JFrame {
                 System.out.println(ID);
             }
         });
+
     }
 }
