@@ -5,6 +5,7 @@ import Accounts.People.Customer;
 import SystemHelper.SystemHelper;
 
 import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -87,6 +88,8 @@ public class Checking extends MoneyAccounts {
             if(customer.getAtmCard().equals("")){
                 this.atmCard=IamHelper.makeRandomId();
                 customer.setAtmCard(this.atmCard);
+                SaveData sav= new SaveData();
+                sav.saveCustomer(customer);
             }
             else{
                 this.atmCard=customer.getAtmCard();

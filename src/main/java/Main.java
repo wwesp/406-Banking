@@ -25,8 +25,8 @@ public class Main {
         f.TellerBomb();
         f.intrestBomb();
 
-        ArrayList<Checking> h=x.getCheckingByATMCard("2899653222933490");
-
+        ArrayList<Checking> h=x.getCheckingBySSN("423-14-8894");
+        System.out.println("Main :"+h);
         for (Checking y:h
              ) {
             System.out.println(y.getAtmCard());

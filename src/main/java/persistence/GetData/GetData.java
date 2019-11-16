@@ -214,10 +214,10 @@ public class GetData {
         } catch (Exception ex){
             ex.printStackTrace();
         }
-
         ArrayList<Checking> returnable = new ArrayList<>();
         for (Checking y :x){
-            if (y.getAtmCard().equals(CustomerSSN)){
+
+            if (y.getCusID().equals(CustomerSSN)){
 
                 returnable.add(y);
             }
@@ -286,6 +286,7 @@ public class GetData {
 
         ArrayList<LongTermLoan> returnable = new ArrayList<>();
         for (LongTermLoan y :x){
+
             if (y.getCusID().equals(SSN)){
                 returnable.add(y);
             }

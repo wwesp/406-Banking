@@ -137,6 +137,61 @@ public class DataBomb {
         b.addPaidCheck("203",89.56,"02-19-2004");
         b.addPaidCheck("204",89.56,"02-19-2004");
 
+        c.addPaidCheck("300",89.56,"02-19-2004");
+        c.addPaidCheck("301",89.56,"02-19-2004");
+
+        d.addPaidCheck("204",89.56,"02-19-2004");
+        d.addPaidCheck("204",89.56,"02-19-2004");
+        d.addPaidCheck("204",89.56,"02-19-2004");
+        d.addPaidCheck("204",89.56,"02-19-2004");
+
+        e.addPaidCheck("204",89.56,"02-19-2004");
+        e.addPaidCheck("204",89.56,"02-19-2004");
+        e.addPaidCheck("204",89.56,"02-19-2004");
+
+        f.addPaidCheck("204",89.56,"02-19-2004");
+        f.addPaidCheck("204",89.56,"02-19-2004");
+        f.addPaidCheck("204",89.56,"02-19-2004");
+        f.addPaidCheck("204",89.56,"02-19-2004");
+
+        g.addPaidCheck("204",89.56,"02-19-2004");
+        g.addPaidCheck("204",89.56,"02-19-2004");
+        g.addPaidCheck("204",89.56,"02-19-2004");
+
+        h.addPaidCheck("204",89.56,"02-19-2004");
+        h.addPaidCheck("204",89.56,"02-19-2004");
+        h.addPaidCheck("204",89.56,"02-19-2004");
+        h.addPaidCheck("204",89.56,"02-19-2004");
+        h.addPaidCheck("204",89.56,"02-19-2004");
+
+        i.addPaidCheck("204",89.56,"02-19-2004");
+        i.addPaidCheck("204",89.56,"02-19-2004");
+        i.addPaidCheck("204",89.56,"02-19-2004");
+        i.addPaidCheck("204",89.56,"02-19-2004");
+        i.addPaidCheck("204",89.56,"02-19-2004");
+
+        j.addPaidCheck("204",89.56,"02-19-2004");
+        j.addPaidCheck("204",89.56,"02-19-2004");
+        j.addPaidCheck("204",89.56,"02-19-2004");
+        j.addPaidCheck("204",89.56,"02-19-2004");
+        j.addPaidCheck("204",89.56,"02-19-2004");
+
+        k.addPaidCheck("204",89.56,"02-19-2004");
+        k.addPaidCheck("204",89.56,"02-19-2004");
+        k.addPaidCheck("204",89.56,"02-19-2004");
+
+        l.addPaidCheck("204",89.56,"02-19-2004");
+        l.addPaidCheck("204",89.56,"02-19-2004");
+        l.addPaidCheck("204",89.56,"02-19-2004");
+        l.addPaidCheck("204",89.56,"02-19-2004");
+
+        o.addPaidCheck("204",89.56,"02-19-2004");
+        o.addPaidCheck("204",89.56,"02-19-2004");
+        o.addPaidCheck("204",89.56,"02-19-2004");
+        o.addPaidCheck("204",89.56,"02-19-2004");
+        o.addPaidCheck("204",89.56,"02-19-2004");
+
+
 
         try(FileWriter writer = new FileWriter(CheckFile)) {
             gson.toJson(a, writer);

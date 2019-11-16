@@ -3,6 +3,7 @@ package Accounts.BankAccounts.Debt;
 
 
 import SystemHelper.SystemHelper;
+import persistence.GetData.GetData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class LongTermLoan extends DebtAccounts {
     public LongTermLoan(String cusId, String datePaymentDue, String notifyDate, String yearType){
         this("",cusId,0,0,datePaymentDue,notifyDate,0,' ', "",yearType,0,null,null,null);
         this.ID=new SystemHelper().makeRandomId();
+        this.interestRate=new GetData().getIntRates().getLoansInterest();
+
 
     }
 
