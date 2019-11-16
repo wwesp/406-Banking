@@ -2,6 +2,9 @@ package Accounts.BankAccounts.Money;
 
 
 import SystemHelper.SystemHelper;
+import persistence.GetData.GetData;
+
+import java.awt.*;
 
 public class RegSavings extends  Savings{
 
@@ -9,8 +12,9 @@ public class RegSavings extends  Savings{
     public RegSavings(String ID, String cusID, double balance, String openDate,double interestRate,String lastDayInterestCompounded){
         super(ID, cusID,balance,openDate,interestRate,lastDayInterestCompounded);
     }
-    public RegSavings(String cusId, double initalBalence, double interRate){
-        this("",cusId,initalBalence,"",interRate,"");
+    public RegSavings(String cusId, double initalBalence){
+        this("",cusId,initalBalence,"",0,"");
+        this.interestRate= new GetData().getIntRates().getCDInterest();
         SystemHelper IamHelper = new SystemHelper();
         this.ID= IamHelper.makeRandomId();
         this.openDate=getTodaysDate();
