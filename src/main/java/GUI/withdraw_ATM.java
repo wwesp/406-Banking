@@ -19,6 +19,7 @@ public class withdraw_ATM extends JFrame {
     private JButton back_button;
     private JButton accept_button;
     private double withdraw_ammount;
+    private int print_value;
 
     public static void main(String[] args) {
         new withdraw_ATM(null,null, null);
@@ -56,16 +57,18 @@ public class withdraw_ATM extends JFrame {
                 System.out.println(ID);
                 for (Checking j:che){
                     if (j.getID().equals(ID)){
-                        System.out.println(withdraw_ammount+"        "+ savings);
                         j.authorizeWithdrawlATM(withdraw_ammount, savings);
+                        print_value++;
                         if (withdraw_ammount > j.getBalancef()){
                             JOptionPane.showMessageDialog(null, "Withdraw Amount is Greater than Checking Balance, Pulling from Savings");
                         }
-                        System.out.println(j.getBalancef());
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null, "Account Not Found");
-                    }
+                }
+                if (print_value == 1){
+                    JOptionPane.showMessageDialog(null, "Withdraw Successful");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Deposit Failed");
                 }
                 SaveData saveData = new SaveData();
                 saveData.saveCheckAndSave(savings, che);
