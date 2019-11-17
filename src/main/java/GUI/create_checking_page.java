@@ -1,52 +1,81 @@
 package GUI;
 
+import Accounts.BankAccounts.Money.Checking;
+import Accounts.BankAccounts.Money.RegSavings;
+import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class create_checking_page extends JPanel{
 
     private JPanel CreateCheckingPage;
     private JButton AcceptButton;
     private JButton Clear;
-    private JTextField SSN_textfield;
-    private JTextField customer_textfield;
-    private JTextField account_number_textfield;
-    private JTextField routing_number_textfield;
-    private JTextField balance_textfield;
-    private JTextField history_textfield;
+    private JTextField balance_text;
     private JLabel SSN;
-    private JLabel Customer;
     private JLabel account_num;
     private JLabel routing_num;
     private JLabel balance;
-    private JLabel history;
     private JButton back_button;
+    private JComboBox<String> account_type_drop_down;
+    private String account_type;
+    private int account_number;
+    private JCheckBox createATMCardCheckBox;
+    private boolean ATM_card;
+    private JLabel SSN_label;
+    private JComboBox back_up_account_combo;
+
 
     public static void main(String[] args) {
-        new create_checking_page(0);
+        new create_checking_page(0, null);
     }
-    public create_checking_page(int x) {
+    public create_checking_page(int x, String SSN) {
 
         JFrame frame = new JFrame("Create Checking");
         frame.setContentPane(CreateCheckingPage);
-        frame.setPreferredSize(new Dimension(800, 600));
+        frame.setPreferredSize(new Dimension(820, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        SSN_label.setText(SSN);
+
+        //String[] account_types = { "That's My Bank", "Gold/Diamond"};
+        account_type_drop_down.addItem("That's My Bank");
+        account_type_drop_down.addItem("Gold/Diamond");
+
+        ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
+
+        back_up_account_combo.addItem("");
+        for (RegSavings y : savings) {
+            back_up_account_combo.addItem(y.getID());
+        }
         //double bal = Double.parseDouble(new GUI().textField3.getText());
         AcceptButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String accountnum = account_number_textfield.getText();
-                String routingnum = routing_number_textfield.getText();
-                String SSN = SSN_textfield.getText();
-                double balance = Double.parseDouble(balance_textfield.getText());
-                String history = history_textfield.getText();
+                account_type = Objects.requireNonNull(account_type_drop_down.getSelectedItem()).toString();
+                if (account_type == "That's My Bank"){
+                    account_number = 0;
+                }
+                else {
+                    account_number = 1;
+                }
+                double balance = Double.parseDouble(balance_text.getText());
+                Checking new_checking = new Checking(SSN,balance,account_number, Objects.requireNonNull(back_up_account_combo.getSelectedItem()).toString(), ATM_card);
+                System.out.println(new_checking.getBalancef());
+                SaveData save_new_checking = new SaveData();
+                ArrayList<Checking> checking_arraylist = new ArrayList<>();
+                checking_arraylist.add(new_checking);
+                save_new_checking.saveChecking(checking_arraylist);
                 //CheckingAccount x = new CheckingAccount(SSN,accountnum, routingnum, balance,null);
                 //JOptionPane.showInternalMessageDialog(null, x );
                 //System.out.println("This is the Checking Account " + x );
@@ -55,12 +84,7 @@ public class create_checking_page extends JPanel{
         Clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SSN_textfield.setText("");
-                customer_textfield.setText("");
-                account_number_textfield.setText("");
-                routing_number_textfield.setText("");
-                balance_textfield.setText("");
-                history_textfield.setText("");
+                balance_text.setText("");
             }
         });
         back_button.addActionListener(new ActionListener() {
@@ -73,7 +97,7 @@ public class create_checking_page extends JPanel{
                 }
                 if (x == 2){
                     frame.setVisible(false);
-                    teller_home teller_page = new teller_home();
+                    validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking();
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 if (x == 3){
@@ -81,6 +105,24 @@ public class create_checking_page extends JPanel{
                     manager_home manager_page = new manager_home();
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
+            }
+        });
+        balance_text.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        createATMCardCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ATM_card = true;
+            }
+        });
+        back_up_account_combo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

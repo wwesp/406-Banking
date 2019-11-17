@@ -45,7 +45,7 @@ public class SaveData {
 
         for (Checking checking : z) {
             for (Checking x1 : x) {
-                if (!checking.getCusID().equals(x1.getCusID())) {
+                if (!checking.getID().equals(x1.getID())) {
                     newSave.add(checking);
                 }
             }

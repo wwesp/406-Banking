@@ -41,7 +41,8 @@ public class manager_home extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                create_checking_page checking = new create_checking_page(3);
+                //TODO FIX THIS SHIT
+                create_checking_page checking = new create_checking_page(3, null);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

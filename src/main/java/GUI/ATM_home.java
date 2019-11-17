@@ -21,12 +21,13 @@ public class ATM_home extends JFrame {
     private JLabel first_name_label;
     private JTable saving_table;
     private String ID;
+    private int withdraw_history;
 
     public static void main(String[] args) {
         new ATM_home(null);
     }
 
-    public ATM_home(String customer){
+    public ATM_home(String customer) {
         JFrame frame = new JFrame("Select Deposit or Withdraw");
         frame.setContentPane(ATM_home);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -41,40 +42,60 @@ public class ATM_home extends JFrame {
         String SSN = customer1.getSsn();
         ArrayList<Checking> checking = new GetData().getCheckingByATMCard(customer);
         ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
-        checking_table.setModel(new javax.swing.table.DefaultTableModel(
 
-                new Object [][] {
-                        {checking.get(0).getID(), checking.get(0).getBalancef(), checking.get(0).getAccType()}
-                },
-                new String []{
-                        "Account ID", "Balance", "Account Type"
-                }
-        ) {public boolean isCellEditable(int row, int column){return false;}}
-        );
 
-        saving_table.setModel(new javax.swing.table.DefaultTableModel(
 
-                new Object [][] {
-                        {savings.get(0).getBalancef(), savings.get(0).getOpenDate(), savings.get(0).getInterestRate(),
-                                savings.get(0).getLastDayInterestCompounded()}
-                },
-                new String [] {
-                        "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"
-                }
-        ) {public boolean isCellEditable(int row, int column){return false;}}
-        );
+        //This sets the Checking Table
+        String[] checking_headers = {"Account ID", "Balance", "Account Type"};
+        DefaultTableModel checking_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        checking_model.setColumnIdentifiers(checking_headers);
+        checking_table.setModel(checking_model);
+        for (Checking x: checking){
+            checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType()});
+        }
+
+
+
+
+        //THis sets the Savings Table
+        String[] savings_headers = {"Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+        DefaultTableModel savings_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        savings_model.setColumnIdentifiers(savings_headers);
+        saving_table.setModel(savings_model);
+        for (RegSavings x: savings){
+            savings_model.addRow(new Object[] {x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
+        }
+
+
 
 
         withdraw_account_2.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ID != null) {
-                    frame.setVisible(false);
-                    withdraw_ATM withdraw_page = new withdraw_ATM(customer,ID, SSN);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            public void actionPerformed(ActionEvent e) { ;
+                for (Checking j:checking) {
+                    if (j.getID().equals(ID)) {
+                        withdraw_history = j.getAtmHistory().size();
+                    }
+                }
+                if (withdraw_history < 2 ) {
+                    if (ID != null) {
+                        frame.setVisible(false);
+                        withdraw_ATM withdraw_page = new withdraw_ATM(customer, ID, SSN);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please Pick Account");
+                    }
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Please Pick Account");
+                    JOptionPane.showMessageDialog(null, "Sorry, You Have Exceeded Your Daily Withdraw Limit");
                 }
             }
         });
@@ -104,9 +125,15 @@ public class ATM_home extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int row = checking_table.getSelectedRow();
                 ID = checking_table.getModel().getValueAt(row,0).toString();
-                System.out.println(ID);
             }
         });
 
+
+        saving_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+            }
+        });
     }
 }

@@ -1,106 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.create_checking_page">
-  <grid id="27dc6" binding="CreateCheckingPage" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="CreateCheckingPage" layout-manager="GridLayoutManager" row-count="11" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="816" height="479"/>
+      <xy x="20" y="20" width="911" height="479"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
       <component id="77ec1" class="javax.swing.JLabel" binding="routing_num">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Routing Number"/>
+          <text value="ATM Card"/>
         </properties>
       </component>
       <component id="d58f6" class="javax.swing.JLabel" binding="balance">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Balance"/>
-        </properties>
-      </component>
-      <component id="5235a" class="javax.swing.JLabel" binding="history">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="History"/>
+          <text value="Initial Balance"/>
         </properties>
       </component>
       <component id="2e8bf" class="javax.swing.JLabel" binding="account_num">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
         </constraints>
         <properties>
           <requestFocusEnabled value="false"/>
-          <text value="Account Number"/>
-        </properties>
-      </component>
-      <component id="14305" class="javax.swing.JLabel" binding="Customer">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <requestFocusEnabled value="false"/>
-          <text value="Customer"/>
+          <text value="Account Type"/>
         </properties>
       </component>
       <component id="79dd6" class="javax.swing.JLabel" binding="SSN">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="SSN"/>
         </properties>
       </component>
-      <component id="8c0e3" class="javax.swing.JTextField" binding="SSN_textfield">
+      <component id="821f7" class="javax.swing.JTextField" binding="balance_text">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="bdcab" class="javax.swing.JTextField" binding="customer_textfield">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="330ee" class="javax.swing.JTextField" binding="account_number_textfield">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="585fc" class="javax.swing.JTextField" binding="routing_number_textfield">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="821f7" class="javax.swing.JTextField" binding="balance_textfield">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="c1c4a" class="javax.swing.JTextField" binding="history_textfield">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="2" use-parent-layout="false">
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -108,40 +51,80 @@
       </component>
       <vspacer id="f8bbd">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
+          <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="0" height="10"/>
             <preferred-size width="0" height="10"/>
             <maximum-size width="0" height="10"/>
           </grid>
         </constraints>
       </vspacer>
-      <hspacer id="f49c5">
+      <component id="62392" class="javax.swing.JComboBox" binding="account_type_drop_down">
         <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <vspacer id="8522a">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <hspacer id="12f6d">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="10" height="0"/>
             <preferred-size width="10" height="0"/>
             <maximum-size width="10" height="0"/>
           </grid>
         </constraints>
       </hspacer>
-      <component id="ccbc6" class="javax.swing.JButton" binding="back_button">
+      <component id="43ae1" class="javax.swing.JLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="90" height="25"/>
-            <preferred-size width="90" height="25"/>
-            <maximum-size width="90" height="25"/>
-          </grid>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Back"/>
+          <text value="Please Enter Customer Information for Checking Account"/>
         </properties>
       </component>
+      <hspacer id="5ba2f">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="3ca82">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <vspacer id="acd1c">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="c4609">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="c491b">
+        <constraints>
+          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
+        </constraints>
+      </hspacer>
       <component id="86fff" class="javax.swing.JButton" binding="AcceptButton">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="6" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="90" height="25"/>
-            <preferred-size width="90" height="25"/>
-            <maximum-size width="90" height="25"/>
+          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="2" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
           </grid>
         </constraints>
         <properties>
@@ -149,17 +132,59 @@
           <text value="Accept"/>
         </properties>
       </component>
+      <component id="ccbc6" class="javax.swing.JButton" binding="back_button">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="90" height="30"/>
+            <preferred-size width="90" height="30"/>
+            <maximum-size width="90" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Back"/>
+        </properties>
+      </component>
       <component id="f5293" class="javax.swing.JButton" binding="Clear">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="90" height="25"/>
-            <preferred-size width="90" height="25"/>
-            <maximum-size width="90" height="25"/>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
           </grid>
         </constraints>
         <properties>
           <text value="Clear"/>
         </properties>
+      </component>
+      <component id="3d84a" class="javax.swing.JCheckBox" binding="createATMCardCheckBox" default-binding="true">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Create ATM Card"/>
+        </properties>
+      </component>
+      <component id="4b724" class="javax.swing.JLabel" binding="SSN_label">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Error"/>
+        </properties>
+      </component>
+      <component id="9a531" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="5" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Back Up Account"/>
+        </properties>
+      </component>
+      <component id="74137" class="javax.swing.JComboBox" binding="back_up_account_combo">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

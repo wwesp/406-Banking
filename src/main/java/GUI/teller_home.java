@@ -32,7 +32,7 @@ public class teller_home  extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                create_checking_page checking = new create_checking_page(2);
+                validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

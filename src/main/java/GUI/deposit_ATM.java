@@ -59,9 +59,7 @@ public class deposit_ATM extends JFrame {
 
                 for (Checking j:che){
                     if (j.getID().equals(ID)){
-                        System.out.println(deposit_ammount+"        "+ savings);
                         j.addBalence(deposit_ammount, savings);
-                        System.out.println(j.getBalancef());
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "Account Not Found");
