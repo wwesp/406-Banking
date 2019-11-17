@@ -70,8 +70,7 @@ public class deposit_ATM extends JFrame {
                 else {
                     JOptionPane.showMessageDialog(null, "Deposit Failed");
                 }
-                //ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
-                //ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);
+
                 SaveData saveData = new SaveData();
                 saveData.saveCheckAndSave(savings, che);
                 frame.setVisible(false);

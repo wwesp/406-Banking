@@ -22,6 +22,7 @@ public class ATM_home extends JFrame {
     private JTable saving_table;
     private String ID;
     private int withdraw_history;
+    private String back_up_acc_ID;
 
     public static void main(String[] args) {
         new ATM_home(null);
@@ -46,23 +47,21 @@ public class ATM_home extends JFrame {
 
 
         //This sets the Checking Table
-        String[] checking_headers = {"Account ID", "Balance", "Account Type"};
+        String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back up Account"};
         DefaultTableModel checking_model = new DefaultTableModel() {
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
+            public boolean isCellEditable(int row, int column) { return false; }};
         checking_model.setColumnIdentifiers(checking_headers);
         checking_table.setModel(checking_model);
         for (Checking x: checking){
-            checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType()});
+            checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
+            back_up_acc_ID = x.getBackupAcc();
         }
 
 
 
 
         //THis sets the Savings Table
-        String[] savings_headers = {"Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+        String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
         DefaultTableModel savings_model = new DefaultTableModel() {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -71,7 +70,8 @@ public class ATM_home extends JFrame {
         savings_model.setColumnIdentifiers(savings_headers);
         saving_table.setModel(savings_model);
         for (RegSavings x: savings){
-            savings_model.addRow(new Object[] {x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
+            if (x.getID().equals(back_up_acc_ID))
+            savings_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
         }
 
 

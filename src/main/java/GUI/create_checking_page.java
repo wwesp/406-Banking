@@ -71,14 +71,15 @@ public class create_checking_page extends JPanel{
                 }
                 double balance = Double.parseDouble(balance_text.getText());
                 Checking new_checking = new Checking(SSN,balance,account_number, Objects.requireNonNull(back_up_account_combo.getSelectedItem()).toString(), ATM_card);
-                System.out.println(new_checking.getBalancef());
                 SaveData save_new_checking = new SaveData();
                 ArrayList<Checking> checking_arraylist = new ArrayList<>();
                 checking_arraylist.add(new_checking);
                 save_new_checking.saveChecking(checking_arraylist);
-                //CheckingAccount x = new CheckingAccount(SSN,accountnum, routingnum, balance,null);
-                //JOptionPane.showInternalMessageDialog(null, x );
-                //System.out.println("This is the Checking Account " + x );
+
+                JOptionPane.showMessageDialog(null, "The Account has Been Successfully Created");
+                frame.setVisible(false);
+                teller_home teller_home = new teller_home();
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         Clear.addActionListener(new ActionListener() {
@@ -110,19 +111,31 @@ public class create_checking_page extends JPanel{
         balance_text.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                account_type = Objects.requireNonNull(account_type_drop_down.getSelectedItem()).toString();
+                if (account_type.equals("That's My Bank")){
+                    account_number = 0;
+                }
+                else {
+                    account_number = 1;
+                }
+                double balance = Double.parseDouble(balance_text.getText());
+                Checking new_checking = new Checking(SSN,balance,account_number, Objects.requireNonNull(back_up_account_combo.getSelectedItem()).toString(), ATM_card);
+                System.out.println(new_checking.getBalancef());
+                SaveData save_new_checking = new SaveData();
+                ArrayList<Checking> checking_arraylist = new ArrayList<>();
+                checking_arraylist.add(new_checking);
+                save_new_checking.saveChecking(checking_arraylist);
 
+                JOptionPane.showMessageDialog(null, "The Account has Been Successfully Created");
+                frame.setVisible(false);
+                teller_home teller_home = new teller_home();
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         createATMCardCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ATM_card = true;
-            }
-        });
-        back_up_account_combo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
             }
         });
     }

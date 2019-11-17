@@ -64,7 +64,7 @@ public class teller_home  extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                create_saving_page create_saving_page = new create_saving_page(1);
+                validate_teller_create_savings validate_teller_create_savings = new validate_teller_create_savings();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

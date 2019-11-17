@@ -77,5 +77,38 @@ public class withdraw_ATM extends JFrame {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+        accept_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<Checking> che = new GetData().getCheckingByATMCard(customer);
+                try {
+                    withdraw_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                }catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Please enter a Valid Number");
+                }
+
+                System.out.println(ID);
+                for (Checking j:che){
+                    if (j.getID().equals(ID)){
+                        j.authorizeWithdrawlATM(withdraw_ammount, savings);
+                        print_value++;
+                        if (withdraw_ammount > j.getBalancef()){
+                            JOptionPane.showMessageDialog(null, "Withdraw Amount is Greater than Checking Balance, Pulling from Savings");
+                        }
+                    }
+                }
+                if (print_value == 1){
+                    JOptionPane.showMessageDialog(null, "Withdraw Successful");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Deposit Failed");
+                }
+                SaveData saveData = new SaveData();
+                saveData.saveCheckAndSave(savings, che);
+                frame.setVisible(false);
+                ATM_home ATM_page = new ATM_home(customer);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
     }
 }

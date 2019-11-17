@@ -6,6 +6,7 @@ import Accounts.People.Customer;
 import persistence.GetData.GetData;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,36 +35,37 @@ public class teller_view_accounts extends JFrame{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        //for(RegSavings x: savings){
-        //    var y= x.getBalancef();
-        //}
         Customer customer1 = new GetData().getCustomerBySSN(customer);
         last_name_label.setText(customer1.getlName());
         first_name_label.setText(customer1.getfName());
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
-        checking_table.setModel(new javax.swing.table.DefaultTableModel(
+        //This sets the Checking Table
+        String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back Up Account"};
+        DefaultTableModel checking_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        checking_model.setColumnIdentifiers(checking_headers);
+        checking_table.setModel(checking_model);
+        for (Checking x: checking){
+            checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
+        }
 
-                new Object [][] {
-                        {checking.get(0).getBalancef(), checking.get(0).getOpenDate(), checking.get(0).getAcceptedChecks(),
-                                checking.get(0).getPendingChecks(), checking.get(0).getDeniedChecks()}
-                },
-                new String [] {
-                        "Balance", "Open Date", "Accepted Checks", "Pending Checks", "Denied Checks"
-                }
-        ));
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
-        savings_table.setModel(new javax.swing.table.DefaultTableModel(
-
-                new Object [][] {
-                        {savings.get(0).getBalancef(), savings.get(0).getOpenDate(), savings.get(0).getInterestRate(),
-                                savings.get(0).getLastDayInterestCompounded()}
-                },
-                new String [] {
-                        "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"
-                }
-        ));
+        String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+        DefaultTableModel savings_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        savings_model.setColumnIdentifiers(savings_headers);
+        savings_table.setModel(savings_model);
+        for (RegSavings x: savings){
+            savings_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
+        }
 
         back_button.addActionListener(new ActionListener() {
             @Override

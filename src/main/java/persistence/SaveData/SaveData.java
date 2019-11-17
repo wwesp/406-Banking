@@ -96,7 +96,7 @@ public class SaveData {
 
         for (RegSavings regSavings : z) {
             for (RegSavings x1 : x) {
-                if (!regSavings.getCusID().equals(x1.getCusID())) {
+                if (!regSavings.getID().equals(x1.getID())) {
                     newSave.add(regSavings);
                 }
             }

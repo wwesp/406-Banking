@@ -106,7 +106,8 @@ public class manager_home extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                create_saving_page create_saving_page = new create_saving_page(2);
+                //TODO Fix This Shit Too
+                //create_saving_page create_saving_page = new create_saving_page(2);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
