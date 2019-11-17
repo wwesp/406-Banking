@@ -94,10 +94,23 @@ public class SaveData {
 
         ArrayList<RegSavings> newSave = new ArrayList<>();
 
+
+        /*
         for (RegSavings regSavings : z) {
             for (RegSavings x1 : x) {
                 if (!regSavings.getID().equals(x1.getID())) {
                     newSave.add(regSavings);
+                }
+            }
+        }*/
+        newSave.addAll(z);
+        for(Iterator<RegSavings> i = newSave.iterator(); i.hasNext();) {
+            RegSavings acc = i.next();
+            //Do Something
+
+            for(RegSavings account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }

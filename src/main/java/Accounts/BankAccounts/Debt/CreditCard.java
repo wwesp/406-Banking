@@ -10,19 +10,32 @@ import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
     protected double creditLine;
+    HashMap<String,String> paymentHistoryDescription;
+
     public CreditCard(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
-                      String lastPaymentDate, double fees , HashMap<String, Double> paymentHistory, double creditLine){
+                      String lastPaymentDate, double fees , HashMap<String, Double> paymentHistory, double creditLine,
+                        HashMap<String,String> paymentHistoryDescription){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
-                lastPaymentDate, fees, paymentHistory);
+                lastPaymentDate, fees,paymentHistory);
         this.creditLine=creditLine;
+
+
+        if(paymentHistoryDescription==null){
+
+            this.paymentHistoryDescription= new HashMap<>();
+        }
+        else{
+            this.paymentHistoryDescription=paymentHistoryDescription;
+        }
+
 
     }
 
 
     public CreditCard(String cusID, String datePaymentDue, String notifydate,double creditLine){
-        this("","",0,0,"","",0,' ',"",0,null,0);
+        this("","",0,0,"","",0,' ',"",0,null,0,null);
 
         this.cusID=cusID;
         this.datePaymentDue=datePaymentDue;
@@ -57,7 +70,7 @@ public class CreditCard extends DebtAccounts {
         return endbal;
     }
 
-    public boolean makeCreditPurchase(double amt){
+    public boolean makeCreditPurchase(double amt, String item){
         SystemHelper h =new SystemHelper();
         if(creditLine<h.perciseAddition(currentPaymentDue,amt)){
             return false;
@@ -65,6 +78,10 @@ public class CreditCard extends DebtAccounts {
         }
         else{
             currentPaymentDue=h.perciseAddition(currentPaymentDue,amt);
+            String ran= h.makeRandomId();
+            paymentHistory.put(ran, amt);
+            paymentHistoryDescription.put(ran, item);
+
             return true;
         }
     }
@@ -143,7 +160,7 @@ public class CreditCard extends DebtAccounts {
 
     }
 
-    //TODO:PAYMENTD UE
+    //TODO:PAYMENT DUE
 
 
     //this is for managers to see if its over due
