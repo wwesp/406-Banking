@@ -44,7 +44,7 @@ public class manager_view_accounts extends JFrame{
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
         if (checking != null) {
             //This sets the Checking Table
-            String[] checking_headers = {"Account ID", "Balance", "Account Type"};
+            String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back Up Account"};
             DefaultTableModel checking_model = new DefaultTableModel() {
                 public boolean isCellEditable(int row, int column) {
                     return false;
@@ -53,43 +53,38 @@ public class manager_view_accounts extends JFrame{
             checking_model.setColumnIdentifiers(checking_headers);
             checking_table.setModel(checking_model);
             for (Checking x: checking){
-                checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType()});
+                checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
             }
         }
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
         if (savings != null) {
-            savings_table.setModel(new javax.swing.table.DefaultTableModel(
-
-                    new Object[][]{
-                            {savings.get(0).getID(), savings.get(0).getBalancef(), savings.get(0).getInterestRate()}
-                            },
-                    new String[]{
-                            "Account ID", "Balance", "Interest Rate"
-                    }) {
+            String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+            DefaultTableModel savings_model = new DefaultTableModel() {
                 public boolean isCellEditable(int row, int column) {
-                                           return false;
-                                       }
+                    return false;
+                }
+            };
+            savings_model.setColumnIdentifiers(savings_headers);
+            savings_table.setModel(savings_model);
+            for (RegSavings x: savings){
+                savings_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
             }
-            );
         }
 
         ArrayList<CDs> cds = new GetData().getCD(customer);
         if (cds != null) {
-            CD_table.setModel(new javax.swing.table.DefaultTableModel(
-
-                    new Object[][]{
-                            {cds.get(0).getID(), cds.get(0).getBalancef(), cds.get(0).getOpenDate(),
-                                    cds.get(0).getEndDate(), cds.get(0).getInterestRate()}
-                                    },
-                    new String[]{
-                            "Account ID", "Balance", "Open Date", "End Date", "Interest Rate"
-                    }) {
+            String[] checking_headers = {"Account ID", "Balance", "Open Date", "End Date", "Interest Rate"};
+            DefaultTableModel checking_model = new DefaultTableModel() {
                 public boolean isCellEditable(int row, int column) {
-                                      return false;
-                                  }
+                    return false;
+                }
+            };
+            checking_model.setColumnIdentifiers(checking_headers);
+            CD_table.setModel(checking_model);
+            for (CDs x: cds){
+                checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getOpenDate(), x.getEndDate(), x.getInterestRate()});
             }
-            );
         }
         checking_table.addMouseListener(new MouseAdapter() {
             @Override

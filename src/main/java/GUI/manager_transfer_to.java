@@ -5,8 +5,10 @@ import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.BankAccounts.Money.Savings;
 import Accounts.People.Customer;
 import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -45,26 +47,44 @@ public class manager_transfer_to extends JFrame{
         String SSN = customer1.getSsn();
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
-        checking_table.setModel(new javax.swing.table.DefaultTableModel(
+        String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back up Account"};
+        DefaultTableModel checking_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) { return false; }};
+        checking_model.setColumnIdentifiers(checking_headers);
+        checking_table.setModel(checking_model);
+        for (Checking x: checking){
+            if (!account_Type.equals("Checking")) {
+                checking_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
+            }
+            else {
+                if (!x.getID().equals(first_ID)){
+                    checking_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
+                }
+            }
+        }
 
-                new Object [][] {
-                        {checking.get(0).getID(), checking.get(0).getBalancef(), checking.get(0).getAccType()}
-                },
-                new String []{
-                        "Account ID", "Balance", "Account Type"
-                }) {public boolean isCellEditable(int row, int column){return false;}}
-        );
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
-        savings_table.setModel(new javax.swing.table.DefaultTableModel(
+        String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+        DefaultTableModel savings_model = new DefaultTableModel() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        savings_model.setColumnIdentifiers(savings_headers);
+        savings_table.setModel(savings_model);
+        for (RegSavings x: savings) {
+            if (!account_Type.equals("Savings")) {
+                savings_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
+            }
+            else {
+                if (!x.getID().equals(first_ID)){
+                    savings_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
+                }
+            }
+        }
 
-                new Object [][] {
-                        {savings.get(0).getID(), savings.get(0).getBalancef(), savings.get(0).getInterestRate()}
-                },
-                new String []{
-                        "Account ID", "Balance", "Interest Rate"
-                }) {public boolean isCellEditable(int row, int column){return false;}}
-        );
+
         checking_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -114,6 +134,8 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_checking_account.moneyTransfer(first_checking_account, amount);
+                        SaveData saveData = new SaveData();
+                        saveData.saveCheckAndSave(savings, selected_checking_account);
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(customer);
@@ -123,6 +145,8 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_checking_account.moneyTransfer(first_savings_account, amount);
+                        SaveData saveData = new SaveData();
+                        saveData.saveCheckAndSave(selected_account, checking);
                     }
                 }
 
@@ -135,6 +159,8 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_savings_Account.moneyTransfer(first_checking_account, amount);
+                        SaveData saveData = new SaveData();
+                        saveData.saveCheckAndSave(savings, selected_checking_account);
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(customer);
@@ -144,12 +170,14 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_savings_Account.moneyTransfer(first_savings_account, amount);
+                        SaveData saveData = new SaveData();
+                        saveData.saveCheckAndSave(selected_account, checking);
                     }
                 }
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);
-                manager_transfer_summary transfer_money_summary = new manager_transfer_summary(customer);
+                manager_home manager_home = new manager_home();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

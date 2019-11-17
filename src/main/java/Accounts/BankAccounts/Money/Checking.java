@@ -189,7 +189,7 @@ public class Checking extends MoneyAccounts {
                 }
             }
         }
-        System.out.println("INSIDE OF CHECKING: "+ savingsAcc.getBalancef());
+        //System.out.println("INSIDE OF CHECKING: "+ savingsAcc.getBalancef());
         //payment
 
         if (balancef>=x){
