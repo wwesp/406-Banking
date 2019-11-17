@@ -23,6 +23,7 @@ public class deposit_ATM extends JFrame {
     private JButton accept_button;
     private JButton back_button;
     private double deposit_ammount;
+    private int print_value;
 
     public static void main(String[] args) {
         new deposit_ATM(null, null, null);
@@ -60,10 +61,14 @@ public class deposit_ATM extends JFrame {
                 for (Checking j:che){
                     if (j.getID().equals(ID)){
                         j.addBalence(deposit_ammount, savings);
+                        print_value = print_value+ 1;
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null, "Account Not Found");
-                    }
+                }
+                if (print_value == 1){
+                    JOptionPane.showMessageDialog(null, "Deposit Successful");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Deposit Failed");
                 }
                 //ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
                 //ArrayList<Checking> checking = new GetData().getCheckingBySSN(SSN);

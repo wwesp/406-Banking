@@ -53,6 +53,7 @@ public class withdraw_ATM extends JFrame {
                     JOptionPane.showMessageDialog(null, "Please enter a Valid Number");
                 }
 
+                System.out.println(ID);
                 for (Checking j:che){
                     if (j.getID().equals(ID)){
                         System.out.println(withdraw_ammount+"        "+ savings);
