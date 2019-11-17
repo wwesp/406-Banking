@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class SaveData {
@@ -43,13 +44,20 @@ public class SaveData {
 
         ArrayList<Checking> newSave = new ArrayList<>();
 
-        for (Checking checking : z) {
-            for (Checking x1 : x) {
-                if (!checking.getID().equals(x1.getID())) {
-                    newSave.add(checking);
+
+        newSave.addAll(z);
+
+        for(Iterator<Checking> i = newSave.iterator(); i.hasNext();) {
+            Checking acc = i.next();
+            //Do Something
+
+            for(Checking account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }
+
 
         newSave.addAll(x);
 
