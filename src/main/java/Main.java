@@ -25,19 +25,14 @@ public class Main {
         f.TellerBomb();
         f.intrestBomb();
 
-        ArrayList<Checking> h=x.getCheckingBySSN("423-14-8894");
-        System.out.println("Main :"+h);
-        for (Checking y:h
-             ) {
-            System.out.println(y.getAtmCard());
+
+        ArrayList<Checking> p = new GetData().getCheckingByATMCard("8343891648427859");
+
+        for (Checking che: p){
+            System.out.println("Manager Checks:   "+che.getAcceptedChecks());
+            System.out.println("Teller Checks:   "+che.getAcceptedChecksTeller());
+
         }
-
-
-        Interest intre = new GetData().getIntRates();
-
-        System.out.println("Rate "+ intre.getCDInterest());
-
-
 
 
     }

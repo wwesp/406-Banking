@@ -9,6 +9,7 @@ import persistence.SaveData.SaveData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -273,18 +274,18 @@ public class Checking extends MoneyAccounts {
         long largestNumber=0;
 
         for(String x:pendingChecks.keySet()){
-            if(Integer.getInteger(x)>largestNumber){
-                largestNumber=Integer.getInteger(x);
+            if(Integer.parseInt(x.trim())>largestNumber){
+                largestNumber=Integer.parseInt(x.trim());
             }
         }
         for(String x:deniedChecks.keySet()){
-            if(Integer.getInteger(x)>largestNumber){
-                largestNumber=Integer.getInteger(x);
+            if(Integer.parseInt(x.trim())>largestNumber){
+                largestNumber=Integer.parseInt(x.trim());
             }
         }
         for(String x:acceptedChecks.keySet()){
-            if(Integer.getInteger(x)>largestNumber){
-                largestNumber=Integer.getInteger(x);
+            if(Integer.parseInt(x.trim())>largestNumber){
+                largestNumber=Integer.parseInt(x.trim());
             }
         }
 
@@ -295,18 +296,13 @@ public class Checking extends MoneyAccounts {
 
 
     }
-    //PLEASE DONT USE UNLESS YOU ARE DOING DATA BOMBS
-    public void addCheck(String checknum,double amount){
 
-        pendingChecks.put(checknum, amount);
-
-    }
     ////PLEASE DONT USE UNLESS YOU ARE DOING DATA BOMBS
     public void addPaidCheck(String checknum,double amount,String date){
         acceptedChecks.put(checknum,date+"::"+amount);
 
     }
-
+    ////PLEASE DONT USE UNLESS YOU ARE DOING DATA BOMBS
     public void addDeniedCheck(String checknum,double amount,String date){
         deniedChecks.put(checknum,date+"::"+amount);
 
@@ -363,6 +359,60 @@ public class Checking extends MoneyAccounts {
     public HashMap<String, String> getDeniedChecks() {
         return deniedChecks;
     }
+
+
+    public HashMap<String, String> getAcceptedChecksTeller() {
+        HashMap<String, String> returnable= new HashMap<>();
+
+
+        Date today = getTodayDateAsDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.YEAR, -5);
+        Date fiveYearAgo = cal.getTime() ;
+
+
+
+        for (String key:acceptedChecks.keySet()) {
+
+            String arr[]= acceptedChecks.get(key).split("::",2);
+
+            Date date = convertStringToDate(arr[0]);
+
+            if(date.after(fiveYearAgo)){
+                returnable.put(key,acceptedChecks.get(key));
+            }
+        }
+
+        return returnable;
+    }
+
+    public HashMap<String, String> getDeniedChecksTeller() {
+        HashMap<String, String> returnable= new HashMap<>();
+
+
+        Date today = getTodayDateAsDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.YEAR, -5);
+        Date fiveYearAgo = cal.getTime() ;
+
+
+
+        for (String key:deniedChecks.keySet()) {
+
+            String arr[]= deniedChecks.get(key).split("::",2);
+
+            Date date = convertStringToDate(arr[0]);
+
+            if(date.after(fiveYearAgo)){
+                returnable.put(key,deniedChecks.get(key));
+            }
+        }
+
+        return returnable;
+    }
+
 
 
 

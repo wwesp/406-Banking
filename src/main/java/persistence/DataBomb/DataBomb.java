@@ -130,66 +130,102 @@ public class DataBomb {
         a.addPaidCheck("100",123.62,"04-03-2005");
         a.addPaidCheck("101",145.67,"08-17-2007");
         a.addDeniedCheck("102",5.06,"09-14-2009");
+        a.addCheck(3.60);
+
 
         b.addPaidCheck("200",89.56,"02-19-2004");
-        b.addPaidCheck("201",89.56,"02-19-2004");
-        b.addPaidCheck("202",89.56,"02-19-2004");
-        b.addPaidCheck("203",89.56,"02-19-2004");
-        b.addPaidCheck("204",89.56,"02-19-2004");
+        b.addPaidCheck("201",653.69,"03-01-2004");
+        b.addDeniedCheck("202",945.39,"05-07-2004");
+        b.addPaidCheck("203",1839.36,"09-09-2007");
+        b.addPaidCheck("204",532.68,"02-16-2008");
+        b.addCheck(20.52);
+        b.addCheck(15.73);
+        b.addCheck(30.42);
 
-        c.addPaidCheck("300",89.56,"02-19-2004");
-        c.addPaidCheck("301",89.56,"02-19-2004");
 
-        d.addPaidCheck("204",89.56,"02-19-2004");
-        d.addPaidCheck("204",89.56,"02-19-2004");
-        d.addPaidCheck("204",89.56,"02-19-2004");
-        d.addPaidCheck("204",89.56,"02-19-2004");
+        c.addPaidCheck("300",486.96,"11-08-2000");
+        c.addPaidCheck("301",2693.86,"05-02-2012");
+        c.addCheck(1100.93);
+        c.addCheck(200.00);
 
-        e.addPaidCheck("204",89.56,"02-19-2004");
-        e.addPaidCheck("204",89.56,"02-19-2004");
-        e.addPaidCheck("204",89.56,"02-19-2004");
 
-        f.addPaidCheck("204",89.56,"02-19-2004");
-        f.addPaidCheck("204",89.56,"02-19-2004");
-        f.addPaidCheck("204",89.56,"02-19-2004");
-        f.addPaidCheck("204",89.56,"02-19-2004");
 
-        g.addPaidCheck("204",89.56,"02-19-2004");
-        g.addPaidCheck("204",89.56,"02-19-2004");
-        g.addPaidCheck("204",89.56,"02-19-2004");
+        d.addDeniedCheck("400",902.30,"07-09-2008");
+        d.addDeniedCheck("401",536.96,"07-10-2008");
+        d.addPaidCheck("402",1269.38,"07-14-2008");
+        d.addPaidCheck("403",1538.69,"02-27-2018");
+        d.addCheck(874.23);
 
-        h.addPaidCheck("204",89.56,"02-19-2004");
-        h.addPaidCheck("204",89.56,"02-19-2004");
-        h.addPaidCheck("204",89.56,"02-19-2004");
-        h.addPaidCheck("204",89.56,"02-19-2004");
-        h.addPaidCheck("204",89.56,"02-19-2004");
 
-        i.addPaidCheck("204",89.56,"02-19-2004");
-        i.addPaidCheck("204",89.56,"02-19-2004");
-        i.addPaidCheck("204",89.56,"02-19-2004");
-        i.addPaidCheck("204",89.56,"02-19-2004");
-        i.addPaidCheck("204",89.56,"02-19-2004");
+        e.addPaidCheck("500",736.86,"07-28-2017");
+        e.addPaidCheck("501",528.96,"10-10-2018");
+        e.addPaidCheck("502",423.38,"08-25-2019");
 
-        j.addPaidCheck("204",89.56,"02-19-2004");
-        j.addPaidCheck("204",89.56,"02-19-2004");
-        j.addPaidCheck("204",89.56,"02-19-2004");
-        j.addPaidCheck("204",89.56,"02-19-2004");
-        j.addPaidCheck("204",89.56,"02-19-2004");
 
-        k.addPaidCheck("204",89.56,"02-19-2004");
-        k.addPaidCheck("204",89.56,"02-19-2004");
-        k.addPaidCheck("204",89.56,"02-19-2004");
 
-        l.addPaidCheck("204",89.56,"02-19-2004");
-        l.addPaidCheck("204",89.56,"02-19-2004");
-        l.addPaidCheck("204",89.56,"02-19-2004");
-        l.addPaidCheck("204",89.56,"02-19-2004");
+        f.addPaidCheck("600",53.85,"11-19-2011");
+        f.addDeniedCheck("601",208.53,"04-03-2012");
+        f.addPaidCheck("602",403.87,"07-01-2013");
+        f.addPaidCheck("603",705.15,"05-05-2015");
+        f.addCheck(23.90);
+        f.addCheck(10.20);
+        f.addCheck(40.00);
 
-        o.addPaidCheck("204",89.56,"02-19-2004");
-        o.addPaidCheck("204",89.56,"02-19-2004");
-        o.addPaidCheck("204",89.56,"02-19-2004");
-        o.addPaidCheck("204",89.56,"02-19-2004");
-        o.addPaidCheck("204",89.56,"02-19-2004");
+        g.addPaidCheck("700",403.42,"07-03-2003");
+        g.addPaidCheck("701",1005.12,"12-04-2006");
+        g.addPaidCheck("702",603.58,"12-14-2013");
+        g.addCheck(93.54);
+
+
+        h.addPaidCheck("800",355.25,"01-05-2003");
+        h.addPaidCheck("801",462.29,"05-13-2007");
+        h.addPaidCheck("802",153.43,"10-11-2014");
+        h.addPaidCheck("803",428.73,"09-18-2018");
+        h.addPaidCheck("804",975.48,"03-19-2019");
+        h.addCheck(80.32);
+
+
+        i.addDeniedCheck("900",189.85,"11-14-2011");
+        i.addDeniedCheck("901",703.86,"12-06-2011");
+        i.addDeniedCheck("902",835.82,"12-30-2011");
+        i.addPaidCheck("902",568.24,"02-03-2012");
+        i.addPaidCheck("903",766.85,"05-16-2015");
+        i.addCheck(100.7);
+        i.addCheck(32.00);
+
+        j.addPaidCheck("1000",1583.78,"12-27-2002");
+        j.addPaidCheck("1001",1433.33,"06-27-2003");
+        j.addPaidCheck("1002",7056.86,"08-21-2003");
+        j.addPaidCheck("1003",400.00,"09-05-2004");
+        j.addPaidCheck("1004",758.26,"03-01-2005");
+        j.addCheck(7.54);
+
+        k.addPaidCheck("1100",593.99,"10-19-2019");
+        k.addPaidCheck("1101",839.69,"10-21-2019");
+        k.addDeniedCheck("1102",453.25,"10-22-2019");
+        k.addCheck(7023.54);
+        k.addCheck(10.00);
+
+        l.addPaidCheck("1200",233.82,"12-15-2016");
+        l.addPaidCheck("1201",399.39,"12-16-2016");
+        l.addPaidCheck("1202",180.90,"02-10-2017");
+        l.addPaidCheck("1203",832.85,"07-19-2017");
+        l.addCheck(52.00);
+
+
+        o.addPaidCheck("1300",608.25,"08-19-2019");
+        o.addPaidCheck("1301",733.58,"08-20-2019");
+        o.addPaidCheck("1302",165.55,"08-27-2019");
+        o.addPaidCheck("1303",572.63,"09-19-2019");
+        o.addPaidCheck("1304",672.53,"09-20-2019");
+        o.addCheck(64.24);
+        o.addCheck(1000.00);
+        o.addCheck(700.00);
+        o.addCheck(532.56);
+        o.addCheck(40.25);
+        o.addCheck(63.00);
+        o.addCheck(50.32);
+
 
 
 
