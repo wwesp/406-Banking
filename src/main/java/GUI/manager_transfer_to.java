@@ -99,6 +99,7 @@ public class manager_transfer_to extends JFrame{
                 }
             }
         });
+
         savings_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
