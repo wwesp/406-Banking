@@ -26,14 +26,44 @@ public class Main {
         f.intrestBomb();
 
 
-        ArrayList<Checking> p = new GetData().getCheckingByATMCard("8343891648427859");
+        ArrayList<RegSavings> p = new GetData().getRegSavings("423-45-3245");
+        ArrayList<Checking> cu = new GetData().getCheckingBySSN("423-45-3245");
+        SaveData save = new SaveData();
 
-        for (Checking che: p){
-            System.out.println("Manager Checks:   "+che.getAcceptedChecks());
-            System.out.println("Teller Checks:   "+che.getAcceptedChecksTeller());
+        for(RegSavings sav: p){
+            System.out.println(sav.getID());
+            System.out.println(sav.getBalancef());
 
+
+            if(sav.getID().equals("1")){
+
+                for(Checking che : cu){
+
+                    if(che.getID().equals("1")){
+
+                        che.moneyTransfer(sav,10.1);
+
+                    }
+                }
+
+            }
+        }
+        //cause problems!
+        cu.add(null);
+        save.saveCheckAndSave(p,cu);
+
+        ArrayList<RegSavings> newp = new GetData().getRegSavings("423-45-3245");
+        ArrayList<Checking> newcu = new GetData().getCheckingBySSN("423-45-3245");
+
+        for(RegSavings he: newp){
+            System.out.println("NEW: "+he.getID());
+            System.out.println("NEW: "+he.getBalancef());
         }
 
+        for(Checking he: newcu){
+            System.out.println("NEW: "+he.getID());
+            System.out.println("NEW: "+he.getBalancef());
+        }
 
     }
 }

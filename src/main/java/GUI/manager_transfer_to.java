@@ -22,11 +22,11 @@ public class manager_transfer_to extends JFrame{
     private JLabel last_name;
     private JLabel first_name;
     private Checking first_checking_account;
-    private Savings first_savings_account;
+    private RegSavings first_savings_account;
     private String ID;
     private String second_account_type;
     private Checking second_checking_account;
-    private Savings second_savings_Account;
+    private RegSavings second_savings_Account;
 
     public static void main(String[] args) {
         new manager_transfer_to(null, null, null, null);
@@ -128,6 +128,10 @@ public class manager_transfer_to extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                SaveData savedat = new SaveData();
+                ArrayList<Checking> chesav = new ArrayList<>();
+                ArrayList<RegSavings> resav = new ArrayList<>();
+
 
                 if (second_account_type.equals("Checking")) {
                     if (account_Type.equals("Checking")) {
@@ -138,8 +142,7 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_checking_account.moneyTransfer(first_checking_account, amount);
-                        SaveData saveData = new SaveData();
-                        saveData.saveCheckAndSave(savings, selected_checking_account);
+
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(customer);
@@ -149,8 +152,7 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_checking_account.moneyTransfer(first_savings_account, amount);
-                        SaveData saveData = new SaveData();
-                        saveData.saveCheckAndSave(selected_account, checking);
+
                     }
                 }
 
@@ -163,8 +165,7 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_savings_Account.moneyTransfer(first_checking_account, amount);
-                        SaveData saveData = new SaveData();
-                        saveData.saveCheckAndSave(savings, selected_checking_account);
+
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(customer);
@@ -174,10 +175,26 @@ public class manager_transfer_to extends JFrame{
                             }
                         }
                         second_savings_Account.moneyTransfer(first_savings_account, amount);
-                        SaveData saveData = new SaveData();
-                        saveData.saveCheckAndSave(selected_account, checking);
+
                     }
                 }
+
+                if(first_savings_account!=null)resav.add(first_savings_account);
+
+                if(second_savings_Account!=null)resav.add(second_savings_Account);
+
+                if(first_checking_account!=null)chesav.add(first_checking_account);
+
+                if(second_checking_account!=null)chesav.add(second_checking_account);
+
+
+
+
+                savedat.saveCheckAndSave(resav,chesav);
+
+
+
+
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);

@@ -5,6 +5,7 @@ import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.BankAccounts.Money.Savings;
 import Accounts.People.Customer;
 import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -21,11 +22,11 @@ public class transfer_money_to extends JFrame{
     private JLabel last_name;
     private JLabel first_name;
     private Checking first_checking_account;
-    private Savings first_savings_account;
+    private RegSavings first_savings_account;
     private String ID;
     private String second_account_type;
     private Checking second_checking_account;
-    private Savings second_savings_Account;
+    private RegSavings second_savings_Account;
 
     public static void main(String[] args) {
         new transfer_money_to(null,null,null, null);
@@ -122,6 +123,9 @@ public class transfer_money_to extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                SaveData savedat = new SaveData();
+                ArrayList<Checking> chesav = new ArrayList<>();
+                ArrayList<RegSavings> resav = new ArrayList<>();
 
                 if (second_account_type.equals("Checking")) {
                     if (account_Type.equals("Checking")) {
@@ -131,7 +135,10 @@ public class transfer_money_to extends JFrame{
                                 first_checking_account = y;
                             }
                         }
+
                         second_checking_account.moneyTransfer(first_checking_account, amount);
+
+
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(first_customer);
@@ -164,6 +171,29 @@ public class transfer_money_to extends JFrame{
                         second_savings_Account.moneyTransfer(first_savings_account, amount);
                     }
                 }
+
+
+
+
+                if(first_savings_account!=null)resav.add(first_savings_account);
+
+                if(second_savings_Account!=null)resav.add(second_savings_Account);
+
+                if(first_checking_account!=null)chesav.add(first_checking_account);
+
+                if(second_checking_account!=null)chesav.add(second_checking_account);
+
+
+
+                for(Checking f:chesav){
+                    System.out.println("IN GUI FUU: "+f);
+                }
+
+
+
+                savedat.saveCheckAndSave(resav,chesav);
+
+
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);

@@ -100,6 +100,7 @@ public class SaveData {
             //Do Something
 
             for(RegSavings account:x){
+
                 if(acc.getID().equals(account.getID())){
                     i.remove();
                 }
