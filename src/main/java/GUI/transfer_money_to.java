@@ -198,7 +198,7 @@ public class transfer_money_to extends JFrame{
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);
-                teller_home teller_home = new teller_home();
+                transfer_money_summary transfer_money_summary = new transfer_money_summary(first_customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
