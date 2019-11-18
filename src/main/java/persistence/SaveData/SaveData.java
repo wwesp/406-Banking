@@ -94,15 +94,6 @@ public class SaveData {
 
         ArrayList<RegSavings> newSave = new ArrayList<>();
 
-
-        /*
-        for (RegSavings regSavings : z) {
-            for (RegSavings x1 : x) {
-                if (!regSavings.getID().equals(x1.getID())) {
-                    newSave.add(regSavings);
-                }
-            }
-        }*/
         newSave.addAll(z);
         for(Iterator<RegSavings> i = newSave.iterator(); i.hasNext();) {
             RegSavings acc = i.next();
@@ -175,10 +166,10 @@ public class SaveData {
         ArrayList<CDs> z = new ArrayList<>();
 
         Gson gson = new Gson();
-        File CDFile = new File("src/main/java/persistence/DataBases/CD.txt");
+        File CDsFile = new File("src/main/java/persistence/DataBases/CD.txt");
 
         try {
-            Scanner scan = new Scanner(CDFile);
+            Scanner scan = new Scanner(CDsFile);
 
             while (scan.hasNextLine()) {
 
@@ -192,23 +183,28 @@ public class SaveData {
 
         ArrayList<CDs> newSave = new ArrayList<>();
 
-        for (CDs cDs : z) {
-            for (CDs x1 : x) {
-                if (!cDs.getCusID().equals(x1.getCusID())) {
-                    newSave.add(cDs);
+        newSave.addAll(z);
+        for(Iterator<CDs> i = newSave.iterator(); i.hasNext();) {
+            CDs acc = i.next();
+            //Do Something
+
+            for(CDs account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }
 
         newSave.addAll(x);
 
-        try (FileWriter writer = new FileWriter(CDFile)) {
-            for (CDs y : newSave) {
+        try(FileWriter writer = new FileWriter(CDsFile)) {
+            for(CDs y:newSave) {
                 gson.toJson(y, writer);
                 writer.write("\n");
             }
 
-        } catch (Exception ex) {
+        }
+        catch (Exception ex){
             ex.printStackTrace();
         }
     }
@@ -234,23 +230,28 @@ public class SaveData {
 
         ArrayList<LongTermLoan> newSave = new ArrayList<>();
 
-        for (LongTermLoan Loan : z) {
-            for (LongTermLoan x1 : x) {
-                if (!Loan.getCusID().equals(x1.getCusID())) {
-                    newSave.add(Loan);
+        newSave.addAll(z);
+        for(Iterator<LongTermLoan> i = newSave.iterator(); i.hasNext();) {
+            LongTermLoan acc = i.next();
+            //Do Something
+
+            for(LongTermLoan account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }
 
         newSave.addAll(x);
 
-        try (FileWriter writer = new FileWriter(LongLoanFile)) {
-            for (LongTermLoan y : newSave) {
+        try(FileWriter writer = new FileWriter(LongLoanFile)) {
+            for(LongTermLoan y:newSave) {
                 gson.toJson(y, writer);
                 writer.write("\n");
             }
 
-        } catch (Exception ex) {
+        }
+        catch (Exception ex){
             ex.printStackTrace();
         }
     }
@@ -276,23 +277,28 @@ public class SaveData {
 
         ArrayList<ShortTermLoan> newSave = new ArrayList<>();
 
-        for (ShortTermLoan Loan : z) {
-            for (ShortTermLoan x1 : x) {
-                if (!Loan.getCusID().equals(x1.getCusID())) {
-                    newSave.add(Loan);
+        newSave.addAll(z);
+        for(Iterator<ShortTermLoan> i = newSave.iterator(); i.hasNext();) {
+            ShortTermLoan acc = i.next();
+            //Do Something
+
+            for(ShortTermLoan account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }
 
         newSave.addAll(x);
 
-        try (FileWriter writer = new FileWriter(ShortLoanFile)) {
-            for (ShortTermLoan y : newSave) {
+        try(FileWriter writer = new FileWriter(ShortLoanFile)) {
+            for(ShortTermLoan y:newSave) {
                 gson.toJson(y, writer);
                 writer.write("\n");
             }
 
-        } catch (Exception ex) {
+        }
+        catch (Exception ex){
             ex.printStackTrace();
         }
     }
@@ -318,23 +324,28 @@ public class SaveData {
 
         ArrayList<CreditCard> newSave = new ArrayList<>();
 
-        for (CreditCard CC : z) {
-            for (CreditCard x1 : x) {
-                if (!CC.getCusID().equals(x1.getCusID())) {
-                    newSave.add(CC);
+        newSave.addAll(z);
+        for(Iterator<CreditCard> i = newSave.iterator(); i.hasNext();) {
+            CreditCard acc = i.next();
+            //Do Something
+
+            for(CreditCard account:x){
+                if(acc.getID().equals(account.getID())){
+                    i.remove();
                 }
             }
         }
 
         newSave.addAll(x);
 
-        try (FileWriter writer = new FileWriter(CCFile)) {
-            for (CreditCard y : newSave) {
+        try(FileWriter writer = new FileWriter(CCFile)) {
+            for(CreditCard y:newSave) {
                 gson.toJson(y, writer);
                 writer.write("\n");
             }
 
-        } catch (Exception ex) {
+        }
+        catch (Exception ex){
             ex.printStackTrace();
         }
     }
