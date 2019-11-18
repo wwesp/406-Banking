@@ -185,11 +185,6 @@ public class transfer_money_to extends JFrame{
 
 
 
-                for(Checking f:chesav){
-                    System.out.println("IN GUI FUU: "+f);
-                }
-
-
 
                 savedat.saveCheckAndSave(resav,chesav);
 
