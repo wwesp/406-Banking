@@ -72,6 +72,7 @@ public class manager_transfer_to extends JFrame{
             }
         };
         savings_model.setColumnIdentifiers(savings_headers);
+
         savings_table.setModel(savings_model);
         for (RegSavings x: savings) {
             if (!account_Type.equals("Savings")) {
