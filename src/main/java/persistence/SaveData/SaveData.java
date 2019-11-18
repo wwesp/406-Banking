@@ -24,6 +24,18 @@ public class SaveData {
     }
 
     public void saveChecking(ArrayList<Checking> x){
+
+        for(Iterator<Checking> n = x.iterator(); n.hasNext();) {
+            Checking acc = n.next();
+
+            for(Checking account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
+
         ArrayList<Checking> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -74,6 +86,17 @@ public class SaveData {
     }
 
     public void saveSaving(ArrayList<RegSavings> x) {
+
+        for(Iterator<RegSavings> n = x.iterator(); n.hasNext();) {
+            RegSavings acc = n.next();
+
+            for(RegSavings account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
         ArrayList<RegSavings> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -164,6 +187,16 @@ public class SaveData {
 
     public void saveCD(ArrayList<CDs> x) {
 
+        for(Iterator<CDs> n = x.iterator(); n.hasNext();) {
+            CDs acc = n.next();
+
+            for(CDs account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
         ArrayList<CDs> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -211,6 +244,17 @@ public class SaveData {
     }
 
     public void saveLongLoan(ArrayList<LongTermLoan> x){
+
+        for(Iterator<LongTermLoan> n = x.iterator(); n.hasNext();) {
+            LongTermLoan acc = n.next();
+
+            for(LongTermLoan account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
         ArrayList<LongTermLoan> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -258,6 +302,17 @@ public class SaveData {
     }
 
     public void saveShortLoan(ArrayList<ShortTermLoan> x){
+
+        for(Iterator<ShortTermLoan> n = x.iterator(); n.hasNext();) {
+            ShortTermLoan acc = n.next();
+
+            for(ShortTermLoan account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
         ArrayList<ShortTermLoan> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -305,6 +360,17 @@ public class SaveData {
     }
 
     public void saveCC(ArrayList<CreditCard> x){
+
+        for(Iterator<CreditCard> n = x.iterator(); n.hasNext();) {
+            CreditCard acc = n.next();
+
+            for(CreditCard account:x){
+                if(acc == null){
+                    n.remove();
+                }
+            }
+        }
+
         ArrayList<CreditCard> z = new ArrayList<>();
 
         Gson gson = new Gson();
