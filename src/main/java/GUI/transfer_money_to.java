@@ -135,9 +135,9 @@ public class transfer_money_to extends JFrame{
                                 first_checking_account = y;
                             }
                         }
-
+                        System.out.println("adding " + amount + "to " + first_checking_account);
                         second_checking_account.moneyTransfer(first_checking_account, amount);
-
+                        System.out.println(first_checking_account + " now has " + amount);
 
                     }
                     if (account_Type.equals("Savings")) {
@@ -147,7 +147,10 @@ public class transfer_money_to extends JFrame{
                                 first_savings_account = y;
                             }
                         }
+                        System.out.println("adding " + amount + "to " + first_savings_account);
                         second_checking_account.moneyTransfer(first_savings_account, amount);
+                        System.out.println(first_savings_account + " now has " + amount);
+
                     }
                 }
 
@@ -159,7 +162,10 @@ public class transfer_money_to extends JFrame{
                                 first_checking_account = y;
                             }
                         }
+                        System.out.println("adding " + amount + "to " + first_checking_account);
                         second_savings_Account.moneyTransfer(first_checking_account, amount);
+                        System.out.println(first_checking_account + " now has " + amount);
+
                     }
                     if (account_Type.equals("Savings")) {
                         ArrayList<RegSavings> selected_account = new GetData().getRegSavings(first_customer);
@@ -168,12 +174,12 @@ public class transfer_money_to extends JFrame{
                                 first_savings_account = y;
                             }
                         }
+                        System.out.println("adding " + amount + "to " + first_savings_account);
                         second_savings_Account.moneyTransfer(first_savings_account, amount);
+                        System.out.println(first_savings_account + " now has " + amount);
+
                     }
                 }
-
-
-
 
                 if(first_savings_account!=null)resav.add(first_savings_account);
 
@@ -192,7 +198,7 @@ public class transfer_money_to extends JFrame{
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);
-                transfer_money_summary transfer_money_summary = new transfer_money_summary(first_customer);
+                teller_home teller_home = new teller_home();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
