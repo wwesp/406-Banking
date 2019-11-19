@@ -8,9 +8,7 @@ import persistence.GetData.GetData;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class teller_view_accounts extends JFrame{
@@ -20,7 +18,13 @@ public class teller_view_accounts extends JFrame{
     private JTable checking_table;
     private JLabel last_name_label;
     private JLabel first_name_label;
-    private JButton account_history_button;
+    private JButton check_history_button;
+    private JButton view_debts_button;
+    private JButton deposit_button;
+    private JButton withdraw_button;
+    private String SSN;
+    private String ID;
+    private String ID_type;
 
     public static void main(String[] args) {
         new teller_view_accounts(null);
@@ -38,6 +42,7 @@ public class teller_view_accounts extends JFrame{
         Customer customer1 = new GetData().getCustomerBySSN(customer);
         last_name_label.setText(customer1.getlName());
         first_name_label.setText(customer1.getfName());
+        SSN = customer1.getSsn();
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
         //This sets the Checking Table
@@ -72,6 +77,73 @@ public class teller_view_accounts extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 teller_home teller_home = new teller_home();
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        deposit_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null) {
+                    frame.setVisible(false);
+                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, SSN, "2");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+        checking_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = checking_table.getSelectedRow();
+                ID = checking_table.getModel().getValueAt(row,0).toString();
+                ID_type = "Checking";
+            }
+        });
+        savings_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = savings_table.getSelectedRow();
+                ID = checking_table.getModel().getValueAt(row,0).toString();
+                ID_type = "Savings";
+            }
+        });
+
+        withdraw_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null) {
+                    frame.setVisible(false);
+                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, SSN, "2");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+
+        check_history_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null && !ID_type.equals("Savings")) {
+                    frame.setVisible(false);
+                    check_history check_history = new check_history(customer, "teller", ID);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+
+                }
+            }
+        });
+
+        view_debts_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                view_debts view_debts = new view_debts(customer, "teller");
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

@@ -17,7 +17,7 @@ public class PaymentTest {
     public void PurchaseT1() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100.0,null);
+                0,' ',"00-00-0000",5,null,100.0,null,null);
 
 
         assertEquals(true,cred.makeCreditPurchase(30,"nert"));
@@ -28,7 +28,7 @@ public class PaymentTest {
     public void PurchaseT2() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
 
         assertEquals(true,cred.makeCreditPurchase(100,"nert"));
@@ -39,7 +39,7 @@ public class PaymentTest {
     public void PurchaseT3() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
 
         assertEquals(false,cred.makeCreditPurchase(100.01,"nert"));
@@ -50,7 +50,7 @@ public class PaymentTest {
     public void paymentT1() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
         cred.makePayment(5);
 
@@ -62,7 +62,7 @@ public class PaymentTest {
     public void paymentT2() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
         cred.makePayment(6);
 
@@ -74,7 +74,7 @@ public class PaymentTest {
     public void paymentT3() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
 
 
@@ -87,7 +87,7 @@ public class PaymentTest {
     public void paymentT4() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                0,' ',"00-00-0000",5,null,100,null);
+                0,' ',"00-00-0000",5,null,100,null,null);
 
 
         cred.makePayment(36);
@@ -101,7 +101,7 @@ public class PaymentTest {
     public void paymentT5() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                5,' ',"00-00-0000",5,null,100,null);
+                5,' ',"00-00-0000",5,null,100,null,null);
 
 
         cred.makePayment(40);
@@ -114,7 +114,7 @@ public class PaymentTest {
     public void paymentT6() {
 
         CreditCard cred= new CreditCard("","",30,0.02,"12","2",
-                5,' ',"00-00-0000",5,null,100,null);
+                5,' ',"00-00-0000",5,null,100,null,null);
 
 
 
@@ -128,7 +128,7 @@ public class PaymentTest {
     public void paymentT7() {
 
         CreditCard cred= new CreditCard("","",0,0.02,"12","2",
-                5,' ',"00-00-0000",5,null,100,null);
+                5,' ',"00-00-0000",5,null,100,null,null);
 
 
 

@@ -27,6 +27,8 @@ public class manager_create_credit {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+
+
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

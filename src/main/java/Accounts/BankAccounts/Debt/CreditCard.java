@@ -10,12 +10,13 @@ import java.util.HashMap;
 
 public class CreditCard extends DebtAccounts {
     protected double creditLine;
-    HashMap<String,String> paymentHistoryDescription;
+    protected HashMap<String,String> paymentHistoryDescription;
+    protected HashMap<String,String> paymentHistoryDate;
 
     public CreditCard(String ID, String cusID, double balance, double interestRate, String datePaymentDue,
                       String notifyDate, double currentPaymentDue, char missedPaymentflag,
                       String lastPaymentDate, double fees , HashMap<String, Double> paymentHistory, double creditLine,
-                        HashMap<String,String> paymentHistoryDescription){
+                        HashMap<String,String> paymentHistoryDescription, HashMap<String,String> paymentHistoryDate){
 
         super(ID, cusID, balance, interestRate, datePaymentDue, notifyDate, currentPaymentDue, missedPaymentflag,
                 lastPaymentDate, fees,paymentHistory);
@@ -30,12 +31,21 @@ public class CreditCard extends DebtAccounts {
             this.paymentHistoryDescription=paymentHistoryDescription;
         }
 
+        if(paymentHistoryDate==null){
+
+            this.paymentHistoryDate= new HashMap<>();
+        }
+        else{
+            this.paymentHistoryDate=paymentHistoryDate;
+        }
+
+
 
     }
 
 
     public CreditCard(String cusID, String datePaymentDue, String notifydate,double creditLine){
-        this("","",0,0,"","",0,' ',"",0,null,0,null);
+        this("","",0,0,"","",0,' ',"",0,null,0,null,null);
 
         this.cusID=cusID;
         this.datePaymentDue=datePaymentDue;
@@ -46,10 +56,9 @@ public class CreditCard extends DebtAccounts {
     }
 
 
-
-
-
-
+    public HashMap<String, String> getPaymentHistoryDate() {
+        return paymentHistoryDate;
+    }
 
     public double endAccount(){
         double endbal=-1*balancef-fees-currentPaymentDue;
@@ -81,6 +90,7 @@ public class CreditCard extends DebtAccounts {
             String ran= h.makeRandomId();
             paymentHistory.put(ran, amt);
             paymentHistoryDescription.put(ran, item);
+            paymentHistoryDate.put(ran,getTodaysDate());
 
             return true;
         }
@@ -181,6 +191,13 @@ public class CreditCard extends DebtAccounts {
 
     }
 
+    public double getCreditLine() {
+        return creditLine;
+    }
+
+    public HashMap<String, String> getPaymentHistoryDescription() {
+        return paymentHistoryDescription;
+    }
 
 
     /*
