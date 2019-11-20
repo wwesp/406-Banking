@@ -198,7 +198,7 @@ public class manager_transfer_to extends JFrame{
 
                 JOptionPane.showMessageDialog(null, "Transfer Successful");
                 frame.setVisible(false);
-                manager_home manager_home = new manager_home();
+                manager_transfer_summary manager_transfer_summary = new manager_transfer_summary(customer);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

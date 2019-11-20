@@ -49,7 +49,7 @@ public class Main {
             }
         }
         //cause problems!
-        cu.add(null);
+        //cu.add(null);
         save.saveCheckAndSave(p,cu);
 
         ArrayList<RegSavings> newp = new GetData().getRegSavings("423-45-3245");

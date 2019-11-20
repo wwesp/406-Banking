@@ -75,20 +75,7 @@ public class transfer_money_from extends JFrame{
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
-        accept_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (amount_text != null && ID != null) {
-                    amount = new SystemHelper().truncOrRound(Double.parseDouble(amount_text.getText()), 0);
-                    frame.setVisible(false);
-                    transfer_money_to transfer_money_to = new transfer_money_to(customer, ID, SSN, amount);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Invalid Amount");
-                }
-            }
-        });
+
         checking_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -103,6 +90,20 @@ public class transfer_money_from extends JFrame{
                 int row = saving_table.getSelectedRow();
                 ID = saving_table.getModel().getValueAt(row,0).toString();
                 account_Type = "Savings";
+            }
+        });
+        accept_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (amount_text != null && ID != null) {
+                    amount = new SystemHelper().truncOrRound(Double.parseDouble(amount_text.getText()), 0);
+                    frame.setVisible(false);
+                    transfer_money_to transfer_money_to = new transfer_money_to(customer, ID, account_Type, amount);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Invalid Amount");
+                }
             }
         });
         amount_text.addActionListener(new ActionListener() {

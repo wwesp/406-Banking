@@ -21,8 +21,12 @@ public class manager_view_accounts extends JFrame{
     private JTable CD_table;
     private JLabel last_name;
     private JLabel first_name;
+    private JButton withdrawButton;
+    private JButton depositButton;
+    private JButton viewDebtsButton;
     private String ID;
     private String account_Type;
+    private String SSN;
 
     public static void main(String[] args) {
         new manager_view_accounts(null);
@@ -40,6 +44,7 @@ public class manager_view_accounts extends JFrame{
         Customer customer1 = new GetData().getCustomerBySSN(customer);
         last_name.setText(customer1.getlName());
         first_name.setText(customer1.getfName());
+        SSN = customer1.getSsn();
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
         if (checking != null) {
@@ -110,12 +115,52 @@ public class manager_view_accounts extends JFrame{
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
-        full_history_button.addActionListener(new ActionListener() {
+        depositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null) {
+                    frame.setVisible(false);
+                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, SSN, "3");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+        withdrawButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null) {
+                    frame.setVisible(false);
+                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, SSN, "3");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+        viewDebtsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                manager_account_history manager_account_history = new manager_account_history(customer, ID, account_Type);
+                view_debts view_debts = new view_debts(customer, "manager");
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        full_history_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID != null && !account_Type.equals("Savings")) {
+                    frame.setVisible(false);
+                    check_history check_history = new check_history(customer, "manager", ID);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+
+                }
             }
         });
     }

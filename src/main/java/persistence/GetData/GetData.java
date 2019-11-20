@@ -387,5 +387,29 @@ public class GetData {
         return x;
     }
 
+    public ArrayList<CDs> getAllCDs(){
+
+        ArrayList<CDs> x = new ArrayList<>();
+        Gson gson = new Gson();
+        File CDsFile = new File("src/main/java/persistence/DataBases/CD.txt");
+
+        try{
+            Scanner scan= new Scanner(CDsFile);
+
+            while(scan.hasNextLine()){
+
+                x.add(gson.fromJson(scan.nextLine(), CDs.class));
+
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+
+
+        return x;
+
+    }
 
 }

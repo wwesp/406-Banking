@@ -13,7 +13,6 @@ public class manager_home extends JPanel {
     private JButton billing_button;
     private JButton rollover_notice_button;
     private JButton terminate_account_button;
-    private JButton loan_button;
     private JButton transfer_funds_button;
     private JButton create_savings_button;
     private JButton lookup_accout_button;
@@ -70,14 +69,7 @@ public class manager_home extends JPanel {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
-        loan_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                manager_verify_loan_customer manager_verify_loan_customer = new manager_verify_loan_customer();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
+
         terminate_account_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

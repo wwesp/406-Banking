@@ -88,7 +88,7 @@ public class ATM_home extends JFrame {
                 if (withdraw_history < 2 ) {
                     if (ID != null) {
                         frame.setVisible(false);
-                        withdraw_ATM withdraw_page = new withdraw_ATM(customer, ID, SSN);
+                        withdraw_ATM withdraw_page = new withdraw_ATM(customer, ID, SSN, "1");
                         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                     } else {
                         JOptionPane.showMessageDialog(null, "Please Pick Account");
@@ -104,7 +104,7 @@ public class ATM_home extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (ID != null) {
                     frame.setVisible(false);
-                    deposit_ATM deposit_page = new deposit_ATM(customer, ID, SSN);
+                    deposit_ATM deposit_page = new deposit_ATM(customer, ID, SSN, "1");
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {

@@ -26,10 +26,10 @@ public class deposit_ATM extends JFrame {
     private int print_value;
 
     public static void main(String[] args) {
-        new deposit_ATM(null, null, null);
+        new deposit_ATM(null, null, null, null);
     }
 
-    public deposit_ATM(String customer, String ID, String SSN) {
+    public deposit_ATM(String customer, String ID, String SSN, String previous_page) {
         JFrame frame = new JFrame("Deposit");
         frame.setContentPane(deposit_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -43,9 +43,21 @@ public class deposit_ATM extends JFrame {
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                ATM_home ATM_page = new ATM_home(customer);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (previous_page.equals("1")) {
+                    frame.setVisible(false);
+                    ATM_home ATM_page = new ATM_home(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (previous_page.equals("2")){
+                    frame.setVisible(false);
+                    teller_view_accounts teller_view_accounts = new teller_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (previous_page.equals("3")){
+                    frame.setVisible(false);
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
         textField1.addActionListener(new ActionListener() {
@@ -73,9 +85,21 @@ public class deposit_ATM extends JFrame {
 
                 SaveData saveData = new SaveData();
                 saveData.saveCheckAndSave(savings, che);
-                frame.setVisible(false);
-                ATM_home ATM_page = new ATM_home(customer);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (previous_page.equals("1")) {
+                    frame.setVisible(false);
+                    ATM_home ATM_page = new ATM_home(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (previous_page.equals("2")){
+                    frame.setVisible(false);
+                    teller_view_accounts teller_view_accounts = new teller_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (previous_page.equals("3")){
+                    frame.setVisible(false);
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
     }
