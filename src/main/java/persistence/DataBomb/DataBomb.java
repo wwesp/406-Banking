@@ -430,6 +430,7 @@ public class DataBomb {
                 "11-1-2019", 161.64, 'N', "10-26-2019", '_', null,
                 0.0,null,null);
 
+        b.makeCreditPurchase(100,"gold");
         try(FileWriter writer = new FileWriter(CCFile)) {
             gson.toJson(a, writer);
             writer.write("\n");
