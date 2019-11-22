@@ -41,7 +41,7 @@ public class manager_home extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 //TODO FIX THIS SHIT
-                create_checking_page checking = new create_checking_page(3, null);
+                validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking(3);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
@@ -99,7 +99,7 @@ public class manager_home extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 //TODO Fix This Shit Too
-                //create_saving_page create_saving_page = new create_saving_page(2);
+                validate_teller_create_savings validate_teller_create_savings = new validate_teller_create_savings(3);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

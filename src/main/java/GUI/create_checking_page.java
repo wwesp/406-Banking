@@ -98,12 +98,12 @@ public class create_checking_page extends JPanel{
                 }
                 if (x == 2){
                     frame.setVisible(false);
-                    validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking();
+                    validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking(2);
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 if (x == 3){
                     frame.setVisible(false);
-                    manager_home manager_page = new manager_home();
+                    validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking(3);
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
             }
