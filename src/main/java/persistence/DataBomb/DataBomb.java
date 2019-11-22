@@ -335,20 +335,20 @@ public class DataBomb {
         File ShortLoanFile = new File("src/main/java/persistence/DataBases/ShortTermLoan.txt");
         Gson gson = new GsonBuilder().create();
 
-        ShortTermLoan a = new ShortTermLoan("1", "423-14-8894", 3579.00, 0.15, "10/27/2019",
-                "10/1/2019", 95.83, 'N', "8/20/2019", "", 0,
+        ShortTermLoan a = new ShortTermLoan("1", "423-14-8894", 3579.00, 0.15, "10-27-2019",
+                "10-1-2019", 95.83, 'N', "8-20-2019", "", 0,
                 null, null, null);
-        ShortTermLoan b = new ShortTermLoan("2", "423-56-7890", 3698.00, 0.12, "11/27/2019",
-                "11/1/2019", 112.00, 'Y', "10/12/2019", "", 0,
+        ShortTermLoan b = new ShortTermLoan("2", "423-56-7890", 3698.00, 0.12, "11-27-2019",
+                "11-1-2019", 112.00, 'Y', "10-12-2019", "", 0,
                 null, null, null);
-        ShortTermLoan c = new ShortTermLoan("3", "423-45-3245", 6149.00, 0.08, "10/27/2019",
-                "10/1/2019", 144.00, 'N', "9/16/2019", "", 0,
+        ShortTermLoan c = new ShortTermLoan("3", "423-45-3245", 6149.00, 0.08, "10-27-2019",
+                "10-1-2019", 144.00, 'N', "9-16-2019", "", 0,
                 null, null, null);
-        ShortTermLoan d = new ShortTermLoan("4", "345-87-9912", 2136.00, 0.05, "11/27/2019",
-                "11/1/2019", 140.00, 'N', "10/22/2019", "", 0,
+        ShortTermLoan d = new ShortTermLoan("4", "345-87-9912", 2136.00, 0.05, "11-27-2019",
+                "11-1-2019", 140.00, 'N', "10-22-2019", "", 0,
                 null, null, null);
-        ShortTermLoan e = new ShortTermLoan("5", "345-59-9870", 7216.00, 0.12, "11/27/2019",
-                "11/1/2019", 168.00, 'N', "10/26/2019", "", 0,
+        ShortTermLoan e = new ShortTermLoan("5", "345-59-9870", 7216.00, 0.12, "11-27-2019",
+                "11-1-2019", 168.00, 'N', "10-26-2019", "", 0,
                 null, null, null);
 
         try(FileWriter writer = new FileWriter(ShortLoanFile)) {
@@ -373,20 +373,24 @@ public class DataBomb {
         File LongLoanFile = new File("src/main/java/persistence/DataBases/LongTermLoan.txt");
         Gson gson = new GsonBuilder().create();
 
-        LongTermLoan a = new LongTermLoan("1", "436-78-9123", 44763.00, 0.10, "11/27/2019",
-                "11/1/2019", 1650.00, 'N', "10/9/2019", "", 0,
+        LongTermLoan a = new LongTermLoan("1", "436-78-9123", 44763.00, 0.10, "11-27-2019",
+                "11-1-2019", 1650.00, 'N', "10-9-2019", "", 0,
                 null, null, null);
-        LongTermLoan b = new LongTermLoan("2", "345-65-3425", 54712.00, 0.05, "10/27/2019",
-                "10/1/2019", 1750.00, 'N', "9/17/2019", "", 0,
+
+        LongTermLoan b = new LongTermLoan("2", "345-65-3425", 54712.00, 0.05, "10-27-2019",
+                "10-1-2019", 1750.00, 'N', "9-17-2019", "", 0,
                 null, null, null);
-        LongTermLoan c = new LongTermLoan("3", "345-81-2332", 65489.00, 0.07, "11/27/2019",
-                "11/1/2019", 1783.33, 'N', "9/27/2019", "", 0,
+
+        LongTermLoan c = new LongTermLoan("3", "345-81-2332", 65489.00, 0.07, "11-27-2019",
+                "11-1-2019", 1783.33, 'N', "9-27-2019", "", 0,
                 null, null, null);
-        LongTermLoan d = new LongTermLoan("4", "677-87-9013", 95464.00, 0.09, "11/27/2019",
-                "11/1/2019", 2180.00, 'Y', "10/13/2019", "", 0,
+
+        LongTermLoan d = new LongTermLoan("4", "677-87-9013", 95464.00, 0.09, "11-27-2019",
+                "11-1-2019", 2180.00, 'Y', "10-13-2019", "", 0,
                 null, null, null);
-        LongTermLoan e = new LongTermLoan("5", "235-44-5789", 80569.00, 0.08, "11/27/2019",
-                "11/1/2019", 2520.00, 'N', "10/27/2019", "", 0,
+
+        LongTermLoan e = new LongTermLoan("5", "235-44-5789", 80569.00, 0.08, "11-27-2019",
+                "11-1-2019", 2520.00, 'N', "10-27-2019", "", 0,
                 null, null, null);
 
         try(FileWriter writer = new FileWriter(LongLoanFile)) {
@@ -410,23 +414,21 @@ public class DataBomb {
         File CCFile = new File("src/main/java/persistence/DataBases/CreditCard.txt");
         Gson gson = new GsonBuilder().create();
 
-        CreditCard a = new CreditCard("1", "423-14-8894", 3579.00, 0.15, "10/27/2019",
-                "10/1/2019", 82.32, 'N', "8/20/2019", '_', null,
-                500.0,null,null);
-        CreditCard b = new CreditCard("2", "423-56-7890", 3698.00, 0.12, "11/27/2019",
-                "11/1/2019", 82.84, 'Y', "10/12/2019", '_', null,
-                100.0,null,null);
-        CreditCard c = new CreditCard("3", "423-45-3245", 6149.00, 0.08, "10/27/2019",
-                "10/1/2019", 132.82, 'N', "9/16/2019", '_', null,
-                10000.0,null,null);
-        CreditCard d = new CreditCard("4", "345-87-9912", 2136.00, 0.05, "11/27/2019",
-                "11/1/2019", 44.86, 'N', "10/22/2019", '_', null,
-                300.0,null,null);
-        CreditCard e = new CreditCard("5", "345-59-9870", 7216.00, 0.12, "11/27/2019",
-                "11/1/2019", 161.64, 'N', "10/26/2019", '_', null,
-                200.0,null,null);
-
-        c.makeCreditPurchase(100,"gold");
+        CreditCard a = new CreditCard("1", "423-14-8894", 3579.00, 0.15, "10-27-2019",
+                "10-1-2019", 82.32, 'N', "8-20-2019", '_', null,
+                0.0,null,null);
+        CreditCard b = new CreditCard("2", "423-56-7890", 3698.00, 0.12, "11-27-2019",
+                "11-1-2019", 82.84, 'Y', "10-12-2019", '_', null,
+                0.0,null,null);
+        CreditCard c = new CreditCard("3", "423-45-3245", 6149.00, 0.08, "10-27-2019",
+                "10-1-2019", 132.82, 'N', "9-16-2019", '_', null,
+                0.0,null,null);
+        CreditCard d = new CreditCard("4", "345-87-9912", 2136.00, 0.05, "11-27-2019",
+                "11-1-2019", 44.86, 'N', "10-22-2019", '_', null,
+                0.0,null,null);
+        CreditCard e = new CreditCard("5", "345-59-9870", 7216.00, 0.12, "11-27-2019",
+                "11-1-2019", 161.64, 'N', "10-26-2019", '_', null,
+                0.0,null,null);
 
         try(FileWriter writer = new FileWriter(CCFile)) {
             gson.toJson(a, writer);
