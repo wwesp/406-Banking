@@ -19,10 +19,10 @@ public class validate_teller_create_savings {
     private String customer_ID;
 
     public static void main(String[] args) {
-        new validate_teller_create_savings();
+        new validate_teller_create_savings(0);
     }
 
-    public validate_teller_create_savings() {
+    public validate_teller_create_savings(int previous_page) {
         JFrame frame = new JFrame("Create Checking");
         frame.setContentPane(validate_teller_create_savings_panel);
         frame.setPreferredSize(new Dimension(820, 600));
@@ -37,9 +37,16 @@ public class validate_teller_create_savings {
                 ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
                 customer_ID = String.copyValueOf(passwordField1.getPassword());
                 if (savings != null) {
-                    frame.setVisible(false);
-                    create_saving_page create_saving_page = new create_saving_page(2, customer_ID);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (previous_page == 2) {
+                        frame.setVisible(false);
+                        create_saving_page create_saving_page = new create_saving_page(2, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    if (previous_page == 3) {
+                        frame.setVisible(false);
+                        create_saving_page create_saving_page = new create_saving_page(3, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
                 } else
                     JOptionPane.showMessageDialog(null, "This Customer ID Does Not Exist. Please Create Customer Before Creating Saving Account");
             }
@@ -47,9 +54,16 @@ public class validate_teller_create_savings {
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                teller_home teller_home = new teller_home();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (previous_page == 2) {
+                    frame.setVisible(false);
+                    teller_home teller_home = new teller_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (previous_page == 3) {
+                    frame.setVisible(false);
+                    manager_home manager_home = new manager_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
         accept_button.addActionListener(new ActionListener() {

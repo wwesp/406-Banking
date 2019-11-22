@@ -13,3 +13,4 @@
 {"address":"8902 Martha Ln","city":"Gower","state":"MO","zip":"63301","atmCard":"","ssn":"435-67-8787","fName":"Jerry","lName":"Gronius"}
 {"address":"1532 Lovers Ln","city":"St. Joesph","state":"MO","zip":"64502","atmCard":"","ssn":"563-43-2913","fName":"Martin","lName":"Williams"}
 {"address":"703 Park LN","city":"St. Joesph","state":"MO","zip":"64501","atmCard":"","ssn":"345-67-9898","fName":"Broderick","lName":"Jones"}
+{"address":"mo","city":"mo","state":"mo","zip":"mo","ssn":"222-22-2222","fName":"clark","lName":"kent"}
