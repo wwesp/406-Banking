@@ -44,12 +44,12 @@ public class CreditCard extends DebtAccounts {
     }
 
 
-    public CreditCard(String cusID, String datePaymentDue, String notifydate,double creditLine){
+    public CreditCard(String cusID,double creditLine){
         this("","",0,0,"","",0,' ',"",0,null,0,null,null);
 
         this.cusID=cusID;
-        this.datePaymentDue=datePaymentDue;
-        this.notifyDate=notifydate;
+        this.datePaymentDue="15";
+        this.notifyDate="1";
         this.creditLine=creditLine;
         this.interestRate= new GetData().getIntRates().getCreditCardInterest();
 
