@@ -2,14 +2,15 @@ package GUI;
 
 import Accounts.BankAccounts.Accounts;
 import Accounts.BankAccounts.Money.Checking;
+import Accounts.BankAccounts.Money.RegSavings;
+import Accounts.People.Customer;
 import persistence.GetData.GetData;
+import persistence.SaveData.SaveData;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.SplittableRandom;
@@ -21,7 +22,11 @@ public class check_history {
     private JTable denied_checks_table;
     private JTable pending_checks_table;
     private JTable accepted_checks_table;
+    private JButton deny_button;
+    private JButton create_button;
     private Checking actual_account;
+    private String pending_check_number;
+    private Checking checking_account;
 
     public static void main(String[] args) {
         new check_history(null, null, null);
@@ -38,6 +43,9 @@ public class check_history {
 
         if (user_type.equals("teller")){
             accept_button.setEnabled(false);
+        }
+        if (user_type.equals("teller")){
+            deny_button.setEnabled(false);
         }
 
 
@@ -83,10 +91,10 @@ public class check_history {
 
         HashMap<String, String> accepted_checks=null;
         if(user_type.equals("manager")){
-            accepted_checks = actual_account.getDeniedChecks();
+            accepted_checks = actual_account.getAcceptedChecks();
         }
         else {
-            accepted_checks = actual_account.getDeniedChecksTeller();
+            accepted_checks = actual_account.getAcceptedChecksTeller();
         }
 
 
@@ -106,16 +114,85 @@ public class check_history {
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (user_type.equals("teller")) {
-                    frame.setVisible(false);
-                    teller_view_accounts teller_view_accounts = new teller_view_accounts(customer);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                            if (user_type.equals("teller")) {
+                                frame.setVisible(false);
+                                teller_view_accounts teller_view_accounts = new teller_view_accounts(customer);
+                                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                            }
+                            if (user_type.equals("manager")){
+                                frame.setVisible(false);
+                                manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                            }
+            }
+        });
+
+        pending_checks_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = pending_checks_table.getSelectedRow();
+                pending_check_number = pending_checks_table.getModel().getValueAt(row,0).toString();
+            }
+        });
+
+        deny_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
+                ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
+                for (Checking x : checking){
+                    if (x.getID().equals(ID)){
+                        checking_account = x;
+                    }
                 }
-                if (user_type.equals("manager")){
-                    frame.setVisible(false);
-                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                checking_account.authStopCheck(pending_check_number, savings);
+                ArrayList<Checking> new_checking = new ArrayList<>();
+                new_checking.add(checking_account);
+
+                System.out.println(checking_account.getDeniedChecks());
+                System.out.println(checking_account.getAcceptedChecks());
+
+                SaveData f = new SaveData();
+                f.saveCheckAndSave(savings, new_checking);
+
+                JOptionPane.showMessageDialog(null, "The Check has been Denied");
+                frame.setVisible(false);
+                check_history check_history = new check_history(customer, user_type, ID);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        create_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                create_check create_check = new create_check(customer, user_type, ID);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        accept_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
+                ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
+                for (Checking x : checking){
+                    if (x.getID().equals(ID)){
+                        checking_account = x;
+                    }
                 }
+                checking_account.authPayCheck(pending_check_number, savings);
+                ArrayList<Checking> new_checking = new ArrayList<>();
+                new_checking.add(checking_account);
+
+                System.out.println(checking_account.getDeniedChecks());
+                System.out.println(checking_account.getAcceptedChecks());
+
+                SaveData f = new SaveData();
+                f.saveCheckAndSave(savings, new_checking);
+
+                JOptionPane.showMessageDialog(null, "The Check has been Accepted");
+                frame.setVisible(false);
+                check_history check_history = new check_history(customer, user_type, ID);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

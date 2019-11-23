@@ -120,7 +120,7 @@ public class manager_view_accounts extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (ID != null) {
                     frame.setVisible(false);
-                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, SSN, "3");
+                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, account_Type, SSN, "3");
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
@@ -133,7 +133,7 @@ public class manager_view_accounts extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (ID != null) {
                     frame.setVisible(false);
-                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, SSN, "3");
+                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, account_Type, SSN, "3");
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {

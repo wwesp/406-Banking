@@ -26,10 +26,10 @@ public class deposit_ATM extends JFrame {
     private int print_value;
 
     public static void main(String[] args) {
-        new deposit_ATM(null, null, null, null);
+        new deposit_ATM(null, null, null, null, null);
     }
 
-    public deposit_ATM(String customer, String ID, String SSN, String previous_page) {
+    public deposit_ATM(String customer, String ID, String ID_type, String SSN, String previous_page) {
         JFrame frame = new JFrame("Deposit");
         frame.setContentPane(deposit_ATM);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -63,28 +63,76 @@ public class deposit_ATM extends JFrame {
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<Checking> che = new GetData().getCheckingByATMCard(customer);
-                try {
-                    deposit_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
-                }catch (NumberFormatException ex){
-                    JOptionPane.showMessageDialog(null, "Please enter a Valid Number");
-                }
-
-                for (Checking j:che){
-                    if (j.getID().equals(ID)){
-                        j.addBalence(deposit_ammount, savings);
-                        print_value = print_value+ 1;
+                if (previous_page == "1") {
+                    ArrayList<Checking> che = new GetData().getCheckingByATMCard(customer);
+                    try {
+                        deposit_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Please enter a Valid Number");
                     }
-                }
-                if (print_value == 1){
-                    JOptionPane.showMessageDialog(null, "Deposit Successful");
+
+                    for (Checking j : che) {
+                        if (j.getID().equals(ID)) {
+                            j.addBalence(deposit_ammount, savings);
+                            print_value = print_value + 1;
+                        }
+                    }
+                    if (print_value == 1) {
+                        JOptionPane.showMessageDialog(null, "Deposit Successful");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Deposit Failed");
+                    }
+
+                    SaveData saveData = new SaveData();
+                    saveData.saveCheckAndSave(savings, che);
+
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Deposit Failed");
+                    ArrayList<Checking> che = new GetData().getCheckingBySSN(customer);
+                    ArrayList<RegSavings> sav = new GetData().getRegSavings(customer);
+                    try {
+                        deposit_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Please enter a Valid Number");
+                    }
+
+                    if (ID_type.equals("Checking")) {
+
+                        for (Checking j : che) {
+                            if (j.getID().equals(ID)) {
+                                j.addBalence(deposit_ammount, savings);
+                                print_value = print_value + 1;
+                            }
+                        }
+                        if (print_value == 1) {
+                            JOptionPane.showMessageDialog(null, "Deposit Successful");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Deposit Failed");
+                        }
+
+                        SaveData saveData = new SaveData();
+                        saveData.saveCheckAndSave(savings, che);
+                    }
+                    if (ID_type.equals("Savings")) {
+
+                        for (RegSavings j : sav) {
+                            if (j.getID().equals(ID)) {
+                                j.authorizeDeposit(deposit_ammount);
+                                print_value = print_value + 1;
+                            }
+                        }
+                        if (print_value == 1) {
+                            JOptionPane.showMessageDialog(null, "Deposit Successful");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Deposit Failed");
+                        }
+
+                        SaveData saveData = new SaveData();
+                        saveData.saveSaving(sav);
+                    }
                 }
 
-                SaveData saveData = new SaveData();
-                saveData.saveCheckAndSave(savings, che);
+
                 if (previous_page.equals("1")) {
                     frame.setVisible(false);
                     ATM_home ATM_page = new ATM_home(customer);

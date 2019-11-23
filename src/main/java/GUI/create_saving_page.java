@@ -37,11 +37,11 @@ public class create_saving_page extends JFrame{
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (x == 1){
+                if (x == 2){
                     frame.setVisible(false);
                     teller_home teller_home = new teller_home();
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));                }
-                if (x == 2){
+                if (x == 3){
                     frame.setVisible(false);
                     manager_home manager_home = new manager_home();
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));

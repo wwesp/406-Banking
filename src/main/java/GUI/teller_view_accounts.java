@@ -85,7 +85,7 @@ public class teller_view_accounts extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (ID != null) {
                     frame.setVisible(false);
-                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, SSN, "2");
+                    deposit_ATM deposit_atm = new deposit_ATM(customer, ID, ID_type, SSN, "2");
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
@@ -115,7 +115,7 @@ public class teller_view_accounts extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (ID != null) {
                     frame.setVisible(false);
-                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, SSN, "2");
+                    withdraw_ATM withdraw_atm = new withdraw_ATM(customer, ID, ID_type, SSN, "2");
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
