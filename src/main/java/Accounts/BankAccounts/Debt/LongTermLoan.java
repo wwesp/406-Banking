@@ -44,11 +44,12 @@ public class LongTermLoan extends DebtAccounts {
     }
 
 
-    public LongTermLoan(String cusId, String datePaymentDue, String notifyDate, String yearType){
-        this("",cusId,0,0,datePaymentDue,notifyDate,0,' ', "",yearType,0,null,null,null);
+    public LongTermLoan(String cusId, String yearType, double balence){
+        this("",cusId,balence,0,"","",0,' ', "",yearType,0,null,null,null);
         this.ID=new SystemHelper().makeRandomId();
         this.interestRate=new GetData().getIntRates().getLoansInterest();
-
+        this.datePaymentDue="15";
+        this.notifyDate="1";
 
     }
 

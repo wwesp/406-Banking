@@ -52,6 +52,7 @@ public class CreditCard extends DebtAccounts {
         this.notifyDate="1";
         this.creditLine=creditLine;
         this.interestRate= new GetData().getIntRates().getCreditCardInterest();
+        this.ID=new SystemHelper().makeRandomId();
 
     }
 

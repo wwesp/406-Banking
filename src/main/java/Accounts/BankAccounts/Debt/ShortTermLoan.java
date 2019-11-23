@@ -16,8 +16,8 @@ public class ShortTermLoan extends LongTermLoan {
                 lastPaymentDate, yearType, fees, missedPayment, paymentHistory, extraPayMentHistory);
     }
 
-    public ShortTermLoan(String cusId, String datePaymentDue, String notifyDate, String yearType){
-        super(cusId,datePaymentDue,notifyDate,yearType);
+    public ShortTermLoan(String cusId, String yearType, double balence){
+        super( cusId,  yearType,  balence);
     }
 
     /*
