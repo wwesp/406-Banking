@@ -264,7 +264,7 @@ public class Checking extends MoneyAccounts {
             return false;
         }
 
-        deniedChecks.put(checkNum,getTodaysDate()+"::"+doesExist);
+        acceptedChecks.put(checkNum,getTodaysDate()+"::"+doesExist);
         authorizeWithdrawl(doesExist,y,false);
         pendingChecks.remove(checkNum);
         return true;
