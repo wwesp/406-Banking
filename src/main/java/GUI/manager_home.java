@@ -115,7 +115,7 @@ public class manager_home extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                manager_create_loan manager_create_loan = new manager_create_loan();
+                manager_verify_loan_customer manager_verify_loan_customer = new manager_verify_loan_customer("Create Loans");
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

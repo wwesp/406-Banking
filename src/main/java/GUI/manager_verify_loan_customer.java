@@ -16,10 +16,10 @@ public class manager_verify_loan_customer extends JFrame{
     private JPasswordField passwordField1;
 
     public static void main(String[] args) {
-        new manager_verify_loan_customer();
+        new manager_verify_loan_customer(null);
     }
 
-    public manager_verify_loan_customer() {
+    public manager_verify_loan_customer(String previous_page) {
         JFrame frame = new JFrame("Manager");
         frame.setContentPane(manager_verify_loan_customer);
         frame.setPreferredSize(new Dimension(800, 600));
@@ -41,9 +41,16 @@ public class manager_verify_loan_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null) {
-                    frame.setVisible(false);
-                    manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (previous_page.equals("View Loans")) {
+                        frame.setVisible(false);
+                        manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    if (previous_page.equals("Create Loans")){
+                        frame.setVisible(false);
+                        manager_create_loan manager_create_loan = new manager_create_loan(String.copyValueOf(passwordField1.getPassword()));
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Invalid Account");
@@ -55,9 +62,16 @@ public class manager_verify_loan_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null) {
-                    frame.setVisible(false);
-                    manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (previous_page.equals("View Loans")) {
+                        frame.setVisible(false);
+                        manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    if (previous_page.equals("Create Loans")){
+                        frame.setVisible(false);
+                        manager_create_loan manager_create_loan = new manager_create_loan(String.copyValueOf(passwordField1.getPassword()));
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Invalid Account");
