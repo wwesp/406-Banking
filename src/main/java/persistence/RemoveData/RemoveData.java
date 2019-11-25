@@ -19,8 +19,8 @@ import java.util.Scanner;
 public class RemoveData {
 
 
-    public void rmCheckAndSave(ArrayList<RegSavings> x, ArrayList<Checking> y){
-        rmSaving(x);
+    public void rmCheckAndSave(ArrayList<RegSavings> x, ArrayList<Checking> y,String Id){
+        rmSaving(x,Id);
         rmChecking(y);
     }
 
@@ -86,7 +86,7 @@ public class RemoveData {
         }
     }
 
-    public void rmSaving(ArrayList<RegSavings> x) {
+    public void rmSaving(ArrayList<RegSavings> x, String Id) {
 
         for(Iterator<RegSavings> n = x.iterator(); n.hasNext();) {
             RegSavings acc = n.next();
@@ -143,6 +143,43 @@ public class RemoveData {
         catch (Exception ex){
             ex.printStackTrace();
         }
+
+
+
+
+        ArrayList<Checking> allChecking = new ArrayList<>();
+        Gson gson2 = new Gson();
+        File CheckingFile = new File("src/main/java/persistence/DataBases/Checking.txt");
+
+        try{
+            Scanner scan= new Scanner(CheckingFile);
+
+            while(scan.hasNextLine()){
+
+                allChecking.add(gson2.fromJson(scan.nextLine(), Checking.class));
+
+            }
+
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        for(Checking f: allChecking){
+
+            if(f.getBackupAcc().equals(Id)){
+                f.setBackupAcc("");
+            }
+
+        }
+
+
+
+
+
+
+
+
+
     }
 
     public void rmCustomer(Customer x){

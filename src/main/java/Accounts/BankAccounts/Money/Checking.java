@@ -413,11 +413,11 @@ public class Checking extends MoneyAccounts {
         return returnable;
     }
 
+    public void setBackupAcc(String backupAcc) {
+        this.backupAcc = backupAcc;
+    }
 
-
-
-
-    /*
+/*
     two types of checking accounts. TMB and gold/diamond
 
     TMB: $0.50 per transaction (deposit and withdraw)
