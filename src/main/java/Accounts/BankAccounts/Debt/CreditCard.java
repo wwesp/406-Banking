@@ -62,7 +62,11 @@ public class CreditCard extends DebtAccounts {
     }
 
     public double endAccount(){
-        double endbal=-1*balancef-fees-currentPaymentDue;
+        SystemHelper h =new SystemHelper();
+        double endbal=h.perciseSubtract(balancef,fees);
+        endbal = h.perciseSubtract(endbal,currentPaymentDue);
+        endbal=endbal*-1;
+        //-1*balancef-fees-currentPaymentDue;
 
         cusID="";
         balancef=0;
