@@ -311,9 +311,9 @@ public class DataBomb {
         File CDFile = new File("src/main/java/persistence/DataBases/CD.txt");
         Gson gson = new GsonBuilder().create();
 
-        CDs a= new CDs("11","235-44-5789",1500,"10-19-2019","10/19/2023",0.03,"");
+        CDs a= new CDs("11","235-44-5789",1500,"10-19-2019","10-19-2023",0.03,"");
         CDs b = new CDs("12","423-16-8945",1200, "12-14-2016", "12-14-2019",0.03,"");
-        CDs c= new CDs("13","345-599-870", 8000,"02-28-2017","02-28-2017",0.03,"");
+        CDs c= new CDs("13","345-59-9870", 8000,"02-28-2017","02-28-2017",0.03,"");
         CDs d= new CDs("14","345-65-3425", 4000,"02-19-2017","02-19-2020",0.03,"");
 
         try(FileWriter writer = new FileWriter(CDFile)) {
