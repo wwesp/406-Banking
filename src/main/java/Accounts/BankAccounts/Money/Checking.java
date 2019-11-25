@@ -196,11 +196,11 @@ public class Checking extends MoneyAccounts {
             subBalence(x);
         }
         else{
-            if(backupAcc==null){
+            if(backupAcc.equals("")){
                 subBalence(x);
                 subBalence(penalty);
             }
-            else if(backupAcc!=null && savingsAcc==null){
+            else if(savingsAcc==null){
                 System.out.println("Wrong input to AuthWith");
             }
             else{

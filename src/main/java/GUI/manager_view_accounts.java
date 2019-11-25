@@ -226,7 +226,7 @@ public class manager_view_accounts extends JFrame{
                     arrayList_of_checking.add(savings1);
 
                     RemoveData removeData = new RemoveData();
-                    removeData.rmSaving(arrayList_of_checking);
+                    removeData.rmSaving(arrayList_of_checking, savings1.getID());
                     if (due < 0.0) {
                         JOptionPane.showMessageDialog(null, "You Owe: " + due * -1.0);
                     }
