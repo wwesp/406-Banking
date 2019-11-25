@@ -416,21 +416,23 @@ public class DataBomb {
 
         CreditCard a = new CreditCard("1", "423-14-8894", 3579.00, 0.15, "10-27-2019",
                 "10-1-2019", 82.32, 'N', "8-20-2019", '_', null,
-                0.0,null,null);
+                1000.0,null,null);
         CreditCard b = new CreditCard("2", "423-56-7890", 3698.00, 0.12, "11-27-2019",
                 "11-1-2019", 82.84, 'Y', "10-12-2019", '_', null,
-                0.0,null,null);
+                1000.0,null,null);
         CreditCard c = new CreditCard("3", "423-45-3245", 6149.00, 0.08, "10-27-2019",
                 "10-1-2019", 132.82, 'N', "9-16-2019", '_', null,
-                0.0,null,null);
+                10000.0,null,null);
         CreditCard d = new CreditCard("4", "345-87-9912", 2136.00, 0.05, "11-27-2019",
                 "11-1-2019", 44.86, 'N', "10-22-2019", '_', null,
-                0.0,null,null);
+                500.0,null,null);
         CreditCard e = new CreditCard("5", "345-59-9870", 7216.00, 0.12, "11-27-2019",
                 "11-1-2019", 161.64, 'N', "10-26-2019", '_', null,
-                0.0,null,null);
+                700.0,null,null);
 
         b.makeCreditPurchase(100,"gold");
+
+
         try(FileWriter writer = new FileWriter(CCFile)) {
             gson.toJson(a, writer);
             writer.write("\n");
