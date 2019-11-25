@@ -16,9 +16,21 @@ public class CDs extends Savings {
         this.endDate=endDate;
 
     }
-    public CDs(String cusID,double initalbalence, String openDate, String endDate){
-        this("",cusID,initalbalence,openDate,endDate,0,"");
+    public CDs(String cusID,double initalbalence , int term){
+        this("",cusID,initalbalence,"","",0,"");
         SystemHelper IamHelper = new SystemHelper();
+
+
+        Date today = getTodayDateAsDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.YEAR, term);
+        Date xIntoFuture = cal.getTime();
+
+
+
+        this.endDate=convertDateToString(xIntoFuture);
+        this.openDate=getTodaysDate();
         this.interestRate= new GetData().getIntRates().getCDInterest();
         this.ID=IamHelper.makeRandomId();
 
