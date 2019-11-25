@@ -45,31 +45,35 @@ public class teller_view_accounts extends JFrame{
         SSN = customer1.getSsn();
 
         ArrayList<Checking> checking = new GetData().getCheckingBySSN(customer);
-        //This sets the Checking Table
-        String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back Up Account"};
-        DefaultTableModel checking_model = new DefaultTableModel() {
-            public boolean isCellEditable(int row, int column) {
-                return false;
+        if (checking != null) {
+            //This sets the Checking Table
+            String[] checking_headers = {"Account ID", "Balance", "Account Type", "Card Number", "Back Up Account"};
+            DefaultTableModel checking_model = new DefaultTableModel() {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            checking_model.setColumnIdentifiers(checking_headers);
+            checking_table.setModel(checking_model);
+            for (Checking x : checking) {
+                checking_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
             }
-        };
-        checking_model.setColumnIdentifiers(checking_headers);
-        checking_table.setModel(checking_model);
-        for (Checking x: checking){
-            checking_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getAccType(), x.getAtmCard(), x.getBackupAcc()});
         }
 
 
         ArrayList<RegSavings> savings = new GetData().getRegSavings(customer);
-        String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
-        DefaultTableModel savings_model = new DefaultTableModel() {
-            public boolean isCellEditable(int row, int column) {
-                return false;
+        if (savings != null) {
+            String[] savings_headers = {"Account ID", "Balance", "Open Date", "Interest Rate", "Last Compound of Interest"};
+            DefaultTableModel savings_model = new DefaultTableModel() {
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            savings_model.setColumnIdentifiers(savings_headers);
+            savings_table.setModel(savings_model);
+            for (RegSavings x : savings) {
+                savings_model.addRow(new Object[]{x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
             }
-        };
-        savings_model.setColumnIdentifiers(savings_headers);
-        savings_table.setModel(savings_model);
-        for (RegSavings x: savings){
-            savings_model.addRow(new Object[] {x.getID(), x.getBalancef(), x.getOpenDate(), x.getInterestRate(), x.getLastDayInterestCompounded()});
         }
 
         back_button.addActionListener(new ActionListener() {

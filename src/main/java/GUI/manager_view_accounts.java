@@ -5,6 +5,8 @@ import Accounts.BankAccounts.Money.Checking;
 import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.People.Customer;
 import persistence.GetData.GetData;
+import persistence.RemoveData.RemoveData;
+
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -24,9 +26,14 @@ public class manager_view_accounts extends JFrame{
     private JButton withdrawButton;
     private JButton depositButton;
     private JButton viewDebtsButton;
+    private JButton terminateCheckingButton;
+    private JButton terminateSavingsButton;
+    private JButton terminateCDButton;
     private String ID;
-    private String account_Type;
+    private String account_Type = "";
     private String SSN;
+    private Checking checking1;
+    private RegSavings savings1;
 
     public static void main(String[] args) {
         new manager_view_accounts(null);
@@ -107,6 +114,14 @@ public class manager_view_accounts extends JFrame{
                 account_Type = "Savings";
             }
         });
+        CD_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = savings_table.getSelectedRow();
+                ID = savings_table.getModel().getValueAt(row,0).toString();
+                account_Type = "CD";
+            }
+        });
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,6 +175,82 @@ public class manager_view_accounts extends JFrame{
                 else {
                     JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
 
+                }
+            }
+        });
+        terminateCheckingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (account_Type.equals("Checking")){
+                    for (Checking x: checking){
+                        if (x.getID().equals(ID)){
+                            checking1 = x;
+                        }
+                    }
+                    double due = checking1.endAccount();
+
+                    ArrayList<Checking> arrayList_of_checking = new ArrayList<>();
+                    arrayList_of_checking.add(checking1);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmChecking(arrayList_of_checking);
+                    if (due < 0.0) {
+                        JOptionPane.showMessageDialog(null, "You Owe: " + due * -1.0);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Bank Owes you: " + due);
+                    }
+
+                    frame.setVisible(false);
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+        terminateSavingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (account_Type.equals("Savings")){
+                    for (RegSavings x: savings){
+                        if (x.getID().equals(ID)){
+                            savings1 = x;
+                        }
+                    }
+                    double due = savings1.endAccount();
+
+                    ArrayList<RegSavings> arrayList_of_checking = new ArrayList<>();
+                    arrayList_of_checking.add(savings1);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmSaving(arrayList_of_checking);
+                    if (due < 0.0) {
+                        JOptionPane.showMessageDialog(null, "You Owe: " + due * -1.0);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Bank Owes you: " + due);
+                    }
+
+                    frame.setVisible(false);
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick Checking Account");
+                }
+            }
+        });
+        terminateCDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (account_Type.equals("CD")){
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Pick CD Account");
                 }
             }
         });

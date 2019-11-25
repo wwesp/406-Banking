@@ -10,14 +10,14 @@ public class manager_home extends JPanel {
     private JPanel manager_home_panel;
     private JButton create_checking_account;
     private JButton back_button;
-    private JButton billing_button;
+    private JButton notices_button;
     private JButton rollover_notice_button;
-    private JButton terminate_account_button;
     private JButton transfer_funds_button;
     private JButton create_savings_button;
     private JButton lookup_accout_button;
     private JButton create_customer;
     private JButton createLoanAccountButton;
+    private JButton changeInterestButton;
 
     public static void main(String[] args) {
         try {
@@ -70,14 +70,7 @@ public class manager_home extends JPanel {
             }
         });
 
-        terminate_account_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                manager_verify_terminate_customer manager_verify_terminate_customer = new manager_verify_terminate_customer();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
+
         rollover_notice_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,11 +79,11 @@ public class manager_home extends JPanel {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
-        billing_button.addActionListener(new ActionListener() {
+        notices_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                manager_send_bills manager_send_bills = new manager_send_bills();
+                manager_send_notices manager_send_notices = new manager_send_notices();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
@@ -116,6 +109,14 @@ public class manager_home extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 manager_verify_loan_customer manager_verify_loan_customer = new manager_verify_loan_customer("Create Loans");
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        changeInterestButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                change_interest change_interest = new change_interest();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });

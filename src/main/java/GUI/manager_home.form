@@ -10,7 +10,7 @@
     <children>
       <hspacer id="e3562">
         <constraints>
-          <grid row="8" column="6" row-span="4" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="7" column="6" row-span="5" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="10" height="0"/>
             <preferred-size width="10" height="0"/>
             <maximum-size width="10" height="0"/>
@@ -49,7 +49,7 @@
       </component>
       <hspacer id="86356">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="10" height="0"/>
             <preferred-size width="10" height="0"/>
             <maximum-size width="10" height="0"/>
@@ -68,24 +68,12 @@
       </vspacer>
       <vspacer id="664ff">
         <constraints>
-          <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="13" column="3" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="2a5f2" class="javax.swing.JButton" binding="lookup_accout_button">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="220" height="40"/>
-            <preferred-size width="220" height="40"/>
-            <maximum-size width="220" height="40"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="View Account"/>
-        </properties>
-      </component>
       <component id="67ed7" class="javax.swing.JButton" binding="transfer_funds_button">
         <constraints>
-          <grid row="5" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="220" height="40"/>
             <preferred-size width="220" height="40"/>
             <maximum-size width="220" height="40"/>
@@ -95,21 +83,9 @@
           <text value="Transfer Funds"/>
         </properties>
       </component>
-      <component id="d00a0" class="javax.swing.JButton" binding="terminate_account_button">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="220" height="40"/>
-            <preferred-size width="220" height="40"/>
-            <maximum-size width="220" height="40"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Terminate Account"/>
-        </properties>
-      </component>
       <component id="52806" class="javax.swing.JButton" binding="rollover_notice_button">
         <constraints>
-          <grid row="7" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="6" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="220" height="40"/>
             <preferred-size width="220" height="40"/>
             <maximum-size width="220" height="40"/>
@@ -119,9 +95,9 @@
           <text value="Rollover Notices"/>
         </properties>
       </component>
-      <component id="69f1a" class="javax.swing.JButton" binding="billing_button">
+      <component id="69f1a" class="javax.swing.JButton" binding="notices_button">
         <constraints>
-          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="7" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="220" height="40"/>
             <preferred-size width="220" height="40"/>
             <maximum-size width="220" height="40"/>
@@ -187,14 +163,6 @@
           <text value="Please Make Your Selection"/>
         </properties>
       </component>
-      <component id="3076" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Manager"/>
-        </properties>
-      </component>
       <component id="e0483" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -208,6 +176,38 @@
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
+      <component id="2a5f2" class="javax.swing.JButton" binding="lookup_accout_button">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="View Account"/>
+        </properties>
+      </component>
+      <component id="5d70c" class="javax.swing.JButton" binding="changeInterestButton" default-binding="true">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="40"/>
+            <preferred-size width="220" height="40"/>
+            <maximum-size width="220" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Change Interest"/>
+        </properties>
+      </component>
+      <component id="3076" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Manager"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

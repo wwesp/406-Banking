@@ -41,8 +41,8 @@ public class teller_verify_accounts_customer extends JFrame{
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<RegSavings> saveings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
-                if (saveings != null){
+                Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer1 != null){
                     frame.setVisible(false);
                     teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -53,8 +53,8 @@ public class teller_verify_accounts_customer extends JFrame{
         passwordField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
-                if (savings != null){
+                Customer customer1 = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
+                if (customer1 != null){
                     frame.setVisible(false);
                     teller_view_accounts teller_view_accounts = new teller_view_accounts(String.copyValueOf(passwordField1.getPassword()));
                     frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
