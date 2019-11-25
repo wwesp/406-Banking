@@ -9,6 +9,7 @@ import Accounts.BankAccounts.Money.RegSavings;
 import Accounts.Interest;
 import Accounts.People.Customer;
 import com.google.gson.Gson;
+import persistence.SaveData.SaveData;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -171,7 +172,8 @@ public class RemoveData {
             }
 
         }
-
+        SaveData saveData = new SaveData();
+        saveData.saveChecking(allChecking);
 
 
 
