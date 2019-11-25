@@ -140,7 +140,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Create Saving Account"/>
+          <text value="Create Saving/CD  Account"/>
         </properties>
       </component>
       <component id="95993" class="javax.swing.JButton" binding="createLoanAccountButton" default-binding="true">

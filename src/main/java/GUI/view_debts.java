@@ -20,7 +20,16 @@ public class view_debts {
     private JTable short_term_loans_table;
     private JTable long_term_loans_table;
     private JTable credit_card_table;
+    private JButton creditCardPaymentButton;
+    private JButton creditCardPurchaseButton;
+    private JButton terminateCreditCardButton;
+    private JButton makePaymentButton1;
+    private JButton makeExtraPaymentButton1;
+    private JButton payMissedPaymentSButton1;
+    private JButton payFeesButton1;
+    private JButton terminateLoanButton;
     private String ID;
+    private String ID_type;
 
     public static void main(String[] args) {
         new view_debts(null, null);
@@ -99,11 +108,27 @@ public class view_debts {
                 }
             }
         });
+
         credit_card_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int row = credit_card_table.getSelectedRow();
                 ID = credit_card_table.getModel().getValueAt(row,0).toString();
+                ID_type = "Credit Card";
+            }
+        });
+
+        creditCardPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Credit Card")) {
+                    frame.setVisible(false);
+                    credit_card_payment credit_card_payment = new credit_card_payment(customer, user_type, ID);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Credit Card Account");
+                }
             }
         });
     }
