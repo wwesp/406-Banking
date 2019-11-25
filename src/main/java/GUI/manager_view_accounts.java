@@ -34,6 +34,7 @@ public class manager_view_accounts extends JFrame{
     private String SSN;
     private Checking checking1;
     private RegSavings savings1;
+    private CDs cd1;
 
     public static void main(String[] args) {
         new manager_view_accounts(null);
@@ -117,8 +118,8 @@ public class manager_view_accounts extends JFrame{
         CD_table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int row = savings_table.getSelectedRow();
-                ID = savings_table.getModel().getValueAt(row,0).toString();
+                int row = CD_table.getSelectedRow();
+                ID = CD_table.getModel().getValueAt(row,0).toString();
                 account_Type = "CD";
             }
         });
@@ -222,11 +223,11 @@ public class manager_view_accounts extends JFrame{
                     }
                     double due = savings1.endAccount();
 
-                    ArrayList<RegSavings> arrayList_of_checking = new ArrayList<>();
-                    arrayList_of_checking.add(savings1);
+                    ArrayList<RegSavings> arrayList_of_savings = new ArrayList<>();
+                    arrayList_of_savings.add(savings1);
 
                     RemoveData removeData = new RemoveData();
-                    removeData.rmSaving(arrayList_of_checking, savings1.getID());
+                    removeData.rmSaving(arrayList_of_savings, savings1.getID());
                     if (due < 0.0) {
                         JOptionPane.showMessageDialog(null, "You Owe: " + due * -1.0);
                     }
@@ -247,7 +248,28 @@ public class manager_view_accounts extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (account_Type.equals("CD")){
+                    for (CDs x: cds){
+                        if (x.getID().equals(ID)){
+                            cd1 = x;
+                        }
+                    }
+                    double due = cd1.endAccount();
 
+                    ArrayList<CDs> arrayList_of_cds = new ArrayList<>();
+                    arrayList_of_cds.add(cd1);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmCD(arrayList_of_cds);
+                    if (due < 0.0) {
+                        JOptionPane.showMessageDialog(null, "You Owe: " + due * -1.0);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Bank Owes you: " + due);
+                    }
+
+                    frame.setVisible(false);
+                    manager_view_accounts manager_view_accounts = new manager_view_accounts(customer);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Please Pick CD Account");
