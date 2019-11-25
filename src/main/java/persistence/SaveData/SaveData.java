@@ -24,7 +24,7 @@ public class SaveData {
     }
 
     public void saveChecking(ArrayList<Checking> x){
-
+        if(x==null)return;
         for(Iterator<Checking> n = x.iterator(); n.hasNext();) {
             Checking acc = n.next();
 
@@ -86,6 +86,7 @@ public class SaveData {
     }
 
     public void saveSaving(ArrayList<RegSavings> x) {
+        if(x==null)return;
 
         for(Iterator<RegSavings> n = x.iterator(); n.hasNext();) {
             RegSavings acc = n.next();
@@ -145,7 +146,7 @@ public class SaveData {
     }
 
     public void saveCustomer(Customer x){
-
+        if(x==null)return;
         ArrayList<Customer> z = new ArrayList<>();
 
         Gson gson = new Gson();
@@ -186,7 +187,7 @@ public class SaveData {
     }
 
     public void saveCD(ArrayList<CDs> x) {
-
+        if(x==null)return;
         for(Iterator<CDs> n = x.iterator(); n.hasNext();) {
             CDs acc = n.next();
 
@@ -244,7 +245,7 @@ public class SaveData {
     }
 
     public void saveLongLoan(ArrayList<LongTermLoan> x){
-
+        if(x==null)return;
         for(Iterator<LongTermLoan> n = x.iterator(); n.hasNext();) {
             LongTermLoan acc = n.next();
 
@@ -302,7 +303,7 @@ public class SaveData {
     }
 
     public void saveShortLoan(ArrayList<ShortTermLoan> x){
-
+        if(x==null)return;
         for(Iterator<ShortTermLoan> n = x.iterator(); n.hasNext();) {
             ShortTermLoan acc = n.next();
 
@@ -360,7 +361,7 @@ public class SaveData {
     }
 
     public void saveCC(ArrayList<CreditCard> x){
-
+        if(x==null)return;
         for(Iterator<CreditCard> n = x.iterator(); n.hasNext();) {
             CreditCard acc = n.next();
 
@@ -418,7 +419,7 @@ public class SaveData {
     }
 
     public void saveInterest(Interest x){
-
+        if(x==null)return;
         Gson gson = new Gson();
         File intFile = new File("src/main/java/persistence/DataBases/interest.txt");
 
