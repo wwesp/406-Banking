@@ -28,12 +28,13 @@ public class RegSavings extends  Savings{
         if(balancef<x){
             return false;
         }
-        balancef=balancef-x;
+        balancef=new SystemHelper().perciseSubtract(balancef,x);
         return true;
     }
 
     public void authorizeDeposit(double x){
-        balancef=balancef+x;
+        balancef= new SystemHelper().perciseAddition(balancef,x);
+
     }
 
     public double endRegSavings(){

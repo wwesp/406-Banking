@@ -1,6 +1,8 @@
 package Accounts.BankAccounts.Money;
 
 
+import SystemHelper.SystemHelper;
+
 public abstract class Savings extends MoneyAccounts {
     double interestRate;
 
@@ -13,13 +15,13 @@ public abstract class Savings extends MoneyAccounts {
 
 
     public void dailyInterest(){
-
+        SystemHelper h = new SystemHelper();
         String today=getTodaysDate();
         if (!today.equals(lastDayInterestCompounded)){
             //compound interest
             //.5 percent interest
             //make sure it stays at two decimal places
-            balancef=parseDouble(balancef*interestRate,0);
+            balancef=h.truncOrRound(parseDouble(balancef*interestRate,0),0);
             lastDayInterestCompounded=today;
         }
 

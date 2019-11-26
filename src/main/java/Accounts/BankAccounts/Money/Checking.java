@@ -156,23 +156,25 @@ public class Checking extends MoneyAccounts {
     //sets up withdrawl
     public void authorizeWithdrawl(double x, ArrayList<RegSavings> y, boolean monthlyTrans) {
         //if gold
+        SystemHelper h= new SystemHelper();
         if(accType==1&&getBalancef()>=1000){
             transactionwithdrawl(x,y,0.0);
         }
         else{
             if(!monthlyTrans) {
-                transactionwithdrawl(x+0.50, y, 20);
+                transactionwithdrawl(h.perciseAddition(x,0.50), y, 20);
                 overDraftHistory.add(getTodaysDate()+":: 0.50");
 
             }
             else{
-                transactionwithdrawl(x+0.75, y, 20);
+                transactionwithdrawl(h.perciseAddition(x,0.50), y, 20);
                 overDraftHistory.add(getTodaysDate()+":: 0.75");
             }
         }
     }
     //does the withdral with given penalty
     private void transactionwithdrawl(double x,ArrayList<RegSavings> y, double penalty ){
+        SystemHelper h =new SystemHelper();
         double needForSavin;
         //look for backup
         RegSavings savingsAcc = null;
@@ -205,7 +207,7 @@ public class Checking extends MoneyAccounts {
             }
             else{
 
-                needForSavin=abs(getBalancef()-x);
+                needForSavin=abs(h.perciseSubtract(getBalancef(),x));
 
                 if(savingsAcc.getBalancef()>=needForSavin){
                     balancef=0;

@@ -128,10 +128,11 @@ public class LongTermLoan extends DebtAccounts {
     }
     //wont count toward any month
     public void makeExtaPayment(double x){
-        balancef=balancef-x;
+        balancef=new SystemHelper().perciseSubtract(balancef,x);
         extraPayMentHistory.add(getTodaysDate() +"::"+x);
     }
 
+    //TODO: THis is broke
     //returns double of amount to be paid
     public double payMissed(){
         //need to find the oldest missed payment and set that payment
@@ -183,7 +184,7 @@ public class LongTermLoan extends DebtAccounts {
     //returns amt negative means if he had 50 in fee and gave us 100 we would give him back 50. so -50 we give back,
     //50 would be that he still owes 50 in fees
     public double payMissedFees(double x){
-        fees=-x;
+        fees=new SystemHelper().perciseSubtract(fees,x);
 
         if(fees<0){
             double temp=fees;
