@@ -6,6 +6,8 @@ import Accounts.BankAccounts.Debt.ShortTermLoan;
 import Accounts.BankAccounts.Money.Checking;
 import Accounts.People.Customer;
 import persistence.GetData.GetData;
+import persistence.RemoveData.RemoveData;
+import persistence.SaveData.SaveData;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -29,7 +31,10 @@ public class view_debts {
     private JButton payFeesButton1;
     private JButton terminateLoanButton;
     private String ID;
-    private String ID_type;
+    private String ID_type = "";
+    private CreditCard creditCard;
+    private ShortTermLoan shortTermLoan;
+    private LongTermLoan longTermLoan;
 
     public static void main(String[] args) {
         new view_debts(null, null);
@@ -117,6 +122,22 @@ public class view_debts {
                 ID_type = "Credit Card";
             }
         });
+        short_term_loans_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = short_term_loans_table.getSelectedRow();
+                ID = short_term_loans_table.getModel().getValueAt(row,0).toString();
+                ID_type = "Short Term";
+            }
+        });
+        long_term_loans_table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = long_term_loans_table.getSelectedRow();
+                ID = long_term_loans_table.getModel().getValueAt(row,0).toString();
+                ID_type = "Long Term";
+            }
+        });
 
         creditCardPaymentButton.addActionListener(new ActionListener() {
             @Override
@@ -128,6 +149,225 @@ public class view_debts {
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Please Select Credit Card Account");
+                }
+            }
+        });
+        creditCardPurchaseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Credit Card")) {
+                    frame.setVisible(false);
+                    credit_card_purchase credit_card_purchase = new credit_card_purchase(customer, user_type, ID);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Credit Card Account");
+                }
+            }
+        });
+        ArrayList<CreditCard> finalCreditCards = creditCards;
+        terminateCreditCardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Credit Card")) {
+                    for (CreditCard x : finalCreditCards) {
+                        if (x.getID().equals(ID)) {
+                            creditCard = x;
+                        }
+                    }
+                    double due = creditCard.endAccount();
+
+                    ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
+                    creditCardArrayList.add(creditCard);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmCC(creditCardArrayList);
+
+                    due = due * -1.0;
+                    JOptionPane.showMessageDialog(null, "You Owe: " + due);
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Credit Card Account");
+                }
+            }
+        });
+        ArrayList<ShortTermLoan> finalShortTermLoans = shortTermLoans;
+        ArrayList<LongTermLoan> finalLongTermLoans = longTermLoans;
+        makePaymentButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Short Term")){
+                    for (ShortTermLoan x: finalShortTermLoans){
+                        if (x.getID().equals(ID)){
+                            shortTermLoan = x;
+                        }
+                    }
+                    shortTermLoan.makePayment();
+
+                    ArrayList<ShortTermLoan> shortTermLoanArrayList = new ArrayList<>();
+                    shortTermLoanArrayList.add(shortTermLoan);
+
+                    SaveData saveData = new SaveData();
+                    saveData.saveShortLoan(shortTermLoanArrayList);
+
+                    JOptionPane.showMessageDialog(null, "Payment Successful");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+
+                }
+                else if (ID_type.equals("Long Term")){
+                    for (LongTermLoan x: finalLongTermLoans){
+                        if (x.getID().equals(ID)){
+                            longTermLoan = x;
+                        }
+                    }
+                    longTermLoan.makePayment();
+
+                    ArrayList<LongTermLoan> longTermLoanArrayList = new ArrayList<>();
+                    longTermLoanArrayList.add(longTermLoan);
+
+                    SaveData saveData = new SaveData();
+                    saveData.saveLongLoan(longTermLoanArrayList);
+
+                    JOptionPane.showMessageDialog(null, "Payment Successful");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Loan Account");
+                }
+            }
+        });
+        makeExtraPaymentButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Short Term") || ID_type.equals("Long Term")){
+                    frame.setVisible(false);
+                    loan_extra_payment loan_extra_payment = new loan_extra_payment(customer, user_type, ID, ID_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Loan Account");
+                }
+            }
+        });
+        payMissedPaymentSButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Short Term")){
+                    for (ShortTermLoan x: finalShortTermLoans){
+                        if (x.getID().equals(ID)){
+                            shortTermLoan = x;
+                        }
+                    }
+                    shortTermLoan.payMissed();
+
+                    ArrayList<ShortTermLoan> shortTermLoanArrayList = new ArrayList<>();
+                    shortTermLoanArrayList.add(shortTermLoan);
+
+                    SaveData saveData = new SaveData();
+                    saveData.saveShortLoan(shortTermLoanArrayList);
+
+                    JOptionPane.showMessageDialog(null, "Payment Successful");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+
+                }
+                else if (ID_type.equals("Long Term")){
+                    for (LongTermLoan x: finalLongTermLoans){
+                        if (x.getID().equals(ID)){
+                            longTermLoan = x;
+                        }
+                    }
+                    longTermLoan.payMissed();
+
+                    ArrayList<LongTermLoan> longTermLoanArrayList = new ArrayList<>();
+                    longTermLoanArrayList.add(longTermLoan);
+
+                    SaveData saveData = new SaveData();
+                    saveData.saveLongLoan(longTermLoanArrayList);
+
+                    JOptionPane.showMessageDialog(null, "Payment Successful");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (!ID_type.equals("Short Term") && !ID_type.equals("Long Term")){
+                    JOptionPane.showMessageDialog(null, "Please Select Loan Account");
+                }
+            }
+        });
+        payFeesButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Short Term") || ID_type.equals("Long Term")){
+                    frame.setVisible(false);
+                    loan_pay_fees loan_pay_fees = new loan_pay_fees(customer, user_type, ID, ID_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Loan Account");
+                }
+            }
+        });
+        terminateLoanButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ID_type.equals("Short Term")) {
+                    for (ShortTermLoan x : finalShortTermLoans) {
+                        if (x.getID().equals(ID)) {
+                            shortTermLoan = x;
+                        }
+                    }
+                    double due = shortTermLoan.endAccount();
+
+                    ArrayList<ShortTermLoan> shortTermLoanArrayList = new ArrayList<>();
+                    shortTermLoanArrayList.add(shortTermLoan);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmShortLoan(shortTermLoanArrayList);
+
+                    due = due * -1.0;
+                    JOptionPane.showMessageDialog(null, "You Owe: " + due);
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else if (ID_type.equals("Long Term")) {
+                    for (LongTermLoan x : finalLongTermLoans) {
+                        if (x.getID().equals(ID)) {
+                            longTermLoan = x;
+                        }
+                    }
+                    double due = longTermLoan.endAccount();
+
+                    ArrayList<LongTermLoan> longTermLoanArrayList = new ArrayList<>();
+                    longTermLoanArrayList.add(longTermLoan);
+
+                    RemoveData removeData = new RemoveData();
+                    removeData.rmLongLoan(longTermLoanArrayList);
+
+                    due = due * -1.0;
+                    JOptionPane.showMessageDialog(null, "You Owe: " + due);
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Select Loan Account");
                 }
             }
         });

@@ -44,19 +44,30 @@ public class credit_card_payment {
                     }
                 }
                 payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
-                creditCard.makePayment(payment);
+                if (!textField1.getText().equals("")) {
+                    double need = creditCard.makePayment(payment);
+                    System.out.println(need);
 
-                ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
-                creditCardArrayList.add(creditCard);
 
-                SaveData saveData = new SaveData();
-                saveData.saveCC(creditCardArrayList);
+                    ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
+                    creditCardArrayList.add(creditCard);
 
-                JOptionPane.showMessageDialog(null, "Payment Completed");
+                    SaveData saveData = new SaveData();
+                    saveData.saveCC(creditCardArrayList);
 
-                frame.setVisible(false);
-                view_debts view_debts= new view_debts(customer, user_type);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (need > 0.0) {
+                        JOptionPane.showMessageDialog(null, "Over Paid By " + need);
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Payment Completed");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
+                }
             }
         });
         back_button.addActionListener(new ActionListener() {
@@ -75,20 +86,31 @@ public class credit_card_payment {
                         creditCard = x;
                     }
                 }
-                payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
-                creditCard.makePayment(payment);
+                if (!textField1.getText().equals("")) {
+                    payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                    double need = creditCard.makePayment(payment);
+                    System.out.println(need);
 
-                ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
-                creditCardArrayList.add(creditCard);
 
-                SaveData saveData = new SaveData();
-                saveData.saveCC(creditCardArrayList);
+                    ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
+                    creditCardArrayList.add(creditCard);
 
-                JOptionPane.showMessageDialog(null, "Payment Completed");
+                    SaveData saveData = new SaveData();
+                    saveData.saveCC(creditCardArrayList);
 
-                frame.setVisible(false);
-                view_debts view_debts= new view_debts(customer, user_type);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (need > 0.0) {
+                        JOptionPane.showMessageDialog(null, "Over Paid By " + need);
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Payment Completed");
+
+                    frame.setVisible(false);
+                    view_debts view_debts = new view_debts(customer, user_type);
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
+                }
             }
         });
     }

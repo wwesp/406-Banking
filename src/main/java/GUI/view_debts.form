@@ -126,7 +126,11 @@
       </vspacer>
       <component id="481e7" class="javax.swing.JButton" binding="creditCardPaymentButton" default-binding="true">
         <constraints>
-          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="30"/>
+            <preferred-size width="220" height="30"/>
+            <maximum-size width="220" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Credit Card Payment"/>
@@ -134,7 +138,11 @@
       </component>
       <component id="399b0" class="javax.swing.JButton" binding="creditCardPurchaseButton" default-binding="true">
         <constraints>
-          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="30"/>
+            <preferred-size width="220" height="30"/>
+            <maximum-size width="220" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Credit Card Purchase"/>
@@ -182,7 +190,11 @@
       </component>
       <component id="f811e" class="javax.swing.JButton" binding="creditCardHistoryButton" default-binding="true">
         <constraints>
-          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="30"/>
+            <preferred-size width="220" height="30"/>
+            <maximum-size width="220" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Credit Card History"/>
@@ -190,7 +202,11 @@
       </component>
       <component id="f8242" class="javax.swing.JButton" binding="terminateCreditCardButton" default-binding="true">
         <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="220" height="30"/>
+            <preferred-size width="220" height="30"/>
+            <maximum-size width="220" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Terminate Credit Card"/>
