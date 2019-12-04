@@ -51,11 +51,11 @@ public class manager_create_credit {
                     credit_limit = new SystemHelper().truncOrRound(Double.parseDouble(textField3.getText()), 0);
                     CreditCard new_cc = new CreditCard(customer,credit_limit);
 
-                    ArrayList<CreditCard> fuckYOUWILL = new ArrayList<>();
-                    fuckYOUWILL.add(new_cc);
+                    ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
+                    creditCardArrayList.add(new_cc);
 
                     SaveData new_save = new SaveData();
-                    new_save.saveCC(fuckYOUWILL);
+                    new_save.saveCC(creditCardArrayList);
 
                     JOptionPane.showMessageDialog(null, "Account Created Successfully");
                     frame.setVisible(false);
@@ -74,11 +74,11 @@ public class manager_create_credit {
                     credit_limit = new SystemHelper().truncOrRound(Double.parseDouble(textField3.getText()), 0);
                     CreditCard new_cc = new CreditCard(customer,credit_limit);
 
-                    ArrayList<CreditCard> fuckYOUWILL = new ArrayList<>();
-                    fuckYOUWILL.add(new_cc);
+                    ArrayList<CreditCard> creditCardArrayList = new ArrayList<>();
+                    creditCardArrayList.add(new_cc);
 
                     SaveData new_save = new SaveData();
-                    new_save.saveCC(fuckYOUWILL);
+                    new_save.saveCC(creditCardArrayList);
 
                     JOptionPane.showMessageDialog(null, "Account Created Successfully");
                     frame.setVisible(false);

@@ -35,7 +35,17 @@ public class credit_card_payment {
 
         ArrayList<CreditCard> creditCards = new GetData().getCC(customer);
 
-        textField1.addActionListener(new ActionListener() {
+
+        back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                view_debts view_debts= new view_debts(customer, user_type);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+
+        accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (CreditCard x: creditCards){
@@ -43,8 +53,8 @@ public class credit_card_payment {
                         creditCard = x;
                     }
                 }
-                payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
                 if (!textField1.getText().equals("")) {
+                    payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
                     double need = creditCard.makePayment(payment);
                     System.out.println(need);
 
@@ -70,15 +80,8 @@ public class credit_card_payment {
                 }
             }
         });
-        back_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                view_debts view_debts= new view_debts(customer, user_type);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
-        accept_button.addActionListener(new ActionListener() {
+
+        textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (CreditCard x: creditCards){
@@ -86,8 +89,8 @@ public class credit_card_payment {
                         creditCard = x;
                     }
                 }
+                payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
                 if (!textField1.getText().equals("")) {
-                    payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
                     double need = creditCard.makePayment(payment);
                     System.out.println(need);
 

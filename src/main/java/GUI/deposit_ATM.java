@@ -60,6 +60,7 @@ public class deposit_ATM extends JFrame {
                 }
             }
         });
+
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

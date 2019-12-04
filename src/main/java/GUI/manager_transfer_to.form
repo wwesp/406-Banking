@@ -23,7 +23,11 @@
       </component>
       <component id="65f48" class="javax.swing.JButton" binding="back_button">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <label value="Back"/>
@@ -32,7 +36,11 @@
       </component>
       <component id="5a4a9" class="javax.swing.JButton" binding="accept_button">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <label value="Accept"/>

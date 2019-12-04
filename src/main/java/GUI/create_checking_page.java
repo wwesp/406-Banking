@@ -55,15 +55,26 @@ public class create_checking_page extends JPanel{
         ArrayList<RegSavings> savings = new GetData().getRegSavings(SSN);
 
         back_up_account_combo.addItem("");
-        for (RegSavings y : savings) {
-            back_up_account_combo.addItem(y.getID());
+        if (savings != null) {
+            for (RegSavings y : savings) {
+                back_up_account_combo.addItem(y.getID());
+            }
         }
         //double bal = Double.parseDouble(new GUI().textField3.getText());
         AcceptButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 account_type = Objects.requireNonNull(account_type_drop_down.getSelectedItem()).toString();
-                if (account_type == "That's My Bank"){
+
+                if (createATMCardCheckBox.isSelected()){
+                    ATM_card = true;
+                }
+                else {
+                    ATM_card = false;
+                }
+
+
+                if (account_type.equals("That's My Bank")){
                     account_number = 0;
                 }
                 else {
@@ -71,15 +82,23 @@ public class create_checking_page extends JPanel{
                 }
                 double balance = Double.parseDouble(balance_text.getText());
                 Checking new_checking = new Checking(SSN,balance,account_number, Objects.requireNonNull(back_up_account_combo.getSelectedItem()).toString(), ATM_card);
+                System.out.println(new_checking.getBalancef());
                 SaveData save_new_checking = new SaveData();
                 ArrayList<Checking> checking_arraylist = new ArrayList<>();
                 checking_arraylist.add(new_checking);
                 save_new_checking.saveChecking(checking_arraylist);
 
                 JOptionPane.showMessageDialog(null, "The Account has Been Successfully Created");
-                frame.setVisible(false);
-                teller_home teller_home = new teller_home();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (x == 2){
+                    frame.setVisible(false);
+                    teller_home teller_home = new teller_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (x == 3){
+                    frame.setVisible(false);
+                    manager_home manager_home = new manager_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
         Clear.addActionListener(new ActionListener() {
@@ -112,6 +131,15 @@ public class create_checking_page extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 account_type = Objects.requireNonNull(account_type_drop_down.getSelectedItem()).toString();
+
+                if (createATMCardCheckBox.isSelected()){
+                    ATM_card = true;
+                }
+                else {
+                    ATM_card = false;
+                }
+
+
                 if (account_type.equals("That's My Bank")){
                     account_number = 0;
                 }
@@ -127,15 +155,16 @@ public class create_checking_page extends JPanel{
                 save_new_checking.saveChecking(checking_arraylist);
 
                 JOptionPane.showMessageDialog(null, "The Account has Been Successfully Created");
-                frame.setVisible(false);
-                teller_home teller_home = new teller_home();
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
-        createATMCardCheckBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ATM_card = true;
+                if (x == 2){
+                    frame.setVisible(false);
+                    teller_home teller_home = new teller_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                if (x == 3){
+                    frame.setVisible(false);
+                    manager_home manager_home = new manager_home();
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
             }
         });
     }

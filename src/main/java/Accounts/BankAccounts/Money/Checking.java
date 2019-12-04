@@ -86,6 +86,7 @@ public class Checking extends MoneyAccounts {
         if(atmcard){
 
             Customer customer= new GetData().getCustomerBySSN(cusId);
+            System.out.println(customer.getAtmCard());
             if(customer.getAtmCard().equals("")){
                 this.atmCard=IamHelper.makeRandomId();
                 customer.setAtmCard(this.atmCard);

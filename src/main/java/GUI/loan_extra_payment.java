@@ -56,20 +56,25 @@ public class loan_extra_payment {
                             shortTermLoan = x;
                         }
                     }
-                    payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
-                    shortTermLoan.makeExtaPayment(payment);
+                    if (!textField1.getText().equals("")) {
+                        payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                        shortTermLoan.makeExtaPayment(payment);
 
-                    ArrayList<ShortTermLoan> shortTermLoans1 = new ArrayList<>();
-                    shortTermLoans1.add(shortTermLoan);
+                        ArrayList<ShortTermLoan> shortTermLoans1 = new ArrayList<>();
+                        shortTermLoans1.add(shortTermLoan);
 
-                    SaveData saveData = new SaveData();
-                    saveData.saveShortLoan(shortTermLoans1);
+                        SaveData saveData = new SaveData();
+                        saveData.saveShortLoan(shortTermLoans1);
 
-                    JOptionPane.showMessageDialog(null, "Payment Completed");
+                        JOptionPane.showMessageDialog(null, "Payment Completed");
 
-                    frame.setVisible(false);
-                    view_debts view_debts = new view_debts(customer, user_type);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                        frame.setVisible(false);
+                        view_debts view_debts = new view_debts(customer, user_type);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
+                    }
                 }
                 else {
                     for (LongTermLoan x : longTermLoans) {
@@ -77,20 +82,25 @@ public class loan_extra_payment {
                             longTermLoan = x;
                         }
                     }
-                    payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
-                    longTermLoan.makeExtaPayment(payment);
+                    if (!textField1.getText().equals("")) {
+                        payment = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
+                        longTermLoan.makeExtaPayment(payment);
 
-                    ArrayList<LongTermLoan> longTermLoanArrayList = new ArrayList<>();
-                    longTermLoanArrayList.add(longTermLoan);
+                        ArrayList<LongTermLoan> longTermLoanArrayList = new ArrayList<>();
+                        longTermLoanArrayList.add(longTermLoan);
 
-                    SaveData saveData = new SaveData();
-                    saveData.saveLongLoan(longTermLoanArrayList);
+                        SaveData saveData = new SaveData();
+                        saveData.saveLongLoan(longTermLoanArrayList);
 
-                    JOptionPane.showMessageDialog(null, "Payment Completed");
+                        JOptionPane.showMessageDialog(null, "Payment Completed");
 
-                    frame.setVisible(false);
-                    view_debts view_debts = new view_debts(customer, user_type);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                        frame.setVisible(false);
+                        view_debts view_debts = new view_debts(customer, user_type);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Please Enter Valid Number");
+                    }
                 }
             }
         });

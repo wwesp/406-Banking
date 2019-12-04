@@ -34,9 +34,9 @@ public class validate_teller_create_savings {
         passwordField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 customer_ID = String.copyValueOf(passwordField1.getPassword());
-                if (savings != null) {
+                if (customer != null) {
                     if (previous_page == 2) {
                         frame.setVisible(false);
                         create_saving_page create_saving_page = new create_saving_page(2, customer_ID);
@@ -69,12 +69,19 @@ public class validate_teller_create_savings {
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<RegSavings> savings = new GetData().getRegSavings(String.copyValueOf(passwordField1.getPassword()));
+                Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 customer_ID = String.copyValueOf(passwordField1.getPassword());
-                if (savings != null) {
-                    frame.setVisible(false);
-                    create_saving_page create_saving_page = new create_saving_page(2, customer_ID);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                if (customer != null) {
+                    if (previous_page == 2) {
+                        frame.setVisible(false);
+                        create_saving_page create_saving_page = new create_saving_page(2, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    if (previous_page == 3) {
+                        frame.setVisible(false);
+                        create_saving_page create_saving_page = new create_saving_page(3, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
                 } else
                     JOptionPane.showMessageDialog(null, "This Customer ID Does Not Exist. Please Create Customer Before Creating Saving Account");
             }

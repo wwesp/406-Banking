@@ -55,7 +55,7 @@ public class manager_create_customer {
                 }else {
                     Customer customer = new Customer(ssn_text.getText(), fname_text.getText(), lname_text.getText(),
                             address_text.getText(), city_text.getText(), state_text.getText(), zip_text.getText(),
-                            null);
+                            "");
                     SaveData customer_to_save = new SaveData();
                     customer_to_save.saveCustomer(customer);
                     JOptionPane.showMessageDialog(null, fname_text.getText() + " " + lname_text.getText()

@@ -161,6 +161,7 @@ public class check_history {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+
         create_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -169,6 +170,7 @@ public class check_history {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -41,11 +41,6 @@ public class manager_verify_loan_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null) {
-                    if (previous_page.equals("View Loans")) {
-                        frame.setVisible(false);
-                        manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
-                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                    }
                     if (previous_page.equals("Create Loans")){
                         frame.setVisible(false);
                         manager_create_loan manager_create_loan = new manager_create_loan(String.copyValueOf(passwordField1.getPassword()));
@@ -62,11 +57,6 @@ public class manager_verify_loan_customer extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 if (customer != null) {
-                    if (previous_page.equals("View Loans")) {
-                        frame.setVisible(false);
-                        manager_view_loans manager_view_loans = new manager_view_loans(String.copyValueOf(passwordField1.getPassword()));
-                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-                    }
                     if (previous_page.equals("Create Loans")){
                         frame.setVisible(false);
                         manager_create_loan manager_create_loan = new manager_create_loan(String.copyValueOf(passwordField1.getPassword()));

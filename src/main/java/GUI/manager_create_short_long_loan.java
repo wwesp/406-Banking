@@ -49,7 +49,14 @@ public class manager_create_short_long_loan {
         year_type_combo_box.addItem("15");
         year_type_combo_box.addItem("30");
 
-
+        back_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                manager_create_loan manager_create_loan = new manager_create_loan(customer);
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,14 +159,7 @@ public class manager_create_short_long_loan {
                 }
             }
         });
-        back_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                manager_create_loan manager_create_loan = new manager_create_loan(customer);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
+
         year_type_combo_box.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

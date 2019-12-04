@@ -37,9 +37,16 @@ public class validate_teller_create_checking {
                 Customer customer = new GetData().getCustomerBySSN(String.copyValueOf(passwordField1.getPassword()));
                 customer_ID = String.copyValueOf(passwordField1.getPassword());
                 if (customer != null){
-                    frame.setVisible(false);
-                    create_checking_page create_checking_page = new create_checking_page(2,customer_ID);
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    if (previous_page == 2) {
+                        frame.setVisible(false);
+                        create_checking_page create_checking_page = new create_checking_page(2, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
+                    if (previous_page == 3) {
+                        frame.setVisible(false);
+                        create_checking_page create_checking_page = new create_checking_page(3, customer_ID);
+                        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                    }
                 }
                 else JOptionPane.showMessageDialog(null, "This Customer ID Does Not Exist. Please Create Customer Before Checking");
             }

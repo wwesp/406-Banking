@@ -25,7 +25,7 @@ public class change_interest {
     }
 
     public change_interest() {
-        JFrame frame = new JFrame("Select Deposit or Withdraw");
+        JFrame frame = new JFrame("Change Interest Rates");
         frame.setContentPane(change_interest_panel);
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -49,6 +49,7 @@ public class change_interest {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+
         credit_card_interest_text.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

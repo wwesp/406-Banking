@@ -36,20 +36,21 @@ public class manager_home extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        create_checking_account.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                //TODO FIX THIS SHIT
-                validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking(3);
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
+
         back_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 home_page home_page = new home_page();
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+
+        create_checking_account.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                validate_teller_create_checking validate_teller_create_checking = new validate_teller_create_checking(3);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
@@ -91,7 +92,6 @@ public class manager_home extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                //TODO Fix This Shit Too
                 validate_teller_create_savings validate_teller_create_savings = new validate_teller_create_savings(3);
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
