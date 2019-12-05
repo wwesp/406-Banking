@@ -10,7 +10,11 @@
     <children>
       <component id="c82db" class="javax.swing.JButton" binding="accept_button">
         <constraints>
-          <grid row="2" column="4" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="4" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Accept"/>
@@ -18,7 +22,7 @@
       </component>
       <hspacer id="9d08">
         <constraints>
-          <grid row="2" column="5" row-span="4" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+          <grid row="4" column="5" row-span="2" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="10" height="0"/>
             <preferred-size width="10" height="0"/>
             <maximum-size width="10" height="0"/>
@@ -27,7 +31,7 @@
       </hspacer>
       <hspacer id="c8256">
         <constraints>
-          <grid row="2" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="4" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="10" height="0"/>
             <preferred-size width="10" height="0"/>
             <maximum-size width="10" height="0"/>
@@ -90,7 +94,11 @@
       </hspacer>
       <component id="8bb30" class="javax.swing.JButton" binding="back_button">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="30"/>
+            <preferred-size width="80" height="30"/>
+            <maximum-size width="80" height="30"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Back"/>

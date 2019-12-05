@@ -22,7 +22,7 @@ public class manager_create_credit {
     private Double credit_limit;
 
     public static void main(String[] args) {
-        new manager_loan_credit();
+        new manager_create_credit(null);
     }
 
     public manager_create_credit(String customer){

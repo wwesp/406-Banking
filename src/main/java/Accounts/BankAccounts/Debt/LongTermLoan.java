@@ -167,6 +167,7 @@ public class LongTermLoan extends DebtAccounts {
                 i++;
             }
 
+            //TODO WILL LOOK AT THIS. It gives a null pointer if there are no missed payments to pay
             paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+old,missedPayment.get(old));
             amtDue=missedPayment.get(old);
             missedPayment.remove(old);

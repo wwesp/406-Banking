@@ -59,7 +59,7 @@ public class withdraw_ATM extends JFrame {
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (previous_page == "1") {
+                if (previous_page.equals("1")) {
                     ArrayList<Checking> che = new GetData().getCheckingByATMCard(customer);
                     try {
                         withdraw_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
@@ -124,8 +124,6 @@ public class withdraw_ATM extends JFrame {
                         }
                         if (print_value == 1) {
                             JOptionPane.showMessageDialog(null, "Withdraw Successful");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Withdraw Failed");
                         }
                         SaveData saveData = new SaveData();
                         saveData.saveSaving(sav);
@@ -155,7 +153,7 @@ public class withdraw_ATM extends JFrame {
         accept_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (previous_page == "1") {
+                if (previous_page.equals("1")) {
                     ArrayList<Checking> che = new GetData().getCheckingByATMCard(customer);
                     try {
                         withdraw_ammount = new SystemHelper().truncOrRound(Double.parseDouble(textField1.getText()), 0);
@@ -176,8 +174,6 @@ public class withdraw_ATM extends JFrame {
                     }
                     if (print_value == 1) {
                         JOptionPane.showMessageDialog(null, "Withdraw Successful");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Withdraw Failed");
                     }
 
                     SaveData saveData = new SaveData();
@@ -223,8 +219,6 @@ public class withdraw_ATM extends JFrame {
                         }
                         if (print_value == 1) {
                             JOptionPane.showMessageDialog(null, "Withdraw Successful");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Withdraw Failed");
                         }
                         SaveData saveData = new SaveData();
                         saveData.saveSaving(sav);

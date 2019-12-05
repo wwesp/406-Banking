@@ -9,4 +9,3 @@
 {"interestRate":0.029,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"235-44-5789","balancef":98.56,"ID":"10"}
 {"interestRate":0.024,"lastDayInterestCompounded":"","openDate":"08-19-2019","cusID":"345-67-9898","balancef":1700.0,"ID":"15"}
 {"interestRate":1.001,"lastDayInterestCompounded":"","openDate":"11-25-2019","cusID":"111-22-3333","balancef":5000.0,"ID":"5421408638"}
-{"interestRate":0.022,"lastDayInterestCompounded":"","openDate":"12-01-2002","cusID":"423-45-3245","balancef":169.9,"ID":"1"}

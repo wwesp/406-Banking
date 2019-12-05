@@ -30,22 +30,38 @@
       </component>
       <vspacer id="4e052">
         <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
         </constraints>
       </vspacer>
       <vspacer id="1fa68">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="10"/>
+            <preferred-size width="0" height="10"/>
+            <maximum-size width="0" height="10"/>
+          </grid>
         </constraints>
       </vspacer>
       <hspacer id="a1f12">
         <constraints>
-          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
         </constraints>
       </hspacer>
       <hspacer id="a82d5">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="0"/>
+            <preferred-size width="10" height="0"/>
+            <maximum-size width="10" height="0"/>
+          </grid>
         </constraints>
       </hspacer>
       <component id="f9e16" class="javax.swing.JLabel">
