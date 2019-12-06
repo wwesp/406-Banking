@@ -58,7 +58,7 @@ public class CheckingCheckTests {
 
         c1.authPayCheck("100",x);
 
-        //TODO:FIX
+
         //assertEquals(true,c1.getAcceptedChecks().containsKey("100"));
 
     }

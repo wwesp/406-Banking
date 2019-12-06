@@ -50,6 +50,7 @@ public class LongTermLoan extends DebtAccounts {
         this.interestRate=new GetData().getIntRates().getLoansInterest();
         this.datePaymentDue="15";
         this.notifyDate="1";
+        this.currentPaymentDue=developPaymentPlan();
 
     }
 
@@ -81,10 +82,10 @@ public class LongTermLoan extends DebtAccounts {
     }
 
 
-
-
-    private void developPaymentPlan(){
-        //TODO:payment plans are dynamic due to extra payments possible
+    private double developPaymentPlan(){
+        //this is a rudemenntry guess on the monthly payment
+        double months = Double.parseDouble(yearType)*12;
+        return new SystemHelper().truncOrRound(balancef,0);
     }
 
     /*
@@ -106,7 +107,9 @@ public class LongTermLoan extends DebtAccounts {
             return false;
         }
         else{
-            balancef=-currentPaymentDue;
+
+            balancef=new SystemHelper().perciseSubtract(balancef,currentPaymentDue);
+
 
             Date today = getTodayDateAsDate();
             SimpleDateFormat simpleDateformat = new SimpleDateFormat("MM");
@@ -132,9 +135,15 @@ public class LongTermLoan extends DebtAccounts {
         extraPayMentHistory.add(getTodaysDate() +"::"+x);
     }
 
-    //TODO: THis is broke
+
     //returns double of amount to be paid
     public double payMissed(){
+        if(missedPayment.size()==0){
+
+            return 0.0;
+        }
+
+
         //need to find the oldest missed payment and set that payment
         String old="";
         Date oldest= new Date();
@@ -167,7 +176,7 @@ public class LongTermLoan extends DebtAccounts {
                 i++;
             }
 
-            //TODO WILL LOOK AT THIS. It gives a null pointer if there are no missed payments to pay
+
             paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+old,missedPayment.get(old));
             amtDue=missedPayment.get(old);
             missedPayment.remove(old);
@@ -216,20 +225,24 @@ public class LongTermLoan extends DebtAccounts {
 
 
         if(today.before(dateDue)){
+
             for (String x: paymentHistory.keySet()){
                 String[] y= x.split("::",3);
                 String temp=y[2];
                 Date paid= convertStringToDate(temp);
 
                 if(paid.after(today)){
+
                     //means it has been paid for the month since its paid after today
                     return false;
                 }
 
             }
+
             return true;
         }
         else{
+
             //look though history
 
             for (String x: paymentHistory.keySet()){

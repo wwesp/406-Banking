@@ -1,5 +1,7 @@
 package GUI;
 
+import SystemHelper.SystemHelper;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -35,7 +37,12 @@ public class manager_send_notices extends JFrame{
         depoly_notices_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO Will Get your Shit Together
+
+                //this calls one function in the systemhelper that look at all data and updates things.
+
+                new SystemHelper().updateAllDataInfo();
+
+
                 JOptionPane.showMessageDialog(null, "Account Maintenance Done");
                 frame.setVisible(false);
                 manager_home manager_home = new manager_home();

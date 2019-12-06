@@ -175,7 +175,7 @@ public class CreditCard extends DebtAccounts {
 
     }
 
-    //TODO:PAYMENT DUE
+
 
 
     //this is for managers to see if its over due
@@ -185,11 +185,36 @@ public class CreditCard extends DebtAccounts {
         String month=simpleDateformat.format(today);
         simpleDateformat= new SimpleDateFormat("yyyy");
         String year= simpleDateformat.format(today);
+
+
         String dueformat= month+"-"+datePaymentDue+"-"+year;
         Date dateDue= convertStringToDate(dueformat);
 
+        String not= month+"-"+notifyDate+"-"+year;
+        Date notDate= convertStringToDate(not);
 
-        
+
+
+
+        if(today.after(notDate) && today.before(dateDue)){
+            System.out.println("In credit card: Hey, "+cusID+" you owe this month: "+ currentPaymentDue );
+
+        }
+        else if(today.before(notDate)){
+            return;
+        }
+        else if(today.after(dateDue)){
+            //add current into main balence
+            System.out.println("In credit card: Hey, "+cusID+" this amount is getting added to acruable balence: "+ currentPaymentDue );
+            balancef= new SystemHelper().perciseAddition(balancef, currentPaymentDue);
+            currentPaymentDue=0;
+        }
+        else{
+            System.out.println("I should never happen!");
+
+        }
+
+
 
 
 
