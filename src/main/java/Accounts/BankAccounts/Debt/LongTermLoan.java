@@ -86,7 +86,7 @@ public class LongTermLoan extends DebtAccounts {
     private double developPaymentPlan(){
         //this is a rudemenntry guess on the monthly payment
         double months = Double.parseDouble(yearType)*12;
-        return new SystemHelper().truncOrRound(balancef,0);
+        return new SystemHelper().truncOrRound(balancef/months,0);
     }
 
     /*

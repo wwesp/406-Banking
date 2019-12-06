@@ -1,1 +1,1 @@
-{"CheckingInterestRate":1.008,"RegSavingsInterestRate":1.001,"CDInterest":1.001,"LoansInterest":1.001,"CreditCardInterest":1.001}
+{"CheckingInterestRate":1.1,"RegSavingsInterestRate":1.001,"CDInterest":1.001,"LoansInterest":1.001,"CreditCardInterest":1.001}
