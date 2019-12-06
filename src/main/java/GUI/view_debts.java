@@ -43,7 +43,7 @@ public class view_debts {
     public view_debts(String customer, String user_type) {
         JFrame frame = new JFrame("Check History");
         frame.setContentPane(view_debts_panel);
-        frame.setPreferredSize(new Dimension(1600, 900));
+        frame.setPreferredSize(new Dimension(1200, 600));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
