@@ -24,7 +24,7 @@ public class GeneralSavings {
     @Test
     public void removeAccount() {
         RegSavings x = new RegSavings("123","666",2000,"",1.02,"");
-        double y=x.endRegSavings();
+        double y=x.endAccount();
         //today should be false
         assertEquals(2000,y,0.001);
     }

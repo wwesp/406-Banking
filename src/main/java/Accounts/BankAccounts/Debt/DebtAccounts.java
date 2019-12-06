@@ -61,8 +61,6 @@ public abstract class DebtAccounts extends Accounts {
         Date notDate= convertStringToDate(notformat);
         Date dateDue= convertStringToDate(dueformat);
 
-
-
         //flag
         int flag= 0;
 
@@ -75,17 +73,11 @@ public abstract class DebtAccounts extends Accounts {
                 if(paid.after(today)){
                     flag=1;
                 }
-
             }
-
             if(flag==0){
                 return true;
             }
-
-
         }
-
-
         return false;
     }
 

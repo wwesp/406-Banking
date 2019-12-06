@@ -45,7 +45,8 @@ public class CreditCard extends DebtAccounts {
 
 
     public CreditCard(String cusID,double creditLine){
-        this("","",0,0,"","",0,' ',"",0,null,0,null,null);
+        this("","",0,0,"","",0,' ',
+                "",0,null,0,null,null);
 
         this.cusID=cusID;
         this.datePaymentDue="15";
@@ -113,13 +114,10 @@ public class CreditCard extends DebtAccounts {
                 fees=h.perciseSubtract(fees,amtP);
                 return 0;
             }
-
         }
         else{
             amt=amtP;
         }
-
-
         if(balancef>0){
             double need= h.perciseSubtract(balancef,amt);
             if(need<0){
@@ -131,17 +129,12 @@ public class CreditCard extends DebtAccounts {
                     need=h.perciseSubtract(need,currentPaymentDue);
                     System.out.println(need);
                     currentPaymentDue=0;
-
                     return need;
                 }
                 else{
                     currentPaymentDue=h.perciseSubtract(currentPaymentDue,need);
                     return 0.0;
                 }
-
-
-
-
             }
             else{
                 balancef=h.perciseSubtract(balancef,amt);
@@ -163,16 +156,9 @@ public class CreditCard extends DebtAccounts {
                 else{
                     currentPaymentDue=0.0;
                     return Math.abs(need);
-
                 }
-
-
-
             }
-
         }
-
-
     }
 
 
@@ -213,11 +199,6 @@ public class CreditCard extends DebtAccounts {
             System.out.println("I should never happen!");
 
         }
-
-
-
-
-
 
     }
 

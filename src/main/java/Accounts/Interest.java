@@ -6,6 +6,8 @@ public class Interest {
     private double CDInterest;
     private double LoansInterest;
     private double CreditCardInterest;
+
+
     public Interest(double CheckingInterestRate, double RegSavingsInterestRate, double CDInterest, double LoansInterest, double CreditCardInterest){
         this.CheckingInterestRate=CheckingInterestRate;
         this.RegSavingsInterestRate=RegSavingsInterestRate;

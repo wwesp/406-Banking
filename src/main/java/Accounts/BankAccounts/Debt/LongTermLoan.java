@@ -45,7 +45,8 @@ public class LongTermLoan extends DebtAccounts {
 
 
     public LongTermLoan(String cusId, String yearType, double balence){
-        this("",cusId,balence,0,"","",0,' ', "",yearType,0,null,null,null);
+        this("",cusId,balence,0,"","",0,' ', "",yearType,0,
+                null,null,null);
         this.ID=new SystemHelper().makeRandomId();
         this.interestRate=new GetData().getIntRates().getLoansInterest();
         this.datePaymentDue="15";
@@ -142,14 +143,11 @@ public class LongTermLoan extends DebtAccounts {
 
             return 0.0;
         }
-
-
         //need to find the oldest missed payment and set that payment
         String old="";
         Date oldest= new Date();
         Date current= new Date();
         double amtDue=0;
-
         if(missedPayment.size()==1){
             for (String x: missedPayment.keySet()){
                 paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+x,missedPayment.get(x));
@@ -158,7 +156,6 @@ public class LongTermLoan extends DebtAccounts {
             amtDue=missedPayment.get(old);
             missedPayment.remove(old);
             return amtDue;
-
         }else {
             int i = 0;
             for (String x : missedPayment.keySet()) {
@@ -175,18 +172,11 @@ public class LongTermLoan extends DebtAccounts {
 
                 i++;
             }
-
-
             paymentHistory.put(getTodaysDate()+"::"+balancef+"::"+old,missedPayment.get(old));
             amtDue=missedPayment.get(old);
             missedPayment.remove(old);
             return amtDue;
-
         }
-
-
-
-
     }
 
 
@@ -221,72 +211,44 @@ public class LongTermLoan extends DebtAccounts {
         //start of the month
         String startform= month+"-"+1+"-"+year;
         Date start= convertStringToDate(startform);
-
-
-
         if(today.before(dateDue)){
-
             for (String x: paymentHistory.keySet()){
                 String[] y= x.split("::",3);
                 String temp=y[2];
                 Date paid= convertStringToDate(temp);
-
                 if(paid.after(today)){
-
                     //means it has been paid for the month since its paid after today
                     return false;
                 }
-
             }
-
             return true;
         }
         else{
-
             //look though history
-
             for (String x: paymentHistory.keySet()){
-
                 String[] y= x.split("::",3);
                 String temp=y[2];
-
                 Date paid= convertStringToDate(temp);
                 if(paid.after(start)){
                     //return before the missed payment part
                     return false;
                 }
-
             }
-
             //look through over due
             //if not add to overdue
             int flag=0;
             for (String x: missedPayment.keySet()){
-
                 Date miss= convertStringToDate(x);
-
                 if(miss.equals(dateDue)){
                     flag=1;
                 }
             }
             if(flag==0){
                 fees+=feeAmt;
-
                 missedPayment.put(convertDateToString(dateDue), currentPaymentDue);
-
             }
-
             return false;
-
-
-
-
         }
-
-
-
-
-
     }
 
 

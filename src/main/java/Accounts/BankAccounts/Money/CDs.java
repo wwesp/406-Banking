@@ -51,10 +51,11 @@ public class CDs extends Savings {
 
         return endbal;
     }
+
+
     //returns money from the cd after this it nukes all data in the object
     //automatically fines. if the cd does not cover then they are fined and must pay
     //$50 fee for ending it early
-
     public double authorizeWithdraw(){
         double moneyBack=balancef;
 
@@ -72,7 +73,7 @@ public class CDs extends Savings {
             return moneyBack;
         }else{
             endDate=null;
-            return moneyBack-50;
+            return new SystemHelper().perciseSubtract(moneyBack,50);
         }
 
     }

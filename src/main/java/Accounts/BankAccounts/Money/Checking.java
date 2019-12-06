@@ -73,7 +73,6 @@ public class Checking extends MoneyAccounts {
             this.overDraftHistory=overDraftHistory;
         }
 
-
     }
 
     //this is for brand new accounts
@@ -179,13 +178,8 @@ public class Checking extends MoneyAccounts {
         double needForSavin;
         //look for backup
         RegSavings savingsAcc = null;
-
         if(y!=null) {
-
-
-
             for (RegSavings savin : y) {
-
                 if (savin.getID().equals(backupAcc)) {
                     savingsAcc = savin;
                     break;
@@ -194,7 +188,6 @@ public class Checking extends MoneyAccounts {
         }
         //System.out.println("INSIDE OF CHECKING: "+ savingsAcc.getBalancef());
         //payment
-
         if (balancef>=x){
             subBalence(x);
         }
@@ -207,9 +200,7 @@ public class Checking extends MoneyAccounts {
                 System.out.println("Wrong input to AuthWith");
             }
             else{
-
                 needForSavin=abs(h.perciseSubtract(getBalancef(),x));
-
                 if(savingsAcc.getBalancef()>=needForSavin){
                     balancef=0;
                     savingsAcc.subBalence(needForSavin);
@@ -222,9 +213,6 @@ public class Checking extends MoneyAccounts {
 
             }
         }
-
-
-
     }
 
 
@@ -338,11 +326,6 @@ public class Checking extends MoneyAccounts {
         return atmCard;
     }
 
-    public ArrayList<String> getAtmHistory() {
-        atmHistoryUpdate();
-        return atmHistory;
-    }
-
     public int getAccType() {
         return accType;
     }
@@ -363,7 +346,15 @@ public class Checking extends MoneyAccounts {
         return deniedChecks;
     }
 
+    public void setBackupAcc(String backupAcc) {
+        this.backupAcc = backupAcc;
+    }
 
+
+    public ArrayList<String> getAtmHistory() {
+        atmHistoryUpdate();
+        return atmHistory;
+    }
     public HashMap<String, String> getAcceptedChecksTeller() {
         HashMap<String, String> returnable= new HashMap<>();
 
@@ -416,9 +407,6 @@ public class Checking extends MoneyAccounts {
         return returnable;
     }
 
-    public void setBackupAcc(String backupAcc) {
-        this.backupAcc = backupAcc;
-    }
 
 /*
     two types of checking accounts. TMB and gold/diamond

@@ -20,11 +20,7 @@ abstract public class Accounts {
         this.ID=ID;
     }
 
-    //helper method
-    protected String getTodaysDate(){
-        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
-        return format.format(new Date());
-    }
+
 
     public String getCusID() {
         return cusID;
@@ -56,6 +52,14 @@ abstract public class Accounts {
         String s = df.format(x);
         return Double.parseDouble(s);
     }
+
+
+    //helper method
+    protected String getTodaysDate(){
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+        return format.format(new Date());
+    }
+
 
     //looks to see if today is past a date
     public boolean isXafterToday(String x){
