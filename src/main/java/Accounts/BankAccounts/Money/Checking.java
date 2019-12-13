@@ -122,7 +122,7 @@ public class Checking extends MoneyAccounts {
                 //compound interest
 
                 //make sure it stays at two decimal places
-                balancef=parseDouble(balancef*intrest.getCheckingInterestRate(),0);
+                balancef=parseDouble(balancef*intrest.getCheckingInterestRate()+balancef,0);
             }
             lastDayInterestCompounded=today;
         }

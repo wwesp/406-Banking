@@ -99,7 +99,7 @@ public class CDs extends Savings {
             //compound interest
             //.5 percent interest
             //make sure it stays at two decimal places
-            balancef = parseDouble(balancef * interestRate, 0);
+            balancef = parseDouble(balancef * interestRate+balancef, 0);
             lastDayInterestCompounded = today;
         }
 

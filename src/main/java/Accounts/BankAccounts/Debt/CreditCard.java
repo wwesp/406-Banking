@@ -193,6 +193,7 @@ public class CreditCard extends DebtAccounts {
             //add current into main balence
             System.out.println("In credit card: Hey, "+cusID+" this amount is getting added to acruable balence: "+ currentPaymentDue );
             balancef= new SystemHelper().perciseAddition(balancef, currentPaymentDue);
+            balancef = parseDouble(balancef * interestRate+balancef, 0);
             currentPaymentDue=0;
         }
         else{

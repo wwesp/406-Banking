@@ -21,7 +21,7 @@ public abstract class Savings extends MoneyAccounts {
             //compound interest
             //.5 percent interest
             //make sure it stays at two decimal places
-            balancef=h.truncOrRound(parseDouble(balancef*interestRate,0),0);
+            balancef=h.truncOrRound(parseDouble(balancef*interestRate+balancef,0),0);
             lastDayInterestCompounded=today;
         }
 

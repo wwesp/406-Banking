@@ -335,20 +335,20 @@ public class DataBomb {
         File ShortLoanFile = new File("src/main/java/persistence/DataBases/ShortTermLoan.txt");
         Gson gson = new GsonBuilder().create();
 
-        ShortTermLoan a = new ShortTermLoan("1", "423-14-8894", 3579.00, 0.15, "10-27-2019",
-                "10-1-2019", 95.83, 'N', "8-20-2019", "", 0,
+        ShortTermLoan a = new ShortTermLoan("1", "423-14-8894", 3579.00, 0.15, "27",
+                "1", 95.83, 'N', "8-20-2019", "", 0,
                 null, null, null);
-        ShortTermLoan b = new ShortTermLoan("2", "423-56-7890", 3698.00, 0.12, "11-27-2019",
-                "11-1-2019", 112.00, 'Y', "10-12-2019", "", 0,
+        ShortTermLoan b = new ShortTermLoan("2", "423-56-7890", 3698.00, 0.12, "27",
+                "1", 112.00, 'Y', "10-12-2019", "", 0,
                 null, null, null);
-        ShortTermLoan c = new ShortTermLoan("3", "423-45-3245", 6149.00, 0.08, "10-27-2019",
-                "10-1-2019", 144.00, 'N', "9-16-2019", "", 0,
+        ShortTermLoan c = new ShortTermLoan("3", "423-45-3245", 6149.00, 0.08, "27",
+                "1", 144.00, 'N', "9-16-2019", "", 0,
                 null, null, null);
-        ShortTermLoan d = new ShortTermLoan("4", "345-87-9912", 2136.00, 0.05, "11-27-2019",
-                "11-1-2019", 140.00, 'N', "10-22-2019", "", 0,
+        ShortTermLoan d = new ShortTermLoan("4", "345-87-9912", 2136.00, 0.05, "27",
+                "1", 140.00, 'N', "10-22-2019", "", 0,
                 null, null, null);
-        ShortTermLoan e = new ShortTermLoan("5", "345-59-9870", 7216.00, 0.12, "11-27-2019",
-                "11-1-2019", 168.00, 'N', "10-26-2019", "", 0,
+        ShortTermLoan e = new ShortTermLoan("5", "345-59-9870", 7216.00, 0.12, "27",
+                "1", 168.00, 'N', "10-26-2019", "", 0,
                 null, null, null);
 
         try(FileWriter writer = new FileWriter(ShortLoanFile)) {
@@ -414,20 +414,20 @@ public class DataBomb {
         File CCFile = new File("src/main/java/persistence/DataBases/CreditCard.txt");
         Gson gson = new GsonBuilder().create();
 
-        CreditCard a = new CreditCard("1", "423-14-8894", 3579.00, 0.15, "10-27-2019",
-                "10-1-2019", 82.32, 'N', "8-20-2019", '_', null,
+        CreditCard a = new CreditCard("1", "423-14-8894", 3579.00, 0.15, "27",
+                "1", 82.32, 'N', "8-20-2019", 0, null,
                 1000.0,null,null);
-        CreditCard b = new CreditCard("2", "423-56-7890", 3698.00, 0.12, "11-27-2019",
-                "11-1-2019", 82.84, 'Y', "10-12-2019", '_', null,
+        CreditCard b = new CreditCard("2", "423-56-7890", 3698.00, 0.12, "27",
+                "1", 82.84, 'Y', "10-12-2019", 0, null,
                 1000.0,null,null);
-        CreditCard c = new CreditCard("3", "423-45-3245", 6149.00, 0.08, "10-27-2019",
-                "10-1-2019", 132.82, 'N', "9-16-2019", '_', null,
+        CreditCard c = new CreditCard("3", "423-45-3245", 6149.00, 0.08, "27",
+                "1", 132.82, 'N', "9-16-2019", 0, null,
                 10000.0,null,null);
-        CreditCard d = new CreditCard("4", "345-87-9912", 2136.00, 0.05, "11-27-2019",
-                "11-1-2019", 44.86, 'N', "10-22-2019", '_', null,
+        CreditCard d = new CreditCard("4", "345-87-9912", 2136.00, 0.05, "27",
+                "1", 44.86, 'N', "10-22-2019", 0, null,
                 500.0,null,null);
-        CreditCard e = new CreditCard("5", "345-59-9870", 7216.00, 0.12, "11-27-2019",
-                "11-1-2019", 161.64, 'N', "10-26-2019", '_', null,
+        CreditCard e = new CreditCard("5", "345-59-9870", 7216.00, 0.12, "27",
+                "1", 161.64, 'N', "10-26-2019", 0, null,
                 700.0,null,null);
 
         b.makeCreditPurchase(100,"gold");
